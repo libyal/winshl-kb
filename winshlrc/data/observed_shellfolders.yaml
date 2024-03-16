@@ -8,7 +8,7 @@ name: "Desktop"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{00c6d95f-329c-409a-81d7-c46c66ea7f33}"
-name: "DefaultLocation"
+name: "Default Location"
 windows_versions: ["Windows 7"]
 ---
 identifier: "{0142e4d0-fb7a-11dc-ba4a-000ffe7ab428}"
@@ -20,7 +20,7 @@ name: "Power Options"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{031e4825-7b94-4dc3-b131-e946b44c8dd5}"
-name: "UsersLibraries"
+name: "Users Libraries"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{04731b67-d933-450a-90e6-4acd2e9408fe}"
@@ -63,7 +63,7 @@ name: "Shell File System Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{11016101-e366-4d22-bc06-4ada335c892b}"
-name: "IE History and Feeds Shell Data Source for Windows Search"
+name: "Internet Explorer History and Feeds Shell Data Source for Windows Search"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{1206f5f1-0569-412c-8fec-3204630dfb70}"
@@ -126,8 +126,8 @@ alternate_names: ["Control Panel"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{2227a280-3aea-1069-a2de-08002b30309d}"
-name: "Printers"
-alternate_names: ["Printers and Faxes"]
+name: "Printers and Faxes"
+alternate_names: ["Printers"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{22877a6d-37a1-461a-91b0-dbda5aaebc99}"
@@ -208,7 +208,7 @@ name: "Sync Setup Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{2f6ce85c-f9ee-43ca-90c7-8a9bd53a2467}"
-name: "FileHistoryDataSource"
+name: "File History Data Source"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{3080f90d-d7ad-11d9-bd98-0000947b0257}"
@@ -228,7 +228,7 @@ alternate_names: ["Common Places"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{328b0346-7eaf-4bbe-a479-7cb88a095f5b}"
-name: "LayoutFolder"
+name: "Layout Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{335a31dd-f04b-4d76-a925-d6b47cf360df}"
@@ -370,7 +370,7 @@ identifier: "{679f85cb-0220-4080-b29b-5540cc05aab6}"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019"]
 ---
 identifier: "{67ca7650-96e6-4fdd-bb43-a8e774f73a57}"
-name: "HomeGroup Control Panel"
+name: "Home Group Control Panel"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{692f0339-cbaa-47e6-b5b5-3b84db604e87}"
@@ -506,7 +506,7 @@ alternate_names: ["Network Connections"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{9a096bb5-9dc3-4d1c-8526-c3cbf991ea4e}"
-name: "IE RSS Feeds Folder"
+name: "Internet Explorer RSS Feeds Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{9c60de1e-e5fc-40f4-a487-460851a8d915}"
@@ -560,7 +560,7 @@ identifier: "{a8cdff1c-4878-43be-b5fd-f8091c1c60d0}"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 8.1"]
 ---
 identifier: "{adfa80e7-9769-4ad9-992c-55dc57e1008c}"
-name: "StartMenuAllPrograms"
+name: "Start Menu All Programs"
 windows_versions: ["Windows 10 (1511)", "Windows 2012"]
 ---
 identifier: "{aee2420f-d50e-405c-8784-363c582bf45a}"
@@ -631,7 +631,7 @@ name: "Language Settings"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 2012", "Windows 2016", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{c2b136e2-d50e-405c-8784-363c582bf43e}"
-name: "DeviceCenter Initialization"
+name: "Device Center Initialization"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{c555438b-3c23-4769-a71f-b6d3d9b6053a}"
@@ -639,7 +639,7 @@ name: "Display"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{c57a6066-66a3-4d91-9eb9-41532179f0a5}"
-name: "AppSuggestedLocations"
+name: "Application Suggested Locations"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{c58c4893-3be0-4b45-abb5-a63e4b8c8651}"
@@ -733,7 +733,7 @@ name: "Shell DocObject Viewer"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{e88dcce0-b7b3-11d1-a9f0-00aa0060fa31}"
-name: "CompressedFolder"
+name: "Compressed Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{e95a4861-d57a-4be1-ad0f-35267e261739}"
@@ -754,7 +754,7 @@ alternate_names: ["@C:\\Windows\\System32\\shell32.dll,-30579"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 2016", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{ed50fc29-b964-48a9-afb3-15ebb9b97f36}"
-name: "printhood delegate folder"
+name: "Printhood delegate folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{ed7ba470-8e54-465e-825c-99712043e01c}"
@@ -767,7 +767,7 @@ alternate_names: ["Personalization CPL Provider"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
 identifier: "{edc978d6-4d53-4b2f-a265-5805674be568}"
-name: "StreamBackedFolder"
+name: "Stream Backed Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: "{f02c1a0d-be21-4350-88b0-7367fc96ef3c}"

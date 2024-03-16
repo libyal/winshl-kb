@@ -42,14 +42,12 @@ LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER = """\
 """
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_MIDDLE = """\
+
 uint8_t libfwsi_shell_folder_identifier_file_explorer[ 16 ] = {
 \t0xd8, 0x5f, 0x20, 0x52, 0xfb, 0x5d, 0x7d, 0x44, 0x80, 0x1a, 0xd0, 0xb5, 0x2f, 0x2e, 0x83, 0xe1 };
 
 uint8_t libfwsi_shell_folder_identifier_quick_access[ 16 ] = {
 \t0xcb, 0x85, 0x9f, 0x67, 0x20, 0x02, 0x80, 0x40, 0xb2, 0x9b, 0x55, 0x40, 0xcc, 0x05, 0xaa, 0xb6 };
-
-uint8_t libfwsi_shell_folder_identifier_search_home[ 16 ] = {
-\t0x2e, 0x81, 0x43, 0x93, 0x37, 0x1c, 0x49, 0x4a, 0xa1, 0x2e, 0x4b, 0x2d, 0x81, 0x0d, 0x95, 0x6b };
 
 uint8_t libfwsi_shell_folder_identifier_empty[ 16 ] = {
 \t0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
@@ -69,8 +67,6 @@ LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_FOOTER = """\
 \t  "File Explorer" },
 \t{ libfwsi_shell_folder_identifier_quick_access,
 \t  "Quick Access" },
-\t{ libfwsi_shell_folder_identifier_search_home,
-\t  "Search Home" },
 
 \t{ libfwsi_shell_folder_identifier_unknown,
 \t  "Unknown" } };
@@ -159,9 +155,9 @@ struct libfwsi_shell_folder_identifier_definition
 """
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_FOOTER = """\
+
 extern uint8_t libfwsi_shell_folder_identifier_file_explorer[ 16 ];
 extern uint8_t libfwsi_shell_folder_identifier_quick_access[ 16 ];
-extern uint8_t libfwsi_shell_folder_identifier_search_home[ 16 ];
 
 extern uint8_t libfwsi_shell_folder_identifier_empty[ 16 ];
 extern uint8_t libfwsi_shell_folder_identifier_unknown[ 16 ];
@@ -178,6 +174,34 @@ const char *libfwsi_shell_folder_identifier_get_name(
 
 """
 
+PLASO_SHELL_FOLDERS_PY_HEADER = """\
+# -*- coding: utf-8 -*-
+\"\"\"Windows shell folders helper.\"\"\"
+
+
+class WindowsShellFoldersHelper(object):
+  \"\"\"Windows shell folders helper.\"\"\"
+
+  _DESCRIPTION_PER_GUID = {
+"""
+
+PLASO_SHELL_FOLDERS_PY_FOOTER = """\
+  }
+
+  @classmethod
+  def GetDescription(cls, shell_folder_identifier):
+    \"\"\"Retrieves the description for a specific shell folder identifier.
+
+    Args:
+      shell_folder_identifier (str): shell folder identifier in the format
+          "GUID".
+
+    Returns:
+      str: description represented by the shell folder identifier or None of
+          not available.
+    \"\"\"
+    return cls._DESCRIPTION_PER_GUID.get(shell_folder_identifier.lower(), None)
+"""
 
 def Main():
   """Entry point of console script to generate source code.
@@ -248,76 +272,101 @@ def Main():
       print(f'Unable to read shellfolders.yaml with error: {exception!s}')
       return 0
 
-    shell_folders_per_name = {}
-    for shell_folder in yaml_items:
-      name = shell_folder.get('name', None)
-      if not name or name[0] == '@':
-        continue
+    if options.format == 'libfwsi':
+      shell_folders_per_name = {}
+      for shell_folder in yaml_items:
+        name = shell_folder.get('name', None)
+        if not name or name[0] == '@':
+          continue
 
-      name = name.lower()
-      name = name.replace(' ', '_')
-      name = name.replace('-', '')
-      name = name.replace('&', 'and')
-      if name.endswith('...'):
-        name = name[:-3]
+        name = name.lower()
+        name = name.replace(' ', '_')
+        name = name.replace('-', '')
+        name = name.replace('&', 'and')
+        if name.endswith('...'):
+          name = name[:-3]
 
-      if 'delegate_folder_that_appears_in_' in name:
-        name = name.replace('delegate_folder_that_appears_in_', '')
-        name = f'{name:s}_delegate_folder'
+        if 'delegate_folder_that_appears_in_' in name:
+          name = name.replace('delegate_folder_that_appears_in_', '')
+          name = f'{name:s}_delegate_folder'
 
-      if name in shell_folders_per_name:
-        new_name = name
-        name_suffix = 2
-        while new_name in shell_folders_per_name:
-          new_name = f'{name:s}{name_suffix:d}'
-          name_suffix += 1
+        if name in shell_folders_per_name:
+          new_name = name
+          name_suffix = 2
+          while new_name in shell_folders_per_name:
+            new_name = f'{name:s}{name_suffix:d}'
+            name_suffix += 1
 
-        name = new_name
+          name = new_name
 
-      shell_folders_per_name[name] = shell_folder
+        shell_folders_per_name[name] = shell_folder
 
-      if options.format == 'libfwsi':
-        output_path = os.path.join(
-            options.output, 'libfwsi', 'libfwsi_shell_folder_identifier.h')
-        with open(output_path, 'w', encoding='utf8') as file_object:
-          file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_HEADER)
+      output_path = os.path.join(
+          options.output, 'libfwsi', 'libfwsi_shell_folder_identifier.h')
+      with open(output_path, 'w', encoding='utf8') as file_object:
+        file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_HEADER)
 
-          for name, shell_folder in sorted(shell_folders_per_name.items()):
+        for name, shell_folder in sorted(shell_folders_per_name.items()):
+          file_object.write((
+              f'extern uint8_t '
+              f'libfwsi_shell_folder_identifier_{name:s}[ 16 ];\n'))
+
+        file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_FOOTER)
+
+      output_path = os.path.join(
+          options.output, 'libfwsi', 'libfwsi_shell_folder_identifier.c')
+      with open(output_path, 'w', encoding='utf8') as file_object:
+        file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER)
+
+        for name, shell_folder in sorted(shell_folders_per_name.items()):
+          identifier = uuid.UUID(shell_folder.get('identifier', None))
+          byte_values = ', '.join(
+              f'0x{byte_value:02x}' for byte_value in identifier.bytes_le)
+
+          file_object.write((
+              f'uint8_t libfwsi_shell_folder_identifier_{name:s}[ 16 ] = {{\n'
+              f'\t{byte_values:s} }};\n'
+              '\n'))
+
+        file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_MIDDLE)
+
+        for name, shell_folder in sorted(shell_folders_per_name.items()):
+          name_string = shell_folder.get('name', None)
+          if 'delegate folder that appears in ' in name_string:
+            name_string = name_string.replace(
+                'delegate folder that appears in ', '')
+            name_string = ''.join([name_string, ' (delegate folder)'])
+
+          file_object.write((
+              f'\t{{ libfwsi_shell_folder_identifier_{name:s},\n'
+              f'\t  "{name_string:s}" }},\n'))
+
+        file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_FOOTER)
+
+    elif options.format == 'plaso':
+      output_path = os.path.join(
+          options.output, 'plaso', 'helpers', 'windows', 'shell_folders.py')
+      with open(output_path, 'w', encoding='utf8') as file_object:
+        file_object.write(PLASO_SHELL_FOLDERS_PY_HEADER)
+
+        for shell_folder in sorted(
+            yaml_items, key=lambda item: item.get('identifier', None)):
+          name = shell_folder.get('name', None)
+          if not name:
+            name = shell_folder.get('class_name', None)
+          if not name:
+            continue
+
+          identifier = shell_folder.get('identifier', None)
+
+          line = f'      \'{identifier[1:-1]:s}\': \'{name:s}\',\n'
+          if len(line) <= 80:
+            file_object.write(line)
+          else:
             file_object.write((
-                f'extern uint8_t '
-                f'libfwsi_shell_folder_identifier_{name:s}[ 16 ];\n'))
+                f'      \'{identifier[1:-1]:s}\': (\n'
+                f'          \'{name:s}\'),\n'))
 
-          file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_FOOTER)
-
-        output_path = os.path.join(
-            options.output, 'libfwsi', 'libfwsi_shell_folder_identifier.c')
-        with open(output_path, 'w', encoding='utf8') as file_object:
-          file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER)
-
-          for name, shell_folder in sorted(shell_folders_per_name.items()):
-            identifier = uuid.UUID(shell_folder.get('identifier', None))
-            byte_values = ', '.join(
-                f'0x{byte_value:02x}' for byte_value in identifier.bytes_le)
-
-            file_object.write((
-                f'uint8_t libfwsi_shell_folder_identifier_{name:s}[ 16 ] = {{\n'
-                f'\t{byte_values:s} }};\n'
-                '\n'))
-
-          file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_MIDDLE)
-
-          for name, shell_folder in sorted(shell_folders_per_name.items()):
-            name_string = shell_folder.get('name', None)
-            if 'delegate folder that appears in ' in name_string:
-              name_string = name_string.replace(
-                  'delegate folder that appears in ', '')
-              name_string = ''.join([name_string, ' (delegate folder)'])
-
-            file_object.write((
-                f'\t{{ libfwsi_shell_folder_identifier_{name:s},\n'
-                f'\t  "{name_string:s}" }},\n'))
-
-          file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_FOOTER)
 
   return 0
 

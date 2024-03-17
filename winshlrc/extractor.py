@@ -305,6 +305,10 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
             path, string_identifier = name[1:].rsplit(',-', maxsplit=1)
             if ';' in string_identifier:
               string_identifier, _ = string_identifier.rsplit(';', maxsplit=1)
+            elif '#' in string_identifier:
+              string_identifier, _ = string_identifier.rsplit('#', maxsplit=1)
+            elif '@' in string_identifier:
+              string_identifier, _ = string_identifier.rsplit('@', maxsplit=1)
 
             windows_resource_file = self._GetStringResourceFile(path)
             if windows_resource_file:

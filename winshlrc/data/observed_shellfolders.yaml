@@ -331,6 +331,7 @@ name: "Shell File System NetFolder"
 windows_versions: ["Windows 11 (21H2)"]
 ---
 identifier: 52205fd8-5dfb-447d-801a-d0b52f2e83e1
+name: "File Explorer"
 windows_versions: ["Windows 8.0"]
 ---
 identifier: 5399e694-6ce5-4d6c-8fce-1d8870fdcba0
@@ -392,6 +393,7 @@ name: "Other Users Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
 identifier: 679f85cb-0220-4080-b29b-5540cc05aab6
+name: "Quick Access"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019"]
 ---
 identifier: 67ca7650-96e6-4fdd-bb43-a8e774f73a57

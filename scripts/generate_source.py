@@ -44,12 +44,6 @@ LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER = """\
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_MIDDLE = """\
 
-uint8_t libfwsi_shell_folder_identifier_file_explorer[ 16 ] = {
-\t0xd8, 0x5f, 0x20, 0x52, 0xfb, 0x5d, 0x7d, 0x44, 0x80, 0x1a, 0xd0, 0xb5, 0x2f, 0x2e, 0x83, 0xe1 };
-
-uint8_t libfwsi_shell_folder_identifier_quick_access[ 16 ] = {
-\t0xcb, 0x85, 0x9f, 0x67, 0x20, 0x02, 0x80, 0x40, 0xb2, 0x9b, 0x55, 0x40, 0xcc, 0x05, 0xaa, 0xb6 };
-
 uint8_t libfwsi_shell_folder_identifier_empty[ 16 ] = {
 \t0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
@@ -63,11 +57,6 @@ libfwsi_shell_folder_identifier_definition_t libfwsi_shell_folder_identifier_def
 """
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_FOOTER = """\
-
-\t{ libfwsi_shell_folder_identifier_file_explorer,
-\t  "File Explorer" },
-\t{ libfwsi_shell_folder_identifier_quick_access,
-\t  "Quick Access" },
 
 \t{ libfwsi_shell_folder_identifier_unknown,
 \t  "Unknown" } };
@@ -156,9 +145,6 @@ struct libfwsi_shell_folder_identifier_definition
 """
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_FOOTER = """\
-
-extern uint8_t libfwsi_shell_folder_identifier_file_explorer[ 16 ];
-extern uint8_t libfwsi_shell_folder_identifier_quick_access[ 16 ];
 
 extern uint8_t libfwsi_shell_folder_identifier_empty[ 16 ];
 extern uint8_t libfwsi_shell_folder_identifier_unknown[ 16 ];

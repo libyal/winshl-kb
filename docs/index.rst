@@ -1,23 +1,23 @@
-Welcome to the winsps-kb documentation
+Welcome to the winshl-kb documentation
 ======================================
 
-winsps-kb is a project to build a Windows Serialized Property Store (SPS)
+winshl-kb is a project to build a Windows Serialized Property Store (SPS)
 Knowledge Base.
 
-winsps is a Python module part of winsps-kb to allow reuse of Windows Serialized
+winshl is a Python module part of winshl-kb to allow reuse of Windows Serialized
 Property Store (SPS) Resources.
 
-The source code is available from the `project page <https://github.com/libyal/winsps-kb>`__.
+The source code is available from the `project page <https://github.com/libyal/winshl-kb>`__.
 
 .. toctree::
    :maxdepth: 1
 
-   sources/property-sets/index
+   sources/shell-folders/index
 
 .. toctree::
    :maxdepth: 2
 
-   API documentation <sources/api/winspsrc>
+   API documentation <sources/api/winshlrc>
 
 
 Indices and tables

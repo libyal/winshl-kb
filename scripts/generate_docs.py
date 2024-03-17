@@ -11,14 +11,55 @@ import yaml
 from winshlrc import versions
 
 
-class MarkdownOutputWriter(object):
-  """Markdown output writer."""
+class ShellFoldersIndexRstOutputWriter(object):
+  """Shell folder Index.rst output writer."""
+
+  def __init__(self, path):
+    """Initializes a shell folders index.rst output writer."""
+    super(ShellFoldersIndexRstOutputWriter, self).__init__()
+    self._file_object = None
+    self._path = path
+
+  def __enter__(self):
+    """Make this work with the 'with' statement."""
+    self._file_object = open(self._path, 'w', encoding='utf-8')
+
+    text = '\n'.join([
+        '#############',
+        'Shell Folders',
+        '#############',
+        '',
+        '.. toctree::',
+        '   :maxdepth: 1',
+        '',
+        ''])
+    self._file_object.write(text)
+
+    return self
+
+  def __exit__(self, exception_type, value, traceback):
+    """Make this work with the 'with' statement."""
+    self._file_object.close()
+    self._file_object = None
+
+  def WritePropertySet(self, shell_folder_identifier):
+    """Writes a shell folder to the index.rst file.
+
+    Args:
+      shell_folder_identifier (str): shell folder identifier.
+    """
+    self._file_object.write(
+        f'   {shell_folder_identifier:s} <{shell_folder_identifier:s}>\n')
+
+
+class ShellFoldersMarkdownOutputWriter(object):
+  """Shell folders Markdown output writer."""
 
   _WINDOWS_VERSIONS_KEY_FUNCTION = versions.WindowsVersions.KeyFunction
 
   def __init__(self, path):
-    """Initializes a Markdown output writer."""
-    super(MarkdownOutputWriter, self).__init__()
+    """Initializes a shell folders Markdown output writer."""
+    super(ShellFoldersMarkdownOutputWriter, self).__init__()
     self._file_object = None
     self._path = path
 
@@ -38,36 +79,17 @@ class MarkdownOutputWriter(object):
     Args:
       shell_folder (dict): shell folder.
     """
-    lines = []
+    shell_folder_identifier = shell_folder.get('identifier', None)
+    if (shell_folder_identifier[0] == '{' and
+        shell_folder_identifier[-1] == '}'):
+      shell_folder_identifier = shell_folder_identifier[1:-1]
 
-    identifier = shell_folder.get('identifier', None)
-    lines.extend([
-        '<table border="1" class="docutils">',
-        '  <tbody>',
-        '    <tr>',
-        '      <td><b>Identifier:</b></td>',
-        f'      <td>{identifier:s}</td>',
-        '    </tr>'])
-
-    name = shell_folder.get('name', None)
-    if name:
-      lines.extend([
-          '    <tr>',
-          '      <td><b>Name:</b></td>',
-          f'      <td>{name:s}</td>',
-          '    </tr>'])
-
-    class_name = shell_folder.get('class_name', None)
-    if class_name:
-      lines.extend([
-          '    <tr>',
-          '      <td><b>Class name:</b></td>',
-          f'      <td>{class_name:s}</td>',
-          '    </tr>'])
+    lines = [
+        f'## {shell_folder_identifier:s}',
+        '']
 
     windows_versions = shell_folder.get('windows_versions', None)
     if windows_versions:
-      # TODO: combine Windows versions into a more compact string
       versions_per_prefix = {}
       for version in sorted(windows_versions):
         for prefix in ('Windows 10', 'Windows 11', None):
@@ -81,30 +103,57 @@ class MarkdownOutputWriter(object):
             versions_per_prefix[prefix] = []
           versions_per_prefix[prefix].append(version[len(prefix) + 2:-1])
 
-      version_strings = []
+      lines.append('Seen on:')
+
       for prefix, sub_versions in sorted(
           versions_per_prefix.items(),
           key=lambda item: self._WINDOWS_VERSIONS_KEY_FUNCTION(item[0])):
         if not sub_versions:
-          version_string = prefix
+          line = f'* {prefix:s}'
         else:
           sub_versions_string = ', '.join(sub_versions)
-          version_string = f'{prefix:s} ({sub_versions_string:s})'
+          line = f'* {prefix:s} ({sub_versions_string:s})'
 
-        version_strings.append(version_string)
+        lines.append(line)
 
-      version_strings = ', '.join(version_strings)
-      lines.extend([
-          '    <tr>',
-          '      <td><b>Seen on:</b></td>',
-          f'      <td>{version_strings:s}</td>',
-          '    </tr>'])
+      lines.append('')
+
+    lines.extend([
+        '<table border="1" class="docutils">',
+        '  <tbody>'])
+
+    class_name = shell_folder.get('class_name', '&nbsp;')
+    name = shell_folder.get('name', '&nbsp;')
+
+    lines.extend([
+        '    <tr>',
+        '      <td><b>Class name:</b></td>',
+        f'      <td>{class_name:s}</td>',
+        '    </tr>',
+        '    <tr>',
+        '      <td><b>Name:</b></td>',
+        f'      <td>{name:s}</td>',
+        '    </tr>'])
+
+    alternate_names = shell_folder.get('alternate_names', None)
+    if alternate_names:
+      for index, name in enumerate(alternate_names):
+        if index == 0:
+          lines.extend([
+              '    <tr>',
+              '      <td><b>Alternate name(s):</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
+        else:
+          lines.extend([
+              '    <tr>',
+              '      <td>&nbsp;</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
 
     lines.extend([
         '  </tbody>',
         '</table>',
-        '',
-        '&nbsp;',
         '',
         ''])
 
@@ -121,25 +170,63 @@ def Main():
   argument_parser = argparse.ArgumentParser(description=(
       'Generated Windows shell documentation.'))
 
-  argument_parser.parse_args()
+  argument_parser.add_argument(
+      'source', nargs='?', action='store', metavar='PATH', default=None,
+      help='path of the Windows shell related data file.')
+
+  options = argument_parser.parse_args()
+
+  if not options.source:
+    print('Source value is missing.')
+    print('')
+    argument_parser.print_help()
+    print('')
+    return False
 
   logging.basicConfig(
       level=logging.INFO, format='[%(levelname)s] %(message)s')
 
-  data_path = os.getcwd()
-  data_file = os.path.join(data_path, 'shellfolders.yaml')
-
   try:
-    with open(data_file, 'r', encoding='utf-8') as file_object:
-      shell_folders = list(yaml.safe_load_all(file_object))
+    with open(options.source, 'r', encoding='utf-8') as file_object:
+      data_header = file_object.readline()
 
   except (SyntaxError, UnicodeDecodeError) as exception:
-    print(f'Unable to read shellfolders.yaml with error: {exception!s}')
+    print(f'Unable to read data haeader with error: {exception!s}')
     return 0
 
-  with MarkdownOutputWriter('test.md') as markdown_writer:
-   for shell_folder in shell_folders:
-     markdown_writer.WriteShellFolder(shell_folder)
+  if not data_header.startswith('# winreg-kb shellfolder definitions'):
+    print('Unsupported data file.')
+    print('')
+    return 1
+
+  if data_header.startswith('# winreg-kb shellfolder definitions'):
+    try:
+      with open(options.source, 'r', encoding='utf-8') as file_object:
+        yaml_items = list(yaml.safe_load_all(file_object))
+
+    except (SyntaxError, UnicodeDecodeError) as exception:
+      print(f'Unable to read shellfolders.yaml with error: {exception!s}')
+      return 0
+
+    output_directory = os.path.join('docs', 'sources', 'shell-folders')
+    os.makedirs(output_directory, exist_ok=True)
+
+    index_rst_file_path = os.path.join(output_directory, 'index.rst')
+    with ShellFoldersIndexRstOutputWriter(
+        index_rst_file_path) as index_rst_writer:
+      for shell_folder in yaml_items:
+        shell_folder_identifier = shell_folder.get('identifier', None)
+        if (shell_folder_identifier[0] == '{' and
+            shell_folder_identifier[-1] == '}'):
+          shell_folder_identifier = shell_folder_identifier[1:-1]
+
+        index_rst_writer.WritePropertySet(shell_folder_identifier)
+
+        markdown_file_path = os.path.join(
+            output_directory, f'{shell_folder_identifier:s}.md')
+        with ShellFoldersMarkdownOutputWriter(
+            markdown_file_path) as markdown_writer:
+          markdown_writer.WriteShellFolder(shell_folder)
 
   return 0
 

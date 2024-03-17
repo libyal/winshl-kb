@@ -7,7 +7,8 @@ import logging
 import os
 import sys
 import uuid
-import yaml
+
+from winshlrc import yaml_definitions_file
 
 
 LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER = """\
@@ -258,24 +259,19 @@ def Main():
     print(f'Unable to read data haeader with error: {exception!s}')
     return 0
 
-  if not data_header.startswith('# winreg-kb shellfolder definitions'):
+  if not data_header.startswith('# winshl-kb shellfolder definitions'):
     print('Unsupported data file.')
     print('')
     return 1
 
-  if data_header.startswith('# winreg-kb shellfolder definitions'):
-    try:
-      with open(options.source, 'r', encoding='utf-8') as file_object:
-        yaml_items = list(yaml.safe_load_all(file_object))
-
-    except (SyntaxError, UnicodeDecodeError) as exception:
-      print(f'Unable to read shellfolders.yaml with error: {exception!s}')
-      return 0
+  if data_header.startswith('# winshl-kb shellfolder definitions'):
+    definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
 
     if options.format == 'libfwsi':
       shell_folders_per_name = {}
-      for shell_folder in yaml_items:
-        name = shell_folder.get('name', None)
+      for shell_folder_definition in definitions_file.ReadFromFile(
+          options.source):
+        name = shell_folder_definition.name
         if not name or name[0] == '@':
           continue
 
@@ -299,14 +295,15 @@ def Main():
 
           name = new_name
 
-        shell_folders_per_name[name] = shell_folder
+        shell_folders_per_name[name] = shell_folder_definition
 
       output_path = os.path.join(
           options.output, 'libfwsi', 'libfwsi_shell_folder_identifier.h')
       with open(output_path, 'w', encoding='utf8') as file_object:
         file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_H_HEADER)
 
-        for name, shell_folder in sorted(shell_folders_per_name.items()):
+        for name, shell_folder_definition in sorted(
+            shell_folders_per_name.items()):
           file_object.write((
               f'extern uint8_t '
               f'libfwsi_shell_folder_identifier_{name:s}[ 16 ];\n'))
@@ -318,8 +315,9 @@ def Main():
       with open(output_path, 'w', encoding='utf8') as file_object:
         file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_HEADER)
 
-        for name, shell_folder in sorted(shell_folders_per_name.items()):
-          identifier = uuid.UUID(shell_folder.get('identifier', None))
+        for name, shell_folder_definition in sorted(
+            shell_folders_per_name.items()):
+          identifier = uuid.UUID(shell_folder_definition.identifier)
           byte_values = ', '.join(
               f'0x{byte_value:02x}' for byte_value in identifier.bytes_le)
 
@@ -330,8 +328,9 @@ def Main():
 
         file_object.write(LIBFWSI_SHELL_FOLDER_IDENTIFIER_C_MIDDLE)
 
-        for name, shell_folder in sorted(shell_folders_per_name.items()):
-          name_string = shell_folder.get('name', None)
+        for name, shell_folder_definition in sorted(
+            shell_folders_per_name.items()):
+          name_string = shell_folder_definition.name
           if 'delegate folder that appears in ' in name_string:
             name_string = name_string.replace(
                 'delegate folder that appears in ', '')
@@ -349,22 +348,26 @@ def Main():
       with open(output_path, 'w', encoding='utf8') as file_object:
         file_object.write(PLASO_SHELL_FOLDERS_PY_HEADER)
 
-        for shell_folder in sorted(
-            yaml_items, key=lambda item: item.get('identifier', None)):
-          name = shell_folder.get('name', None)
+        for shell_folder_definition in sorted(
+            definitions_file.ReadFromFile(options.source),
+            key=lambda definition: definition.identifier):
+          name = shell_folder_definition.name
           if not name:
-            name = shell_folder.get('class_name', None)
+            name = shell_folder_definition.class_name
           if not name:
             continue
 
-          identifier = shell_folder.get('identifier', None)
+          shell_folder_identifier = shell_folder_definition.identifier
+          if (shell_folder_identifier[0] == '{' and
+              shell_folder_identifier[-1] == '}'):
+            shell_folder_identifier = shell_folder_identifier[1:-1]
 
-          line = f'      \'{identifier[1:-1]:s}\': \'{name:s}\',\n'
+          line = f'      \'{shell_folder_identifier:s}\': \'{name:s}\',\n'
           if len(line) <= 80:
             file_object.write(line)
           else:
             file_object.write((
-                f'      \'{identifier[1:-1]:s}\': (\n'
+                f'      \'{shell_folder_identifier:s}\': (\n'
                 f'          \'{name:s}\'),\n'))
 
 

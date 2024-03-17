@@ -1,0 +1,14 @@
+# winshl-kb shellfolder definitions
+---
+identifier: "{0afaced1-e828-11d1-9187-b532f1e9575d}"
+name: "Folder Shortcut"
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+---
+identifier: "{645ff040-5081-101b-9f08-00aa002f954e}"
+name: "Recycle Bin"
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+---
+identifier: "{7a9d77bd-5403-11d2-8785-2e0420524153}"
+name: "Users and Passwords"
+alternate_names: ["User Accounts"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]

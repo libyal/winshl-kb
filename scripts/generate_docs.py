@@ -6,9 +6,9 @@ import argparse
 import logging
 import os
 import sys
-import yaml
 
 from winshlrc import versions
+from winshlrc import yaml_definitions_file
 
 
 class ShellFoldersIndexRstOutputWriter(object):
@@ -73,13 +73,13 @@ class ShellFoldersMarkdownOutputWriter(object):
     self._file_object.close()
     self._file_object = None
 
-  def WriteShellFolder(self, shell_folder):
+  def WriteShellFolder(self, shell_folder_definition):
     """Writes a shell folder to a Markdown file.
 
     Args:
-      shell_folder (dict): shell folder.
+      shell_folder_definition (ShellFolderDefinition): shell folder definition.
     """
-    shell_folder_identifier = shell_folder.get('identifier', None)
+    shell_folder_identifier = shell_folder_definition.identifier
     if (shell_folder_identifier[0] == '{' and
         shell_folder_identifier[-1] == '}'):
       shell_folder_identifier = shell_folder_identifier[1:-1]
@@ -88,10 +88,9 @@ class ShellFoldersMarkdownOutputWriter(object):
         f'## {shell_folder_identifier:s}',
         '']
 
-    windows_versions = shell_folder.get('windows_versions', None)
-    if windows_versions:
+    if shell_folder_definition.windows_versions:
       versions_per_prefix = {}
-      for version in sorted(windows_versions):
+      for version in sorted(shell_folder_definition.windows_versions):
         for prefix in ('Windows 10', 'Windows 11', None):
           if prefix and version.startswith(prefix):
             break
@@ -122,8 +121,8 @@ class ShellFoldersMarkdownOutputWriter(object):
         '<table border="1" class="docutils">',
         '  <tbody>'])
 
-    class_name = shell_folder.get('class_name', '&nbsp;')
-    name = shell_folder.get('name', '&nbsp;')
+    class_name = shell_folder_definition.class_name or '&nbsp;'
+    name = shell_folder_definition.name or '&nbsp;'
 
     lines.extend([
         '    <tr>',
@@ -135,9 +134,8 @@ class ShellFoldersMarkdownOutputWriter(object):
         f'      <td>{name:s}</td>',
         '    </tr>'])
 
-    alternate_names = shell_folder.get('alternate_names', None)
-    if alternate_names:
-      for index, name in enumerate(alternate_names):
+    if shell_folder_definition.alternate_names:
+      for index, name in enumerate(shell_folder_definition.alternate_names):
         if index == 0:
           lines.extend([
               '    <tr>',
@@ -194,19 +192,13 @@ def Main():
     print(f'Unable to read data haeader with error: {exception!s}')
     return 0
 
-  if not data_header.startswith('# winreg-kb shellfolder definitions'):
+  if not data_header.startswith('# winshl-kb shellfolder definitions'):
     print('Unsupported data file.')
     print('')
     return 1
 
-  if data_header.startswith('# winreg-kb shellfolder definitions'):
-    try:
-      with open(options.source, 'r', encoding='utf-8') as file_object:
-        yaml_items = list(yaml.safe_load_all(file_object))
-
-    except (SyntaxError, UnicodeDecodeError) as exception:
-      print(f'Unable to read shellfolders.yaml with error: {exception!s}')
-      return 0
+  if data_header.startswith('# winshl-kb shellfolder definitions'):
+    definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
 
     output_directory = os.path.join('docs', 'sources', 'shell-folders')
     os.makedirs(output_directory, exist_ok=True)
@@ -214,8 +206,9 @@ def Main():
     index_rst_file_path = os.path.join(output_directory, 'index.rst')
     with ShellFoldersIndexRstOutputWriter(
         index_rst_file_path) as index_rst_writer:
-      for shell_folder in yaml_items:
-        shell_folder_identifier = shell_folder.get('identifier', None)
+      for shell_folder_definition in definitions_file.ReadFromFile(
+          options.source):
+        shell_folder_identifier = shell_folder_definition.identifier
         if (shell_folder_identifier[0] == '{' and
             shell_folder_identifier[-1] == '}'):
           shell_folder_identifier = shell_folder_identifier[1:-1]
@@ -226,7 +219,7 @@ def Main():
             output_directory, f'{shell_folder_identifier:s}.md')
         with ShellFoldersMarkdownOutputWriter(
             markdown_file_path) as markdown_writer:
-          markdown_writer.WriteShellFolder(shell_folder)
+          markdown_writer.WriteShellFolder(shell_folder_definition)
 
   return 0
 

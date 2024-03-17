@@ -1,6 +1,11 @@
-# winreg-kb shellfolder definitions
+# winshl-kb shellfolder definitions
+---
+identifier: "{00020d76-0000-0000-c000-000000000046}"
+name: "Inbox"
+windows_versions: ["Windows NT4"]
 ---
 identifier: "{00020d75-0000-0000-c000-000000000046}"
+name: "Inbox"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{00021400-0000-0000-c000-000000000046}"
@@ -32,6 +37,10 @@ identifier: "{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}"
 name: "Taskbar"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
 ---
+identifier: "{0875dcb6-c686-4243-9432-adccf0b9f2d7}"
+name: "Microsoft OneNote Namespace Extension for Windows Desktop Search"
+windows_versions: ["Windows 7"]
+---
 identifier: "{088e3905-0323-4b02-9826-5d99428e115f}"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019"]
 ---
@@ -42,6 +51,10 @@ identifier: "{0afaced1-e828-11d1-9187-b532f1e9575d}"
 name: "Folder Shortcut"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
+identifier: "{0bd8e793-d371-11d1-b0b5-0060972919d7}"
+name: "SolidWorks Enterprise PDM"
+windows_versions: ["Windows 7"]
+---
 identifier: "{0c39a5cf-1a7a-40c8-ba74-8900e6df5fcd}"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
@@ -51,6 +64,7 @@ alternate_names: ["Cabinet Shell Folder"]
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: "{0db7e03f-fc29-4dc6-9020-ff41b59e513a}"
+name: "3D Objects"
 windows_versions: ["Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2019"]
 ---
 identifier: "{0df44eaa-ff21-4412-828e-260a8728e7f1}"
@@ -69,6 +83,10 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: "{1206f5f1-0569-412c-8fec-3204630dfb70}"
 name: "Credential Manager"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: "{13e7f612-f261-4391-bea2-39df4f3fa311}"
+name: "Windows Desktop Search"
+windows_versions: ["Windows XP 32-bit"]
 ---
 identifier: "{15eae92e-f17a-4431-9f28-805e482dafd4}"
 name: "Install New Programs"
@@ -100,6 +118,10 @@ windows_versions: ["Windows 2003", "Windows 2008", "Windows 7", "Windows Vista"]
 identifier: "{1f3427c8-5c10-4210-aa03-2ee45287d668}"
 name: "User Pinned"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: "{1f43a58c-ea28-43e6-9ec4-34574a16ebb7}"
+name: "Windows Desktop Search MAPI Namespace Extension Class"
+windows_versions: ["Windows XP 32-bit"]
 ---
 identifier: "{1f4de370-d627-11d1-ba4f-00a0c91eedba}"
 name: "Computer Search Results Folder"
@@ -308,6 +330,9 @@ identifier: "{4fe04bfd-85b9-49dd-b914-f4c9556b9da6}"
 name: "Shell File System NetFolder"
 windows_versions: ["Windows 11 (21H2)"]
 ---
+identifier: "{52205fd8-5dfb-447d-801a-d0b52f2e83e1}"
+windows_versions: ["Windows 8.0"]
+---
 identifier: "{5399e694-6ce5-4d6c-8fce-1d8870fdcba0}"
 name: "Control Panel command object for Start menu and desktop"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
@@ -422,6 +447,14 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: "{7be9d83c-a729-4d97-b5a7-1b7313c39e0a}"
 name: "Programs Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+---
+identifier: "{8060b2e3-c9d7-4a5d-8c6b-ce8eba111328}"
+name: "Proximity CPL"
+windows_versions: ["Windows 8.0"]
+---
+identifier: "{8343457c-8703-410f-ba8b-8b026e431743}"
+name: "Feedback Tool"
+windows_versions: ["Windows 8.0"]
 ---
 identifier: "{85bbd920-42a0-1069-a2e4-08002b30309d}"
 name: "Briefcase"
@@ -630,6 +663,10 @@ identifier: "{bf782cc9-5a52-4a17-806c-2a894ffeeac5}"
 name: "Language Settings"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 2012", "Windows 2016", "Windows 8.0", "Windows 8.1"]
 ---
+identifier: "{c291a080-b400-4e34-ae3f-3d2b9637d56c}"
+name: "UNCFATShellFolder Class"
+windows_versions: ["Windows XP 32-bit"]
+---
 identifier: "{c2b136e2-d50e-405c-8784-363c582bf43e}"
 name: "Device Center Initialization"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
@@ -651,6 +688,9 @@ name: "Welcome Center"
 alternate_names: ["Getting Started"]
 windows_versions: ["Windows 7", "Windows Vista"]
 ---
+identifier: "{cce6191f-13b2-44fa-8d14-324728beef2c}"
+windows_versions: ["Windows XP 32-bit"]
+---
 identifier: "{d2035edf-75cb-4ef1-95a7-410d9ee17170}"
 name: "DLNA Content Directory Data Source"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019", "Windows 8.0", "Windows 8.1"]
@@ -671,6 +711,10 @@ identifier: "{d34a6ca6-62c2-4c34-8a7c-14709c1ad938}"
 name: "Common Places FS Folder"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
 ---
+identifier: "{d426cfd0-87fc-4906-98d9-a23f5d515d61}"
+name: "Windows Search Service Outlook Express Protocol Handler"
+windows_versions: ["Windows XP 32-bit"]
+---
 identifier: "{d4480a50-ba28-11d1-8e75-00c04fa31a86}"
 name: "Add Network Place"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
@@ -682,6 +726,10 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: "{d555645e-d4f8-4c29-a827-d93c859c4f2a}"
 name: "Ease of Access"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista"]
+---
+identifier: "{d5b1944e-db4e-482e-b3f1-db05827f0978}"
+name: "Softex OmniPass Encrypted Folder"
+windows_versions: ["Windows XP 32-bit"]
 ---
 identifier: "{d6277990-4c6a-11cf-8d87-00aa0060f5bf}"
 name: "Scheduled Tasks"
@@ -698,6 +746,9 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: "{daf95313-e44d-46af-be1b-cbacea2c3065}"
 class_name: CLSID_StartMenuProviderFolder
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: "{dfd52831-23a3-2823-0400-000000001f28}"
+windows_versions: ["Windows 7"]
 ---
 identifier: "{dffacdc5-679f-4156-8947-c5c76bc0b67f}"
 name: "delegate folder that appears in Users Files Folder"
@@ -827,6 +878,9 @@ windows_versions: ["Windows 2003", "Windows XP 32-bit", "Windows XP 64-bit"]
 identifier: "{fbf23b42-e3f0-101b-8488-00aa003e56f8}"
 name: "Internet Explorer"
 windows_versions: ["Windows 2000", "Windows 2003", "Windows XP 32-bit", "Windows XP 64-bit"]
+---
+identifier: "{fbeb8a05-beee-4442-804e-409d6c4515e9}"
+windows_versions: ["Windows 7"]
 ---
 identifier: "{fe1290f0-cfbd-11cf-a330-00aa00c16e65}"
 name: "Directory"

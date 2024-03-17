@@ -66,7 +66,7 @@ def Main():
   path = os.path.join(data_path, 'observed_shellfolders.yaml')
 
   definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
-  observed_shellfolders = {
+  observed_shell_folder_definitions = {
       definition.identifier: definition
       for definition in definitions_file.ReadFromFile(path)}
 
@@ -77,7 +77,9 @@ def Main():
   volume_scanner_options.snapshots = ['none']
   volume_scanner_options.volumes = ['none']
 
-  shell_folder_per_identifier = {}
+  shell_folders = {}
+  observed_shell_folders = {}
+  unknown_shell_folders = {}
   windows_versions_per_shell_folder = {}
 
   for source_definition in source_definitions:
@@ -112,43 +114,76 @@ def Main():
       windows_version = source_definition['windows_version']
 
     for shell_folder in extractor_object.CollectShellFolders():
-      # TODO: compare existing shell folder
-      # TODO: track multiple names
-      existing_shell_folder = shell_folder_per_identifier.get(
-          shell_folder.identifier, None)
+      existing_shell_folder = shell_folders.get(shell_folder.identifier, None)
 
       if not existing_shell_folder:
-        shell_folder_per_identifier[shell_folder.identifier] = shell_folder
-      else:
-        if not existing_shell_folder.name:
-          existing_shell_folder.name = shell_folder.name
-        elif (shell_folder.name and
-              shell_folder.name != existing_shell_folder.name and
-              shell_folder.name not in existing_shell_folder.alternate_names):
-          existing_shell_folder.alternate_names.append(shell_folder.name)
-
-      # TODO: escape \ in name
-      # TODO: resolve MUI redirected shell_folder.name
-
-      if shell_folder.identifier not in windows_versions_per_shell_folder:
-        windows_versions_per_shell_folder[shell_folder.identifier] = []
+        shell_folders[shell_folder.identifier] = shell_folder
+      elif not existing_shell_folder.name:
+        existing_shell_folder.name = shell_folder.name
+      elif (shell_folder.name and
+            shell_folder.name != existing_shell_folder.name and
+            shell_folder.name not in existing_shell_folder.alternate_names):
+        existing_shell_folder.alternate_names.append(shell_folder.name)
 
       if windows_version:
+        if shell_folder.identifier not in windows_versions_per_shell_folder:
+          windows_versions_per_shell_folder[shell_folder.identifier] = []
+
         windows_versions_per_shell_folder[shell_folder.identifier].append(
             windows_version)
 
-  if not shell_folder_per_identifier:
-    print('No shell folder identifiers found.')
-    return 0
+      shell_folder_definition = observed_shell_folder_definitions.get(
+          shell_folder.identifier, None)
+      if shell_folder_definition:
+        observed_shell_folders[shell_folder.identifier] = shell_folder
+        continue
 
-  # TODO: print new or changed definitions.
-  _ = observed_shellfolders
+      unknown_shell_folders[shell_folder.identifier] = shell_folder
 
-  for identifier, windows_versions in sorted(
-      windows_versions_per_shell_folder.items()):
-    _ = windows_versions
-    shell_folder = shell_folder_per_identifier[identifier]
-    print(identifier)
+  mapped_names = {
+      'AppSuggestedLocations': 'Application Suggested Locations',
+      'CompressedFolder': 'Compressed Folder',
+      'DeviceCenter Initialization': 'Device Center Initialization',
+      'FileHistoryDataSource': 'File History Data Source',
+      'HomeGroup Control Panel': 'Home Group Control Panel',
+      'IE History and Feeds Shell Data Source for Windows Search': (
+          'Internet Explorer History and Feeds Shell Data Source for Windows '
+          'Search'),
+      'IE RSS Feeds Folder': 'Internet Explorer RSS Feeds Folder',
+      'LayoutFolder': 'Layout Folder',
+      'printhood delegate folder': 'Printhood delegate folder',
+      'StreamBackedFolder': 'Stream Backed Folder',
+      'UsersLibraries': 'Users Libraries'}
+
+  if observed_shell_folders:
+    print('Observed shell folders:')
+    for identifier, shell_folder in sorted(observed_shell_folders.items()):
+      shell_folder_definition = observed_shell_folder_definitions.get(
+          identifier, None)
+
+      print(f'\t{identifier:s}', end='')
+      if shell_folder_definition and shell_folder_definition.name:
+        print(f' ({shell_folder_definition.name:s})', end='')
+      print('')
+
+      names = list(shell_folder.alternate_names or [])
+      if shell_folder.name:
+        names.append(shell_folder.name)
+
+      for name in names:
+        name = mapped_names.get(name, name)
+        if (name and name != shell_folder_definition.name and
+            name not in shell_folder_definition.alternate_names):
+          print(f'\t\tAlternate name: {shell_folder.name:s}')
+
+    print('')
+
+  if unknown_shell_folders:
+    print('Unknown shell folders:')
+    for identifier in sorted(unknown_shell_folders):
+      print(f'\t{identifier:s}')
+
+    print('')
 
   return 0
 

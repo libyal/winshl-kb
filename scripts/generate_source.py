@@ -358,9 +358,6 @@ def Main():
             continue
 
           shell_folder_identifier = shell_folder_definition.identifier
-          if (shell_folder_identifier[0] == '{' and
-              shell_folder_identifier[-1] == '}'):
-            shell_folder_identifier = shell_folder_identifier[1:-1]
 
           line = f'      \'{shell_folder_identifier:s}\': \'{name:s}\',\n'
           if len(line) <= 80:

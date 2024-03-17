@@ -79,13 +79,8 @@ class ShellFoldersMarkdownOutputWriter(object):
     Args:
       shell_folder_definition (ShellFolderDefinition): shell folder definition.
     """
-    shell_folder_identifier = shell_folder_definition.identifier
-    if (shell_folder_identifier[0] == '{' and
-        shell_folder_identifier[-1] == '}'):
-      shell_folder_identifier = shell_folder_identifier[1:-1]
-
     lines = [
-        f'## {shell_folder_identifier:s}',
+        f'## {shell_folder_definition.identifier:s}',
         '']
 
     if shell_folder_definition.windows_versions:
@@ -208,15 +203,10 @@ def Main():
         index_rst_file_path) as index_rst_writer:
       for shell_folder_definition in definitions_file.ReadFromFile(
           options.source):
-        shell_folder_identifier = shell_folder_definition.identifier
-        if (shell_folder_identifier[0] == '{' and
-            shell_folder_identifier[-1] == '}'):
-          shell_folder_identifier = shell_folder_identifier[1:-1]
-
-        index_rst_writer.WritePropertySet(shell_folder_identifier)
+        index_rst_writer.WritePropertySet(shell_folder_definition.identifier)
 
         markdown_file_path = os.path.join(
-            output_directory, f'{shell_folder_identifier:s}.md')
+            output_directory, f'{shell_folder_definition.identifier:s}.md')
         with ShellFoldersMarkdownOutputWriter(
             markdown_file_path) as markdown_writer:
           markdown_writer.WriteShellFolder(shell_folder_definition)

@@ -3,6 +3,8 @@
 
 import logging
 
+import pywrc
+
 from dfimagetools import windows_registry
 
 from dfvfs.helpers import volume_scanner as dfvfs_volume_scanner
@@ -17,6 +19,7 @@ class ShellFolder(object):
   """Windows shell folder.
 
   Attributes:
+    alternate_names (list[str]): alternate names.
     class_name (str): class name (CLSID).
     identifier (str): identifier (GUID).
     name (str): name.
@@ -76,6 +79,111 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
     """The Windows version (setter)."""
     self._windows_version = value
 
+  def _GetMUIWindowsResourceFile(self, windows_path, windows_resource_file):
+    """Retrieves a MUI resource file.
+
+    Args:
+      windows_path (str): Windows path of the language neutral resource file.
+      windows_resource_file (WindowsResourceFile): language neutral resource
+          file.
+
+    Returns:
+      WindowsResourceFile: MUI resource file or None if not available.
+    """
+    mui_language = windows_resource_file.GetMUILanguage()
+    if not mui_language:
+      return None
+
+    path, _, name = windows_path.rpartition('\\')
+
+    mui_windows_path = '\\'.join([path, mui_language, f'{name:s}.mui'])
+    mui_windows_resource_file = self._OpenWindowsResourceFile(
+        mui_windows_path)
+
+    if not mui_windows_resource_file:
+      mui_windows_path = '\\'.join([path, f'{name:s}.mui'])
+      mui_windows_resource_file = self._OpenWindowsResourceFile(
+          mui_windows_path)
+
+    if mui_windows_resource_file:
+      logging.info((
+          f'Resource file: {windows_path:s} references MUI resource file: '
+          f'{mui_windows_path:s}'))
+
+    return mui_windows_resource_file
+
+  def _GetString(self,  windows_resource_file, string_identifier):
+    """Retrieves a string from a Windows resource file.
+
+    Args:
+      windows_resource_file (WindowsResourceFile): Windows resource file.
+      string_identifier (int): string identifier.
+
+    Returns:
+      str: string or None if not available.
+    """
+    wrc_resource = windows_resource_file.GetStringTableResource()
+    if not wrc_resource:
+      return None
+
+    for wrc_resource_item in wrc_resource.items:
+      base_string_identifier = wrc_resource_item.identifier * 16
+      if string_identifier <= base_string_identifier + 16:
+        wrc_resource_sub_item = wrc_resource_item.sub_items[0]
+        resource_data = wrc_resource_sub_item.read()
+
+        string_table_resource = pywrc.string_table_resource()
+        string_table_resource.copy_from_byte_stream(
+            resource_data, wrc_resource_item.identifier)
+
+        for index in range(string_table_resource.number_of_strings):
+          stored_string_identifier = (
+              string_table_resource.get_string_identifier(index))
+          if string_identifier == stored_string_identifier:
+            return string_table_resource.get_string(index)
+
+    return None
+
+  def _GetStringResourceFile(self, windows_path):
+    """Retrieves a string resource.
+
+    Args:
+      windows_path (str): Windows path of the Windows resource file.
+
+    Returns:
+      WindowsResourceFile: string resource file or None if not available.
+    """
+    windows_resource_file = None
+
+    path_spec = self._path_resolver.ResolvePath(windows_path)
+    if path_spec:
+      windows_resource_file = self._OpenWindowsResourceFileByPathSpec(path_spec)
+
+    if not windows_resource_file:
+      logging.warning(f'Missing resource file: {windows_path:s}')
+      return None
+
+    if not windows_resource_file.HasStringTableResource():
+      # Windows Vista and later use a MUI resource to redirect to
+      # a language specific resource file.
+      mui_windows_resource_file = self._GetMUIWindowsResourceFile(
+          windows_path, windows_resource_file)
+      if mui_windows_resource_file:
+        windows_resource_file.Close()
+
+        windows_resource_file = mui_windows_resource_file
+
+    if not windows_resource_file.HasStringTableResource():
+      logging.warning((
+          f'String table resource missing from resource file: '
+          f'{windows_path:s}'))
+
+      windows_resource_file.Close()
+
+      return None
+
+    return windows_resource_file
+
   def _GetSystemRoot(self):
     """Determines the value of %SystemRoot%.
 
@@ -104,46 +212,47 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
     """
     system_root = self._GetSystemRoot()
 
-    # Window NT variants.
+    # Windows NT variants.
     kernel_executable_path = '\\'.join([
         system_root, 'System32', 'ntoskrnl.exe'])
-    message_file = self._OpenMessageResourceFile(kernel_executable_path)
+    windows_resource_file = self._OpenWindowsResourceFile(
+         kernel_executable_path)
 
-    if not message_file:
-      # Window 9x variants.
+    if not windows_resource_file:
+      # Windows 9x variants.
       kernel_executable_path = '\\'.join([
           system_root, 'System32', '\\kernel32.dll'])
-      message_file = self._OpenMessageResourceFile(kernel_executable_path)
+      windows_resource_file = self._OpenWindowsResourceFile(
+          kernel_executable_path)
 
-    if not message_file:
+    if not windows_resource_file:
       return None
 
-    return message_file.file_version
+    return windows_resource_file.file_version
 
-  def _OpenMessageResourceFile(self, windows_path):
-    """Opens the message resource file specified by the Windows path.
+  def _OpenWindowsResourceFile(self, windows_path):
+    """Opens the Windows resource file specified by the Windows path.
 
     Args:
-      windows_path (str): Windows path containing the message resource
-          filename.
+      windows_path (str): Windows path of the Windows resource file.
 
     Returns:
-      MessageResourceFile: message resource file or None.
+      WindowsResourceFile: Windows resource file or None.
     """
     path_spec = self._path_resolver.ResolvePath(windows_path)
     if path_spec is None:
       return None
 
-    return self._OpenMessageResourceFileByPathSpec(path_spec)
+    return self._OpenWindowsResourceFileByPathSpec(path_spec)
 
-  def _OpenMessageResourceFileByPathSpec(self, path_spec):
-    """Opens the message resource file specified by the path specification.
+  def _OpenWindowsResourceFileByPathSpec(self, path_spec):
+    """Opens the Windows resource file specified by the path specification.
 
     Args:
       path_spec (dfvfs.PathSpec): path specification.
 
     Returns:
-      MessageResourceFile: message resource file or None.
+      WindowsResourceFile: Windows resource file or None.
     """
     windows_path = self._path_resolver.GetWindowsPath(path_spec)
     if windows_path is None:
@@ -159,12 +268,12 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
     if file_object is None:
       return None
 
-    message_file = resource_file.MessageResourceFile(
+    windows_resource_file = resource_file.WindowsResourceFile(
         windows_path, ascii_codepage=self.ascii_codepage,
         preferred_language_identifier=self.preferred_language_identifier)
-    message_file.OpenFileObject(file_object)
+    windows_resource_file.OpenFileObject(file_object)
 
-    return message_file
+    return windows_resource_file
 
   def CollectShellFolders(self):
     """Retrieves shell folders
@@ -176,7 +285,10 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
         self._CLASS_IDENTIFIERS_KEY_PATH)
     if class_identifiers_key:
       for class_identifier_key in class_identifiers_key.GetSubkeys():
-        shell_folder_identifier = class_identifier_key.name[1:-1].lower()
+        shell_folder_identifier = class_identifier_key.name.lower()
+        if (shell_folder_identifier[0] == '{' and
+            shell_folder_identifier[-1] == '}'):
+          shell_folder_identifier = shell_folder_identifier[1:-1]
 
         shell_folder_key = class_identifier_key.GetSubkeyByName('ShellFolder')
         if shell_folder_key:
@@ -189,7 +301,19 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
           else:
             name = None
 
-          # TODO: resolve name MUI paths.
+          if name and name[0] == '@' and ',-' in name:
+            path, string_identifier = name[1:].rsplit(',-', maxsplit=1)
+            if ';' in string_identifier:
+              string_identifier, _ = string_identifier.rsplit(';', maxsplit=1)
+
+            windows_resource_file = self._GetStringResourceFile(path)
+            if windows_resource_file:
+              try:
+                string_identifier = int(string_identifier, 10)
+                name = self._GetString(windows_resource_file, string_identifier)
+
+              except ValueError:
+                pass
 
           value = class_identifier_key.GetValueByName('LocalizedString')
           if value:

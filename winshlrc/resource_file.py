@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Windows Message Resource file."""
+"""Windows Resource file."""
 
 import logging
 
@@ -7,21 +7,20 @@ import pyexe
 import pywrc
 
 
-class MessageResourceFile(object):
-  """Windows Message Resource file.
+class WindowsResourceFile(object):
+  """Windows Resource file.
 
   Attributes:
-    windows_path (str): Windows path of the message resource file.
+    windows_path (str): Windows path of the resource file.
   """
 
   _STRING_TABLE_RESOURCE_IDENTIFIER = 0x06
-  _MESSAGE_TABLE_RESOURCE_IDENTIFIER = 0x0b
   _VERSION_INFORMATION_RESOURCE_IDENTIFIER = 0x10
 
   def __init__(
       self, windows_path, ascii_codepage='cp1252',
       preferred_language_identifier=0x0409):
-    """Initializes the Windows Message Resource file.
+    """Initializes the Windows Resource file.
 
     Args:
       windows_path (str): normalized version of the Windows path.
@@ -29,7 +28,7 @@ class MessageResourceFile(object):
       preferred_language_identifier (Optional[int]): preferred language
           identifier (LCID).
     """
-    super(MessageResourceFile, self).__init__()
+    super(WindowsResourceFile, self).__init__()
     self._ascii_codepage = ascii_codepage
     self._exe_file = pyexe.file()
     self._exe_file.set_ascii_codepage(self._ascii_codepage)
@@ -73,7 +72,7 @@ class MessageResourceFile(object):
     if file_version != product_version:
       logging.warning((
           f'Mismatch between file version: {self._file_version:s} and product '
-          f'version: {self._product_version:s} in message file: '
+          f'version: {self._product_version:s} in resource file: '
           f'{self.windows_path:s}.'))
 
   def _GetVersionInformationResource(self):
@@ -127,7 +126,7 @@ class MessageResourceFile(object):
     return self._product_version
 
   def Close(self):
-    """Closes the Windows Message Resource file.
+    """Closes the Windows Resource file.
 
     Raises:
       IOError: if not open.
@@ -143,8 +142,80 @@ class MessageResourceFile(object):
     self._file_object = None
     self._is_open = False
 
+  def GetMUILanguage(self):
+    """Retrieves the MUI language.
+
+    Returns:
+      str: MUI language or None if not available.
+    """
+    mui_resource = self.GetMUIResource()
+    if not mui_resource:
+      return None
+
+    return mui_resource.language
+
+  def GetMUIResource(self):
+    """Retrieves the MUI resource.
+
+    Returns:
+      pywrc.mui_resource: MUI resource or None if not available.
+    """
+    preferred_wrc_resource_sub_item = None
+
+    wrc_resource = self._wrc_stream.get_resource_by_name('MUI')
+    if wrc_resource:
+      first_wrc_resource_sub_item = None
+      for wrc_resource_item in wrc_resource.items:
+        for wrc_resource_sub_item in wrc_resource_item.sub_items:
+          if not first_wrc_resource_sub_item:
+            first_wrc_resource_sub_item = wrc_resource_sub_item
+
+          language_identifier = wrc_resource_sub_item.identifier
+          if language_identifier == self._preferred_language_identifier:
+            if not preferred_wrc_resource_sub_item:
+              preferred_wrc_resource_sub_item = wrc_resource_sub_item
+
+      if not preferred_wrc_resource_sub_item:
+        preferred_wrc_resource_sub_item = first_wrc_resource_sub_item
+
+    if not preferred_wrc_resource_sub_item:
+      return None
+
+    resource_data = preferred_wrc_resource_sub_item.read()
+
+    mui_resource = pywrc.mui_resource()
+    mui_resource.copy_from_byte_stream(resource_data)
+
+    return mui_resource
+
+  def GetStringTableResource(self):
+    """Retrieves the string table resource.
+
+    Returns:
+      pywrc.resource: resource containing the string table resource or None
+          if not available.
+    """
+    return self._wrc_stream.get_resource_by_identifier(
+        self._STRING_TABLE_RESOURCE_IDENTIFIER)
+
+  def HasStringTableResource(self):
+    """Determines if the resource file as a string table resource.
+
+    Returns:
+      bool: True if the resource file as a string table resource.
+    """
+    wrc_resource = None
+    if self._wrc_stream:
+      try:
+        wrc_resource = self._wrc_stream.get_resource_by_identifier(
+            self._STRING_TABLE_RESOURCE_IDENTIFIER)
+      except IOError:
+        pass
+
+    return bool(wrc_resource)
+
   def OpenFileObject(self, file_object):
-    """Opens the Windows Message Resource file using a file-like object.
+    """Opens the Windows Resource file using a file-like object.
 
     Args:
       file_object (file): file-like object.

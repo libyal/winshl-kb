@@ -226,6 +226,13 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
           kernel_executable_path)
 
     if not windows_resource_file:
+      # Windows Me variant.
+      kernel_executable_path = '\\'.join([
+          system_root, 'System', '\\kernel32.dll'])
+      windows_resource_file = self._OpenWindowsResourceFile(
+          kernel_executable_path)
+
+    if not windows_resource_file:
       return None
 
     return windows_resource_file.file_version
@@ -275,12 +282,44 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
 
     return windows_resource_file
 
+  def _GetShellFolderName(self, shell_folder_key):
+    """Retrieves the shell folder name.
+
+    Args:
+      shell_folder_key (dfwinreg.RegistryKey): shell folder Windows Registry
+          key.
+
+    Returns:
+      str: shell folder name or None if not available.
+    """
+    value = shell_folder_key.GetValueByName('')
+    if not value or not value.data:
+      return None
+
+    # First try to decode the value data as an UTF-16 little-endian string with
+    # end-of-string character
+    try:
+      return value.data.decode('utf-16-le').rstrip('\x00')
+    except UnicodeDecodeError:
+      pass
+
+    # Next try to decode the value data as an ASCII string with a specific
+    # codepage and end-of-string character.
+    try:
+      return value.data.decode(self.ascii_codepage).rstrip('\x00')
+    except UnicodeDecodeError:
+      pass
+
+    return None
+
   def CollectShellFolders(self):
     """Retrieves shell folders
 
     Yields:
       ShellFolder: shell folder.
     """
+    # TODO: Add support for per-user shell folders
+
     class_identifiers_key = self._registry.GetKeyByPath(
         self._CLASS_IDENTIFIERS_KEY_PATH)
     if class_identifiers_key:
@@ -292,14 +331,7 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
 
         shell_folder_key = class_identifier_key.GetSubkeyByName('ShellFolder')
         if shell_folder_key:
-          value = class_identifier_key.GetValueByName('')
-          if value:
-            # The value data type does not have to be a string therefore try to
-            # decode the data as an UTF-16 little-endian string and strip
-            # the trailing end-of-string character
-            name = value.data.decode('utf-16-le').rstrip('\x00')
-          else:
-            name = None
+          name = self._GetShellFolderName(shell_folder_key)
 
           if name and name[0] == '@' and ',-' in name:
             path, string_identifier = name[1:].rsplit(',-', maxsplit=1)

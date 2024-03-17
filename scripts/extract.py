@@ -54,7 +54,7 @@ def Main():
     with open(options.source, 'r', encoding='utf-8') as file_object:
       source_definitions = list(yaml.safe_load_all(file_object))
 
-  except (SyntaxError, UnicodeDecodeError):
+  except (SyntaxError, UnicodeDecodeError, yaml.parser.ParserError):
     source_definitions = [{
         'source': options.source, 'windows_version': options.windows_version}]
 
@@ -180,8 +180,11 @@ def Main():
 
   if unknown_shell_folders:
     print('Unknown shell folders:')
-    for identifier in sorted(unknown_shell_folders):
-      print(f'\t{identifier:s}')
+    for identifier, shell_folder in sorted(unknown_shell_folders.items()):
+      print(f'\t{identifier:s}', end='')
+      if shell_folder_definition and shell_folder_definition.name:
+        print(f' ({shell_folder_definition.name:s})', end='')
+      print('')
 
     print('')
 

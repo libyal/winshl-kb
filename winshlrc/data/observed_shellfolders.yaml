@@ -1,16 +1,20 @@
 # winshl-kb shellfolder definitions
 ---
-identifier: 00020d76-0000-0000-c000-000000000046
-name: "Inbox"
-windows_versions: ["Windows NT4"]
----
 identifier: 00020d75-0000-0000-c000-000000000046
 name: "Inbox"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+---
+identifier: 00020d76-0000-0000-c000-000000000046
+name: "Inbox"
+windows_versions: ["Windows NT4", "Windows 95"]
 ---
 identifier: 00021400-0000-0000-c000-000000000046
 name: "Desktop"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 8.0", "Windows 8.1"]
+---
+identifier: 00028b00-0000-0000-c000-000000000046
+name: "History"
+windows_versions: ["Windows 95"]
 ---
 identifier: 00c6d95f-329c-409a-81d7-c46c66ea7f33
 name: "Default Location"
@@ -102,7 +106,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 ---
 identifier: 1a9ba3a0-143a-11cf-8350-444553540000
 name: "Shell Favorite Folder"
-windows_versions: ["Windows 2000"]
+windows_versions: ["Windows 2000", "Windows 95", "Windows 98"]
 ---
 identifier: 1bef2128-2f96-4500-ba7c-098dc0049cb2
 class_name: CLSID_DBFolderBoth
@@ -150,7 +154,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: 2227a280-3aea-1069-a2de-08002b30309d
 name: "Printers and Faxes"
 alternate_names: ["Printers"]
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows NT4", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 22877a6d-37a1-461a-91b0-dbda5aaebc99
 name: "Recent Places Folder"
@@ -282,6 +286,10 @@ identifier: 3c5c43a3-9ce9-4a9b-9699-2ac0cf6cc4bf
 name: "@xpsp2res.dll,-16201"
 windows_versions: ["Windows XP 32-bit", "Windows XP 64-bit"]
 ---
+identifier: 3dc7a020-0acd-11cf-a9bb-00aa004ae837
+name: "History"
+windows_versions: ["Windows 95", "Windows 98"]
+---
 identifier: 3dfdf296-dbec-4fb4-81d1-6a3438bcf4de
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2016", "Windows 2019"]
 ---
@@ -316,7 +324,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 ---
 identifier: 450d8fba-ad25-11d0-98a8-0800361b1103
 name: "My Documents"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 4564b25e-30cd-4787-82ba-39e73a750b14
 name: "Recent Items Instance Folder"
@@ -378,7 +386,7 @@ windows_versions: ["Windows 2003"]
 ---
 identifier: 645ff040-5081-101b-9f08-00aa002f954e
 name: "Recycle Bin"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows NT4", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 64693913-1c21-4f30-a98f-4e52906d3b56
 class_name: CLSID_AppInstanceFolder
@@ -440,7 +448,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 ---
 identifier: 7bd29e00-76c1-11cf-9dd0-00a0c9034933
 name: "Temporary Internet Files"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 7bd29e01-76c1-11cf-9dd0-00a0c9034933
 name: "Temporary Internet Files"
@@ -460,7 +468,7 @@ windows_versions: ["Windows 8.0"]
 ---
 identifier: 85bbd920-42a0-1069-a2e4-08002b30309d
 name: "Briefcase"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 2000", "Windows 2003", "Windows 2016", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 2000", "Windows 2003", "Windows 2016", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows NT4", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 863aa9fd-42df-457b-8e4d-0de1b8015c60
 name: "Remote Printers"
@@ -472,7 +480,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 2008", "Windows 2012", "Windows
 ---
 identifier: 871c5380-42a0-1069-a2ea-08002b30309d
 name: "Internet Folder"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 87630419-6216-4ff8-a1f0-143562d16d5c
 name: "Mobile Broadband Profile Settings Editor"
@@ -482,9 +490,13 @@ identifier: 877ca5ac-cb41-4842-9c69-9136e42d47e2
 name: "File Backup Index"
 windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 7", "Windows 8.0", "Windows Vista"]
 ---
+identifier: 88667d10-10f0-11d0-8150-00aa00bf8457
+name: "History"
+windows_versions: ["Windows 98"]
+---
 identifier: 88c6c381-2e85-11d0-94de-444553540000
 name: "ActiveX Cache Folder"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 896664f7-12e1-490f-8782-c0835afd98fc
 name: "Libraries delegate folder that appears in Users Files Folder"
@@ -538,7 +550,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)"
 identifier: 992cffa0-f557-101a-88ec-00dd010ccc48
 name: "Network and Dial-up Connections"
 alternate_names: ["Network Connections"]
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: 9a096bb5-9dc3-4d1c-8526-c3cbf991ea4e
 name: "Internet Explorer RSS Feeds Folder"
@@ -734,7 +746,7 @@ windows_versions: ["Windows XP 32-bit"]
 ---
 identifier: d6277990-4c6a-11cf-8d87-00aa0060f5bf
 name: "Scheduled Tasks"
-windows_versions: ["Windows 2000", "Windows 2003", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 2000", "Windows 2003", "Windows 98", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: d8559eb9-20c0-410e-beda-7ed416aecc2a
 name: "Windows Defender"
@@ -782,7 +794,7 @@ windows_versions: ["Windows 2008", "Windows 7", "Windows Vista"]
 ---
 identifier: e7e4bc40-e76a-11ce-a9bb-00aa004ae837
 name: "Shell DocObject Viewer"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: e88dcce0-b7b3-11d1-a9f0-00aa0060fa31
 name: "Compressed Folder"
@@ -840,7 +852,7 @@ windows_versions: ["Windows 10 (1511)", "Windows 7", "Windows 8.0", "Windows 8.1
 ---
 identifier: f5175861-2688-11d0-9c5e-00aa00a45957
 name: "Subscription Folder"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: f5fb2c77-0e2f-4a16-a381-3e560c68bc83
 name: "Removable Drives"
@@ -878,7 +890,7 @@ windows_versions: ["Windows 2003", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: fbf23b42-e3f0-101b-8488-00aa003e56f8
 name: "Internet Explorer"
-windows_versions: ["Windows 2000", "Windows 2003", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 2000", "Windows 2003", "Windows 95", "Windows 98", "Windows NT4", "Windows XP 32-bit", "Windows XP 64-bit"]
 ---
 identifier: fbeb8a05-beee-4442-804e-409d6c4515e9
 windows_versions: ["Windows 7"]
@@ -889,4 +901,4 @@ windows_versions: ["Windows 2000"]
 ---
 identifier: ff393560-c2a7-11cf-bff4-444553540000
 name: "History"
-windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)", "Windows 2000", "Windows 2003", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 95", "Windows 98", "Windows Vista", "Windows XP 32-bit", "Windows XP 64-bit"]

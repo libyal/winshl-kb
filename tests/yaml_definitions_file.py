@@ -9,6 +9,78 @@ from winshlrc import yaml_definitions_file
 from tests import test_lib
 
 
+class YAMLControlPanelItemsDefinitionsFileTest(test_lib.BaseTestCase):
+  """Tests for the YAML-based shell folder definitions file."""
+
+  # pylint: disable=protected-access
+
+  _TEST_YAML = {
+      'identifier': 'c58c4893-3be0-4b45-abb5-a63e4b8c8651',
+      'module_name': 'Troubleshooting',
+      'name': 'Microsoft.Troubleshooting',
+      'windows_versions': ['Windows XP 32-bit', 'Windows 10 (1511)']}
+
+  def testReadControlPanelItemDefinition(self):
+    """Tests the _ReadControlPanelItemDefinition function."""
+    test_definitions_file = (
+        yaml_definitions_file.YAMLControlPanelItemsDefinitionsFile())
+
+    definitions = test_definitions_file._ReadControlPanelItemDefinition(
+        self._TEST_YAML)
+
+    self.assertIsNotNone(definitions)
+    self.assertEqual(
+        definitions.identifier, 'c58c4893-3be0-4b45-abb5-a63e4b8c8651')
+    self.assertEqual(definitions.module_name, 'Troubleshooting')
+    self.assertEqual(definitions.name, 'Microsoft.Troubleshooting')
+    self.assertEqual(
+        definitions.windows_versions,
+        ['Windows XP 32-bit', 'Windows 10 (1511)'])
+
+    with self.assertRaises(RuntimeError):
+      test_definitions_file._ReadControlPanelItemDefinition({})
+
+    with self.assertRaises(RuntimeError):
+      test_definitions_file._ReadControlPanelItemDefinition({
+          'module_name': 'Troubleshooting',
+          'name': 'Microsoft.Troubleshooting',
+          'windows_versions': ['Windows XP 32-bit', 'Windows 10 (1511)']})
+
+    with self.assertRaises(RuntimeError):
+      test_definitions_file._ReadControlPanelItemDefinition({
+          'bogus': 'test'})
+
+  def testReadFromFileObject(self):
+    """Tests the _ReadFromFileObject function."""
+    test_file_path = self._GetTestFilePath(['controlpanel_items.yaml'])
+    self._SkipIfPathNotExists(test_file_path)
+
+    test_definitions_file = (
+        yaml_definitions_file.YAMLControlPanelItemsDefinitionsFile())
+
+    with open(test_file_path, 'r', encoding='utf-8') as file_object:
+      definitions = list(test_definitions_file._ReadFromFileObject(file_object))
+
+    self.assertEqual(len(definitions), 4)
+
+  def testReadFromFile(self):
+    """Tests the ReadFromFile function."""
+    test_file_path = self._GetTestFilePath(['controlpanel_items.yaml'])
+    self._SkipIfPathNotExists(test_file_path)
+
+    test_definitions_file = (
+        yaml_definitions_file.YAMLControlPanelItemsDefinitionsFile())
+
+    definitions = list(test_definitions_file.ReadFromFile(test_file_path))
+
+    self.assertEqual(len(definitions), 4)
+
+    self.assertEqual(
+        definitions[0].identifier, '78cb147a-98ea-4aa6-b0df-c8681f69341c')
+    self.assertEqual(
+        definitions[3].identifier, 'fcfeecae-ee1b-4849-ae50-685dcf7717ec')
+
+
 class YAMLShellFoldersDefinitionsFileTest(test_lib.BaseTestCase):
   """Tests for the YAML-based shell folder definitions file."""
 
@@ -20,8 +92,8 @@ class YAMLShellFoldersDefinitionsFileTest(test_lib.BaseTestCase):
       'alternate_names': ['Computer', 'This PC'],
       'windows_versions': ['Windows XP 32-bit', 'Windows 10 (1511)']}
 
-  def testReadShellFolderfinition(self):
-    """Tests the _ReadShellFolderfinition function."""
+  def testReadShellFolderDefinition(self):
+    """Tests the _ReadShellFolderDefinition function."""
     test_definitions_file = (
         yaml_definitions_file.YAMLShellFoldersDefinitionsFile())
 

@@ -2,6 +2,25 @@
 """Windows shell resources."""
 
 
+class ControlPanelItemDefinition(object):
+  """Windows control panel item definition.
+
+  Attributes:
+    identifier (str): identifier.
+    module_name (str): module name.
+    name (str): name.
+    windows_versions (list[str]): Windows versions.
+  """
+
+  def __init__(self):
+    """Initializes a Windows control panel item definition."""
+    super(ControlPanelItemDefinition, self).__init__()
+    self.identifier = None
+    self.module_name = None
+    self.name = None
+    self.windows_versions = []
+
+
 class ShellFolderDefinition(object):
   """Windows shell folder definition.
 
@@ -9,7 +28,7 @@ class ShellFolderDefinition(object):
     alternate_names (list[str]): alternate names.
     class_name (str): class name.
     identifier (str): identifier.
-    names (set[str]): names.
+    name (str): name.
     windows_versions (list[str]): Windows versions.
   """
 

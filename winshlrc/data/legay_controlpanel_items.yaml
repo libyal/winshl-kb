@@ -1,0 +1,17 @@
+# winshl-kb controlpanel item definitions.
+---
+identifier: 087da31b-0dd3-4537-8e23-64a18591f88b
+module_name: "Windows Security Center"
+windows_versions: ["Windows Vista"]
+---
+identifier: 259ef4b1-e6c9-4176-b574-481532c9bce8
+module_name: "Game Controllers"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: d24f75aa-4f2b-4d07-a3c4-469b3d9030c4
+module_name: "Offline Files"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: 5224f545-a443-4859-ba23-7b5a95bdc8ef
+module_name: "People Near Me"
+windows_versions: ["Windows Vista", "Windows 7"]

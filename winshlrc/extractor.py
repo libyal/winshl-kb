@@ -79,6 +79,63 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
     """The Windows version (setter)."""
     self._windows_version = value
 
+  def _CollectShellFoldersFromKey(self, class_identifiers_key):
+    """Retrieves shell folders from a Windows Registry key.
+
+    Args:
+      class_identifiers_key (dfwinreg.RegistryKey): class identifiers Windows
+          Registry key.
+
+    Yields:
+      ShellFolder: shell folder.
+    """
+    for class_identifier_key in class_identifiers_key.GetSubkeys():
+      shell_folder_identifier = class_identifier_key.name.lower()
+      if (shell_folder_identifier[0] == '{' and
+          shell_folder_identifier[-1] == '}'):
+        shell_folder_identifier = shell_folder_identifier[1:-1]
+
+      shell_folder_key = class_identifier_key.GetSubkeyByName('ShellFolder')
+      if shell_folder_key:
+        name = self._GetShellFolderName(class_identifier_key)
+
+        if name and name[0] == '@' and ',-' in name:
+          path, string_identifier = name[1:].rsplit(',-', maxsplit=1)
+          if ';' in string_identifier:
+            string_identifier, _ = string_identifier.rsplit(';', maxsplit=1)
+          elif '#' in string_identifier:
+            string_identifier, _ = string_identifier.rsplit('#', maxsplit=1)
+          elif '@' in string_identifier:
+            string_identifier, _ = string_identifier.rsplit('@', maxsplit=1)
+
+          windows_resource_file = self._GetStringResourceFile(path)
+          if windows_resource_file:
+            try:
+              string_identifier = int(string_identifier, 10)
+              name = self._GetString(windows_resource_file, string_identifier)
+
+            except ValueError:
+              pass
+
+        value = class_identifier_key.GetValueByName('LocalizedString')
+        if value:
+          # The value data type does not have to be a string therefore try to
+          # decode the data as an UTF-16 little-endian string and strip
+          # the trailing end-of-string character
+          localized_string = value.data.decode('utf-16-le').rstrip('\x00')
+        else:
+          localized_string = None
+
+        shell_folder = ShellFolder(
+            identifier=shell_folder_identifier,
+            localized_string=localized_string)
+        if name and name.startswith('CLSID_'):
+          shell_folder.class_name = name
+        else:
+          shell_folder.name = name
+
+        yield shell_folder
+
   def _GetMUIWindowsResourceFile(self, windows_path, windows_resource_file):
     """Retrieves a MUI resource file.
 
@@ -111,6 +168,36 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
           f'{mui_windows_path:s}'))
 
     return mui_windows_resource_file
+
+  def _GetShellFolderName(self, class_identifier_key):
+    """Retrieves the shell folder name.
+
+    Args:
+      class_identifier_key (dfwinreg.RegistryKey): class identifier Windows
+          Registry key.
+
+    Returns:
+      str: shell folder name or None if not available.
+    """
+    value = class_identifier_key.GetValueByName('')
+    if not value or not value.data:
+      return None
+
+    # First try to decode the value data as an UTF-16 little-endian string with
+    # end-of-string character
+    try:
+      return value.data.decode('utf-16-le').rstrip('\x00')
+    except UnicodeDecodeError:
+      pass
+
+    # Next try to decode the value data as an ASCII string with a specific
+    # codepage and end-of-string character.
+    try:
+      return value.data.decode(self.ascii_codepage).rstrip('\x00')
+    except UnicodeDecodeError:
+      pass
+
+    return None
 
   def _GetString(self,  windows_resource_file, string_identifier):
     """Retrieves a string from a Windows resource file.
@@ -282,93 +369,18 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
 
     return windows_resource_file
 
-  def _GetShellFolderName(self, shell_folder_key):
-    """Retrieves the shell folder name.
-
-    Args:
-      shell_folder_key (dfwinreg.RegistryKey): shell folder Windows Registry
-          key.
-
-    Returns:
-      str: shell folder name or None if not available.
-    """
-    value = shell_folder_key.GetValueByName('')
-    if not value or not value.data:
-      return None
-
-    # First try to decode the value data as an UTF-16 little-endian string with
-    # end-of-string character
-    try:
-      return value.data.decode('utf-16-le').rstrip('\x00')
-    except UnicodeDecodeError:
-      pass
-
-    # Next try to decode the value data as an ASCII string with a specific
-    # codepage and end-of-string character.
-    try:
-      return value.data.decode(self.ascii_codepage).rstrip('\x00')
-    except UnicodeDecodeError:
-      pass
-
-    return None
-
   def CollectShellFolders(self):
     """Retrieves shell folders
 
     Yields:
       ShellFolder: shell folder.
     """
-    # TODO: Add support for per-user shell folders
-
     class_identifiers_key = self._registry.GetKeyByPath(
         self._CLASS_IDENTIFIERS_KEY_PATH)
     if class_identifiers_key:
-      for class_identifier_key in class_identifiers_key.GetSubkeys():
-        shell_folder_identifier = class_identifier_key.name.lower()
-        if (shell_folder_identifier[0] == '{' and
-            shell_folder_identifier[-1] == '}'):
-          shell_folder_identifier = shell_folder_identifier[1:-1]
+      yield from self._CollectShellFoldersFromKey(class_identifiers_key)
 
-        shell_folder_key = class_identifier_key.GetSubkeyByName('ShellFolder')
-        if shell_folder_key:
-          name = self._GetShellFolderName(shell_folder_key)
-
-          if name and name[0] == '@' and ',-' in name:
-            path, string_identifier = name[1:].rsplit(',-', maxsplit=1)
-            if ';' in string_identifier:
-              string_identifier, _ = string_identifier.rsplit(';', maxsplit=1)
-            elif '#' in string_identifier:
-              string_identifier, _ = string_identifier.rsplit('#', maxsplit=1)
-            elif '@' in string_identifier:
-              string_identifier, _ = string_identifier.rsplit('@', maxsplit=1)
-
-            windows_resource_file = self._GetStringResourceFile(path)
-            if windows_resource_file:
-              try:
-                string_identifier = int(string_identifier, 10)
-                name = self._GetString(windows_resource_file, string_identifier)
-
-              except ValueError:
-                pass
-
-          value = class_identifier_key.GetValueByName('LocalizedString')
-          if value:
-            # The value data type does not have to be a string therefore try to
-            # decode the data as an UTF-16 little-endian string and strip
-            # the trailing end-of-string character
-            localized_string = value.data.decode('utf-16-le').rstrip('\x00')
-          else:
-            localized_string = None
-
-          shell_folder = ShellFolder(
-              identifier=shell_folder_identifier,
-              localized_string=localized_string)
-          if name and name.startswith('CLSID_'):
-            shell_folder.class_name = name
-          else:
-            shell_folder.name = name
-
-          yield shell_folder
+    # TODO: Add support for per-user shell folders
 
   def ScanForWindowsVolume(self, source_path, options=None):
     """Scans for a Windows volume.

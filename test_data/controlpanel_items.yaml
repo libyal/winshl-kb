@@ -1,0 +1,17 @@
+# winshl-kb controlpanel item definitions observed.
+---
+identifier: 78cb147a-98ea-4aa6-b0df-c8681f69341c
+module_name: "CardSpace"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: 78f3955e-3b90-4184-bd14-5397c15f1efc
+module_name: "Performance Information and Tools"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0"]
+---
+identifier: 7a979262-40ce-46ff-aeee-7884ac3b6136
+module_name: "Add New Hardware"
+windows_versions: ["Windows Vista"]
+---
+identifier: fcfeecae-ee1b-4849-ae50-685dcf7717ec
+module_name: "Problem Reports and Solutions"
+windows_versions: ["Windows Vista"]

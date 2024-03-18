@@ -1,0 +1,309 @@
+# winshl-kb controlpanel item definitions observed.
+---
+identifier: 00f2886f-cd64-4fc9-8ec5-30ef6cdbe8c3
+module_name: "Scanner and Camera Control Panel"
+windows_versions: ["Windows Vista"]
+---
+identifier: 0142e4d0-fb7a-11dc-ba4a-000ffe7ab428
+module_name: "Biometrics"
+windows_versions: ["Windows 7", "Windows 8.0"]
+---
+identifier: 025a5937-a6be-4686-a844-36fe4bec8b6d
+module_name: "Power Options"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 05d7b0f4-2121-4eff-bf6b-ed3f69b894d9
+module_name: "Taskbar Notification Icons Control Panel"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1"]
+---
+identifier: 09f581a3-1f64-4e5b-8db3-88f5593080cc
+module_name: "x86 Control Panel"
+windows_versions: ["Windows XP 64-bit", "Windows Vista"]
+---
+identifier: 0df44eaa-ff21-4412-828e-260a8728e7f1
+module_name: "Taskbar and Start Menu"
+windows_versions: ["Windows Me", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit", "Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 1206f5f1-0569-412c-8fec-3204630dfb70
+module_name: "Credential Manager"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 15eae92e-f17a-4431-9f28-805e482dafd4
+module_name: "Install New Programs"
+windows_versions: ["Windows Vista"]
+---
+identifier: 17cd9488-1228-4b2f-88ce-4298e93e0966
+module_name: "Set User Defaults"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 2227a280-3aea-1069-a2de-08002b30309d
+module_name: "Printers"
+windows_versions: ["Windows Vista"]
+---
+identifier: 241d7c96-f8bf-4f85-b01f-e2b043341a4b
+module_name: "Workspaces Center"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 335a31dd-f04b-4d76-a925-d6b47cf360df
+module_name: "Backup and Restore Center"
+windows_versions: ["Windows Vista"]
+---
+identifier: 36eef7db-88ad-4e81-ad49-0e313f0c35f8
+module_name: "Windows Update"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1"]
+---
+identifier: 37efd44d-ef8d-41b1-940d-96973a50e9e0
+module_name: "Windows Sidebar Properties"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: 38a98528-6cbf-4ca9-8dc0-b1e1d10f7b1b
+module_name: "View Available Networks"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 3e7efb4c-faf1-453d-89eb-56026875ef90
+module_name: "Get Programs Online"
+windows_versions: ["Windows Vista"]
+---
+identifier: 4026492f-2f69-46b8-b9bf-5654fc07e423
+module_name: "Windows Defender Firewall"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 40419485-c444-4567-851a-2dd7bfa1684d
+module_name: "Phone and Modem"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 58e3c745-d971-4081-9034-86e34b30836a
+module_name: "Speech Recognition"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 5ea4f148-308c-46d7-98a9-49041b1dd468
+module_name: "Mobility Center"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 60632754-c523-4b62-b45c-4172da012619
+module_name: "User Accounts"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 62d8ed13-c9d0-4ce8-a914-47dd628fb1b0
+module_name: "Region and Language"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 640167b4-59b0-47a6-b335-a6b3c0695aea
+module_name: "Portable Media Devices"
+windows_versions: ["Windows 2003"]
+---
+identifier: 67ca7650-96e6-4fdd-bb43-a8e774f73a57
+module_name: "HomeGroup Control Panel"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)"]
+---
+identifier: 6c8eec18-8d75-41b2-a177-8831d59d2d50
+module_name: "Mouse"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 6dfd7c5c-2451-11d3-a299-00c04f8ef6af
+module_name: "Folder Options"
+windows_versions: ["Windows Me", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit", "Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 7007acc7-3202-11d1-aad2-00805fc1270e
+module_name: "Network Connections"
+windows_versions: ["Windows 2000", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit"]
+---
+identifier: 725be8f7-668e-4c7b-8f90-46bdb0936430
+module_name: "Keyboard"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 74246bfc-4c96-11d0-abef-0020af6b0b7a
+module_name: "Device Manager"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 78cb147a-98ea-4aa6-b0df-c8681f69341c
+module_name: "CardSpace"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: 78f3955e-3b90-4184-bd14-5397c15f1efc
+module_name: "Performance Information and Tools"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0"]
+---
+identifier: 7a979262-40ce-46ff-aeee-7884ac3b6136
+module_name: "Add New Hardware"
+windows_versions: ["Windows Vista"]
+---
+identifier: 7a9d77bd-5403-11d2-8785-2e0420524153
+module_name: 7A9D77BD-5403-11d2-8785-2E0420524153
+windows_versions: ["Windows 2000"]
+---
+identifier: 7b81be6a-ce2b-4676-a29e-eb907a5126c5
+module_name: "Programs and Features"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 80f3f1d5-feca-45f3-bc32-752c152e456e
+module_name: "Tablet PC Settings"
+windows_versions: ["Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 87d66a43-7b11-4a28-9811-c86ee395acf7
+module_name: "Indexing Options"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 8e0c279d-0bd1-43c3-9ebd-31c3dc5b8a77
+module_name: "Portable Workspace Creator"
+windows_versions: ["Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)"]
+---
+identifier: 8e908fc9-becc-40f6-915b-f4ca0e70d03d
+module_name: "Network and Sharing Center"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 96ae8d84-a250-4520-95a5-a47a7e3c548b
+module_name: "Parental Controls"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: 98f2ab62-0e29-4e4c-8ee7-b542e66740b1
+module_name: "Company Settings Sync"
+windows_versions: ["Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 992cffa0-f557-101a-88ec-00dd010ccc48
+module_name: "Dial-Up Networking"
+windows_versions: ["Windows Me"]
+---
+identifier: 9c60de1e-e5fc-40f4-a487-460851a8d915
+module_name: "AutoPlay"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 9c73f5e5-7ae7-4e32-a8e8-8d23b85255bf
+module_name: "Sync Center Folder"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 9fe63afd-59cf-4419-9775-abcc3849f861
+module_name: "Recovery"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: a0275511-0e86-4eca-97c2-ecd8f1221d08
+module_name: "Infrared"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)"]
+---
+identifier: a304259d-52b8-4526-8b1a-a1d6cecc8243
+module_name: "iSCSI Initiator"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 2012", "Windows 2016", "Windows 2019"]
+---
+identifier: a3dd4f92-658a-410f-84fd-6fbbbef2fffe
+module_name: "Internet Options"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: a8a91a66-3a7d-4424-8d24-04e180695c7a
+module_name: "Device Center"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: b2c761c6-29bc-4f19-9251-e6195265baf1
+module_name: "Color Management"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: b98a2bea-7d42-4558-8bd1-832f41bac6fd
+module_name: "Windows 7 File Recovery"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)"]
+---
+identifier: bb06c0e4-d293-4f75-8a90-cb05b6477eee
+module_name: "System"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: bb64f8a7-bee7-4e1a-ab8d-7d8273f7fdb6
+module_name: "Security and Maintenance CPL"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: bd84b380-8ca2-1069-ab1d-08000948f534
+module_name: "Font Folder"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: be122a0e-4503-11da-8bde-f66bad1e3f3a
+module_name: "Windows Anytime Upgrade"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: bf782cc9-5a52-4a17-806c-2a894ffeeac5
+module_name: "Language Settings"
+windows_versions: ["Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 2016"]
+---
+identifier: c555438b-3c23-4769-a71f-b6d3d9b6053a
+module_name: "Display"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 2016"]
+---
+identifier: c58c4893-3be0-4b45-abb5-a63e4b8c8651
+module_name: "Troubleshooting"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: cb1b7f8c-c50a-4176-b604-9e24dee8d4d1
+module_name: "Getting Started"
+windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: d17d1d6d-cc3f-4815-8fe3-607e7d5d10b3
+module_name: "Text to Speech"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: d20ea4e1-3957-11d2-a40b-0c5020524152
+module_name: "Fonts"
+windows_versions: ["Windows 2000", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit", "Windows Vista"]
+---
+identifier: d20ea4e1-3957-11d2-a40b-0c5020524153
+module_name: "Windows Tools"
+windows_versions: ["Windows 2000", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit", "Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: d555645e-d4f8-4c29-a827-d93c859c4f2a
+module_name: "Ease of Access"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: d6277990-4c6a-11cf-8d87-00aa0060f5bf
+module_name: "Scheduled Tasks"
+windows_versions: ["Windows 2000", "Windows Me", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit"]
+---
+identifier: d8559eb9-20c0-410e-beda-7ed416aecc2a
+module_name: "Windows Defender"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 2016"]
+---
+identifier: d9ef8727-cac2-4e60-809e-86f80a666c91
+module_name: "Secure Startup"
+windows_versions: ["Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)"]
+---
+identifier: e211b736-43fd-11d1-9efb-0000f8757fcd
+module_name: "Scanners & Cameras"
+windows_versions: ["Windows Me", "Windows XP 32-bit", "Windows 2003", "Windows XP 64-bit"]
+---
+identifier: e2e7934b-dce5-43c4-9576-7fe4f75e7480
+module_name: "Date and Time"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: e7de9b1a-7533-4556-9484-b26fb486475e
+module_name: "Network Map"
+windows_versions: ["Windows Vista", "Windows 2008", "Windows 7"]
+---
+identifier: e95a4861-d57a-4be1-ad0f-35267e261739
+module_name: "Windows SideShow"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0"]
+---
+identifier: e9950154-c418-419e-a90a-20c5287ae24b
+module_name: "Sensors"
+windows_versions: ["Windows 7", "Windows 8.0", "Windows 8.1"]
+---
+identifier: ecdb0924-4208-451e-8ee0-373c0956de16
+module_name: "ECS"
+windows_versions: ["Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)"]
+---
+identifier: ed834ed6-4b5a-4bfe-8f11-a626dcb6a921
+module_name: "Personalization"
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: f2ddfc82-8f12-4cdd-b7dc-d4fe1425aa4d
+module_name: "Sound"
+windows_versions: ["Windows 2008", "Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: f6b6e965-e9b2-444b-9286-10c9152edbc5
+module_name: "History Vault"
+windows_versions: ["Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)"]
+---
+identifier: f82df8f7-8b9f-442e-a48c-818ea735ff9b
+module_name: "Pen and Touch"
+windows_versions: ["Windows 7", "Windows 2012", "Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: f942c606-0914-47ab-be56-1321b8035096
+module_name: "Storage Spaces"
+windows_versions: ["Windows 8.0", "Windows 8.1", "Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 11 (21H2)"]
+---
+identifier: fcfeecae-ee1b-4849-ae50-685dcf7717ec
+module_name: "Problem Reports and Solutions"
+windows_versions: ["Windows Vista"]

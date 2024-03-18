@@ -1,0 +1,271 @@
+# winshl-kb controlpanel item definitions defined by Microsoft.
+---
+name: "Microsoft.ActionCenter"
+identifier: bb64f8a7-bee7-4e1a-ab8d-7d8273f7fdb6
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\ActionCenterCPL.dll,-1"
+---
+name: "Microsoft.AdministrativeTools"
+identifier: d20ea4e1-3957-11d2-a40b-0c5020524153
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\shell32.dll,-22982"
+---
+name: "Microsoft.AutoPlay"
+identifier: 9c60de1e-e5fc-40f4-a487-460851a8d915
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\autoplay.dll,-1"
+---
+name: "Microsoft.BiometricDevices"
+identifier: 0142e4d0-fb7a-11dc-ba4a-000ffe7ab428
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\biocpl.dll,-1"
+---
+name: "Microsoft.BitLockerDriveEncryption"
+identifier: d9ef8727-cac2-4e60-809e-86f80a666c91
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\fvecpl.dll,-1"
+---
+name: "Microsoft.ColorManagement"
+identifier: b2c761c6-29bc-4f19-9251-e6195265baf1
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%systemroot%\\system32\\colorcpl.exe,-6"
+---
+name: "Microsoft.CredentialManager"
+identifier: 1206f5f1-0569-412c-8fec-3204630dfb70
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\Vault.dll,-1"
+---
+name: "Microsoft.DateAndTime"
+identifier: e2e7934b-dce5-43c4-9576-7fe4f75e7480
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\timedate.cpl,-51"
+---
+name: "Microsoft.DefaultPrograms"
+identifier: 17cd9488-1228-4b2f-88ce-4298e93e0966
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\sud.dll,-1"
+---
+name: "Microsoft.DeviceManager"
+identifier: 74246bfc-4c96-11d0-abef-0020af6b0b7a
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\devmgr.dll,-4"
+---
+name: "Microsoft.DevicesAndPrinters"
+identifier: a8a91a66-3a7d-4424-8d24-04e180695c7a
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%systemroot%\\system32\\DeviceCenter.dll,-1000"
+---
+name: "Microsoft.Display"
+identifier: c555438b-3c23-4769-a71f-b6d3d9b6053a
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\Display.dll,-1"
+---
+name: "Microsoft.EaseOfAccessCenter"
+identifier: d555645e-d4f8-4c29-a827-d93c859c4f2a
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\accessibilitycpl.dll,-10"
+---
+name: "Microsoft.ParentalControls"
+identifier: 96ae8d84-a250-4520-95a5-a47a7e3c548b
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\wpccpl.dll,-100"
+---
+name: "Microsoft.FileHistory"
+identifier: f6b6e965-e9b2-444b-9286-10c9152edbc5
+windows_versions: ["Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\fhcpl.dll,-52"
+---
+name: "Microsoft.FolderOptions"
+identifier: 6dfd7c5c-2451-11d3-a299-00c04f8ef6af
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\shell32.dll,-22985"
+---
+name: "Microsoft.Fonts"
+identifier: 93412589-74d4-4e4e-ad0e-e0cb621440fd
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\FontExt.dll,-8007"
+---
+name: "Microsoft.HomeGroup"
+identifier: 67ca7650-96e6-4fdd-bb43-a8e774f73a57
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\hgcpl.dll,-1"
+---
+name: "Microsoft.IndexingOptions"
+identifier: 87d66a43-7b11-4a28-9811-c86ee395acf7
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\srchadmin.dll,-601"
+---
+name: "Microsoft.Infrared"
+identifier: a0275511-0e86-4eca-97c2-ecd8f1221d08
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\irprops.cpl,-1"
+---
+name: "Microsoft.InternetOptions"
+identifier: a3dd4f92-658a-410f-84fd-6fbbbef2fffe
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@C:\\Windows\\System32\\inetcpl.cpl,-4312"
+---
+name: "Microsoft.iSCSIInitiator"
+identifier: a304259d-52b8-4526-8b1a-a1d6cecc8243
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\iscsicpl.dll,-5001"
+---
+name: "Microsoft.iSNSServer"
+identifier: 0d2a3442-5181-4e3a-9bd4-83bd10af3d76
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\isnssrv.dll,-5005"
+---
+name: "Microsoft.Keyboard"
+identifier: 725be8f7-668e-4c7b-8f90-46bdb0936430
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\main.cpl,-102"
+---
+name: "Microsoft.LocationSettings"
+identifier: e9950154-c418-419e-a90a-20c5287ae24b
+windows_versions: ["Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\SensorsCpl.dll,-1"
+---
+name: "Microsoft.Mouse"
+identifier: 6c8eec18-8d75-41b2-a177-8831d59d2d50
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\main.cpl,-100"
+---
+name: "Microsoft.MPIOConfiguration"
+identifier: ab3be6aa-7561-4838-ab77-acf8427df426
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\mpiocpl.dll,-1000"
+---
+name: "Microsoft.NetworkAndSharingCenter"
+identifier: 8e908fc9-becc-40f6-915b-f4ca0e70d03d
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\netcenter.dll,-1"
+---
+name: "Microsoft.NotificationAreaIcons"
+identifier: 05d7b0f4-2121-4eff-bf6b-ed3f69b894d9
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\taskbarcpl.dll,-1"
+---
+name: "Microsoft.PenAndTouch"
+identifier: f82df8f7-8b9f-442e-a48c-818ea735ff9b
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\tabletpc.cpl,-10103"
+---
+name: "Microsoft.Personalization"
+identifier: ed834ed6-4b5a-4bfe-8f11-a626dcb6a921
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\themecpl.dll,-1"
+---
+name: "Microsoft.PhoneAndModem"
+identifier: 40419485-c444-4567-851a-2dd7bfa1684d
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\telephon.cpl,-1"
+---
+name: "Microsoft.PowerOptions"
+identifier: 025a5937-a6be-4686-a844-36fe4bec8b6d
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\powercpl.dll,-1"
+---
+name: "Microsoft.ProgramsAndFeatures"
+identifier: 7b81be6a-ce2b-4676-a29e-eb907a5126c5
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%systemroot%\\system32\\appwiz.cpl,-159"
+---
+name: "Microsoft.Recovery"
+identifier: 9fe63afd-59cf-4419-9775-abcc3849f861
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\recovery.dll,-101"
+---
+name: "Microsoft.RegionAndLanguage"
+identifier: 62d8ed13-c9d0-4ce8-a914-47dd628fb1b0
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\intl.cpl,-1"
+---
+name: "Microsoft.RemoteAppAndDesktopConnections"
+identifier: 241d7c96-f8bf-4f85-b01f-e2b043341a4b
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\tsworkspace.dll,-15300"
+---
+name: "Microsoft.Sound"
+identifier: f2ddfc82-8f12-4cdd-b7dc-d4fe1425aa4d
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\mmsys.cpl,-300"
+---
+name: "Microsoft.SpeechRecognition"
+identifier: 58e3c745-d971-4081-9034-86e34b30836a
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\Speech\\SpeechUX\\speechuxcpl.dll,-1"
+---
+name: "Microsoft.StorageSpaces"
+identifier: f942c606-0914-47ab-be56-1321b8035096
+windows_versions: ["Windows 8", "Windows 8.1"]
+module_name: "@C:\\Windows\\System32\\SpaceControl.dll,-1"
+---
+name: "Microsoft.SyncCenter"
+identifier: 9c73f5e5-7ae7-4e32-a8e8-8d23b85255bf
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\SyncCenter.dll,-3000"
+---
+name: "Microsoft.System"
+identifier: bb06c0e4-d293-4f75-8a90-cb05b6477eee
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\systemcpl.dll,-1"
+---
+name: "Microsoft.TabletPCSettings"
+identifier: 80f3f1d5-feca-45f3-bc32-752c152e456e
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\tabletpc.cpl,-10100"
+---
+name: "Microsoft.Taskbar"
+identifier: 0df44eaa-ff21-4412-828e-260a8728e7f1
+windows_versions: ["Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\shell32.dll,-32517"
+---
+name: "Microsoft.Troubleshooting"
+identifier: c58c4893-3be0-4b45-abb5-a63e4b8c8651
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\DiagCpl.dll,-1"
+---
+name: "Microsoft.TSAppInstall"
+identifier: baa884f4-3432-48b8-aa72-9bf20eef31d5
+windows_versions: ["Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%systemroot%\\system32\\tsappinstall.exe,-2001"
+---
+name: "Microsoft.UserAccounts"
+identifier: 60632754-c523-4b62-b45c-4172da012619
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\usercpl.dll,-1"
+---
+name: "Microsoft.WindowsAnytimeUpgrade"
+identifier: be122a0e-4503-11da-8bde-f66bad1e3f3a
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@$(resourceString.\_SYS\_MOD\_PATH),-1"
+---
+name: "Microsoft.WindowsDefender"
+identifier: d8559eb9-20c0-410e-beda-7ed416aecc2a
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%ProgramFiles%\\Windows Defender\\MsMpRes.dll,-104"
+---
+name: "Microsoft.WindowsFirewall"
+identifier: 4026492f-2f69-46b8-b9bf-5654fc07e423
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@C:\\Windows\\system32\\FirewallControlPanel.dll,-12122"
+---
+name: "Microsoft.MobilityCenter"
+identifier: 5ea4f148-308c-46d7-98a9-49041b1dd468
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\mblctr.exe,-1002"
+---
+name: "Microsoft.PortableWorkspaceCreator"
+identifier: 8e0c279d-0bd1-43c3-9ebd-31c3dc5b8a77
+windows_versions: ["Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\System32\\pwcreator.exe,-151"
+---
+name: "Microsoft.WindowsUpdate"
+identifier: 36eef7db-88ad-4e81-ad49-0e313f0c35f8
+windows_versions: ["Windows Vista", "Windows 7", "Windows 8", "Windows 8.1"]
+module_name: "@%SystemRoot%\\system32\\wucltux.dll,-1"
+---
+name: "Microsoft.WorkFolders"
+identifier: ecdb0924-4208-451e-8ee0-373c0956de16
+windows_versions: ["Windows 8.1"]
+module_name: "@C:\\Windows\\System32\\WorkfoldersControl.dll,-1"

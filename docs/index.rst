@@ -1,13 +1,17 @@
 Welcome to the winshl-kb documentation
 ======================================
 
-winshl-kb is a project to build a Windows Serialized Property Store (SPS)
-Knowledge Base.
+winshl-kb is a project to build a Windows shell Knowledge Base.
 
-winshl is a Python module part of winshl-kb to allow reuse of Windows Serialized
-Property Store (SPS) Resources.
+winshlrc is a Python module part of winshl-kb to allow reuse of Windows shell
+resources.
 
 The source code is available from the `project page <https://github.com/libyal/winshl-kb>`__.
+
+.. toctree::
+   :maxdepth: 1
+
+   sources/control-panel-items/index
 
 .. toctree::
    :maxdepth: 1

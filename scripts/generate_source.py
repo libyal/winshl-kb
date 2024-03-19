@@ -224,6 +224,219 @@ const char *libfwsi_control_panel_item_identifier_get_name(
       file_object.write(self._H_FILE_FOOTER)
 
 
+class LibfwsiKnownFolderIdentifierGenerator(object):
+  """Generator for libfwsi known_folder_identifier.[ch] source code."""
+
+  _C_FILE_HEADER = """\
+/*
+ * Known folder identifier functions
+ *
+ * Copyright (C) 2010-2024, Joachim Metz <joachim.metz@gmail.com>
+ *
+ * Refer to AUTHORS for acknowledgements.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#include <common.h>
+#include <memory.h>
+#include <types.h>
+
+#include "libfwsi_known_folder_identifier.h"
+#include "libfwsi_libcerror.h"
+
+"""
+
+  _C_FILE_MIDDLE = """\
+
+uint8_t libfwsi_known_folder_identifier_unknown[ 16 ] = {
+\t0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
+
+/* The known folder identifiers
+ */
+libfwsi_known_folder_identifier_definition_t libfwsi_known_folder_identifier_definitions[ ] = {
+
+"""
+
+  _C_FILE_FOOTER = """\
+
+\t{ libfwsi_known_folder_identifier_unknown,
+\t  "Unknown" } };
+
+/* Retrieves a string containing the name of the folder identifier
+ */
+const char *libfwsi_known_folder_identifier_get_name(
+             const uint8_t *known_folder_identifier )
+{
+\tint iterator = 0;
+
+\tif( known_folder_identifier == NULL )
+\t{
+\t\treturn( "Invalid known folder identifier" );
+\t}
+\twhile( memory_compare(
+\t        ( libfwsi_known_folder_identifier_definitions[ iterator ] ).identifier,
+\t        libfwsi_known_folder_identifier_unknown,
+\t        16 ) != 0 )
+\t{
+\t\tif( memory_compare(
+\t\t     ( libfwsi_known_folder_identifier_definitions[ iterator ] ).identifier,
+\t\t     known_folder_identifier,
+\t\t     16 ) == 0 )
+\t\t{
+\t\t\tbreak;
+\t\t}
+\t\titerator++;
+\t}
+\treturn(
+\t ( libfwsi_known_folder_identifier_definitions[ iterator ] ).name );
+}
+
+"""
+
+  _H_FILE_HEADER = """\
+/*
+ * Known folder identifier functions
+ *
+ * Copyright (C) 2010-2024, Joachim Metz <joachim.metz@gmail.com>
+ *
+ * Refer to AUTHORS for acknowledgements.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#if !defined( _LIBFWSI_SHELL_FOLDER_IDENTIFIER_H )
+#define _LIBFWSI_SHELL_FOLDER_IDENTIFIER_H
+
+#include <common.h>
+#include <types.h>
+
+#include "libfwsi_extern.h"
+#include "libfwsi_libcerror.h"
+
+#if defined( __cplusplus )
+extern "C" {
+#endif
+
+/* The CLSID is stored as a little endian GUID
+ */
+typedef struct libfwsi_known_folder_identifier_definition libfwsi_known_folder_identifier_definition_t;
+
+struct libfwsi_known_folder_identifier_definition
+{
+\t/* The identifier
+\t */
+\tuint8_t *identifier;
+
+\t/* The name
+\t */
+\tconst char *name;
+};
+
+"""
+
+  _H_FILE_FOOTER = """\
+
+extern uint8_t libfwsi_known_folder_identifier_unknown[ 16 ];
+
+LIBFWSI_EXTERN \\
+const char *libfwsi_known_folder_identifier_get_name(
+             const uint8_t *known_folder_identifier );
+
+#if defined( __cplusplus )
+}
+#endif
+
+#endif /* !defined( _LIBFWSI_SHELL_FOLDER_IDENTIFIER_H ) */
+
+"""
+
+  def __init__(self, path):
+    """Initializes a libfwsi known_folder_identifier.[ch] generator.
+
+    Args:
+      path (str): path.
+    """
+    super(LibfwsiKnownFolderIdentifierGenerator, self).__init__()
+    self._path = path
+
+  def GenerateCFile(self, known_folders):
+    """Generates the C source code file.
+
+    Args:
+      known_folders (dict[str, KnownFolderDefinition]): known folders per name.
+    """
+    output_path = os.path.join(
+        self._path, 'libfwsi', 'libfwsi_known_folder_identifier.c')
+    with open(output_path, 'w', encoding='utf8') as file_object:
+      file_object.write(self._C_FILE_HEADER)
+
+      for name, known_folder_definition in sorted(known_folders.items()):
+        identifier = uuid.UUID(known_folder_definition.identifier)
+        byte_values = ', '.join(
+            f'0x{byte_value:02x}' for byte_value in identifier.bytes_le)
+
+        file_object.write((
+            f'uint8_t libfwsi_known_folder_identifier_{name:s}[ 16 ] = {{\n'
+            f'\t{byte_values:s} }};\n'
+            '\n'))
+
+      file_object.write(self._C_FILE_MIDDLE)
+
+      for name, known_folder_definition in sorted(known_folders.items()):
+        name_string = known_folder_definition.name
+        if 'delegate folder that appears in ' in name_string:
+          name_string = name_string.replace(
+              'delegate folder that appears in ', '')
+          name_string = ''.join([name_string, ' (delegate folder)'])
+
+        file_object.write((
+            f'\t{{ libfwsi_known_folder_identifier_{name:s},\n'
+            f'\t  "{name_string:s}" }},\n'))
+
+      file_object.write(self._C_FILE_FOOTER)
+
+  def GenerateHFile(self, known_folders):
+    """Generates the H source code file.
+
+    Args:
+      known_folders (dict[str, KnownFolderDefinition]): known folders per name.
+    """
+    output_path = os.path.join(
+        self._path, 'libfwsi', 'libfwsi_known_folder_identifier.h')
+    with open(output_path, 'w', encoding='utf8') as file_object:
+      file_object.write(self._H_FILE_HEADER)
+
+      for name in sorted(known_folders):
+        file_object.write((
+            f'extern uint8_t '
+            f'libfwsi_known_folder_identifier_{name:s}[ 16 ];\n'))
+
+      file_object.write(self._H_FILE_FOOTER)
+
+
 class LibfwsiShellFolderIdentifierGenerator(object):
   """Generator for libfwsi shell_folder_identifier.[ch] source code."""
 
@@ -556,6 +769,41 @@ def Main():
       generator = LibfwsiControlPanelItemIdentifierGenerator(options.output)
       generator.GenerateCFile(control_panel_items_per_name)
       generator.GenerateHFile(control_panel_items_per_name)
+
+  elif data_header.startswith('# winshl-kb knownfolder definitions'):
+    definitions_file = yaml_definitions_file.YAMLKnownFoldersDefinitionsFile()
+
+    if options.format == 'libfwsi':
+      known_folders_per_name = {}
+      for known_folder_definition in definitions_file.ReadFromFile(
+          options.source):
+        name = known_folder_definition.name
+        if not name or name[0] == '@':
+          continue
+
+        name = name.lower()
+        name = name.replace(' ', '_')
+        name = name.replace('-', '')
+        name = name.replace('&', 'and')
+
+        if 'delegate_folder_that_appears_in_' in name:
+          name = name.replace('delegate_folder_that_appears_in_', '')
+          name = f'{name:s}_delegate_folder'
+
+        if name in known_folders_per_name:
+          new_name = name
+          name_suffix = 2
+          while new_name in known_folders_per_name:
+            new_name = f'{name:s}{name_suffix:d}'
+            name_suffix += 1
+
+          name = new_name
+
+        known_folders_per_name[name] = known_folder_definition
+
+      generator = LibfwsiKnownFolderIdentifierGenerator(options.output)
+      generator.GenerateCFile(known_folders_per_name)
+      generator.GenerateHFile(known_folders_per_name)
 
   elif data_header.startswith('# winshl-kb shellfolder definitions'):
     definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()

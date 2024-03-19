@@ -160,6 +160,144 @@ class ControlPanelItemMarkdownOutputWriter(object):
     self._file_object.write(text)
 
 
+class KnownFoldersIndexRstOutputWriter(object):
+  """Known folders Index.rst output writer."""
+
+  def __init__(self, path):
+    """Initializes a known folders index.rst output writer."""
+    super(KnownFoldersIndexRstOutputWriter, self).__init__()
+    self._file_object = None
+    self._path = path
+
+  def __enter__(self):
+    """Make this work with the 'with' statement."""
+    self._file_object = open(self._path, 'w', encoding='utf-8')
+
+    text = '\n'.join([
+        '#############',
+        'Known Folders',
+        '#############',
+        '',
+        '.. toctree::',
+        '   :maxdepth: 1',
+        '',
+        ''])
+    self._file_object.write(text)
+
+    return self
+
+  def __exit__(self, exception_type, value, traceback):
+    """Make this work with the 'with' statement."""
+    self._file_object.close()
+    self._file_object = None
+
+  def WriteKnownFolder(self, known_folder_identifier):
+    """Writes a known folder to the index.rst file.
+
+    Args:
+      known_folder_identifier (str): known folder identifier.
+    """
+    self._file_object.write(
+        f'   {known_folder_identifier:s} <{known_folder_identifier:s}>\n')
+
+
+class KnownFolderMarkdownOutputWriter(object):
+  """Known folder Markdown output writer."""
+
+  _WINDOWS_VERSIONS_KEY_FUNCTION = versions.WindowsVersions.KeyFunction
+
+  def __init__(self, path):
+    """Initializes a known folder Markdown output writer."""
+    super(KnownFolderMarkdownOutputWriter, self).__init__()
+    self._file_object = None
+    self._path = path
+
+  def __enter__(self):
+    """Make this work with the 'with' statement."""
+    self._file_object = open(self._path, 'w', encoding='utf-8')
+    return self
+
+  def __exit__(self, exception_type, value, traceback):
+    """Make this work with the 'with' statement."""
+    self._file_object.close()
+    self._file_object = None
+
+  def WriteKnownFolder(self, known_folder_definition):
+    """Writes a known folder to a Markdown file.
+
+    Args:
+      known_folder_definition (KnownFolderDefinition): known folder definition.
+    """
+    lines = [
+        f'## {known_folder_definition.identifier:s}',
+        '']
+
+    if known_folder_definition.windows_versions:
+      versions_per_prefix = {}
+      for version in sorted(known_folder_definition.windows_versions):
+        for prefix in ('Windows 10', 'Windows 11', None):
+          if prefix and version.startswith(prefix):
+            break
+
+        if not prefix:
+          versions_per_prefix[version] = []
+        else:
+          if prefix not in versions_per_prefix:
+            versions_per_prefix[prefix] = []
+          versions_per_prefix[prefix].append(version[len(prefix) + 2:-1])
+
+      lines.append('Seen on:')
+
+      for prefix, sub_versions in sorted(
+          versions_per_prefix.items(),
+          key=lambda item: self._WINDOWS_VERSIONS_KEY_FUNCTION(item[0])):
+        if not sub_versions:
+          line = f'* {prefix:s}'
+        else:
+          sub_versions_string = ', '.join(sub_versions)
+          line = f'* {prefix:s} ({sub_versions_string:s})'
+
+        lines.append(line)
+
+      lines.append('')
+
+    lines.extend([
+        '<table border="1" class="docutils">',
+        '  <tbody>'])
+
+    name = known_folder_definition.name or '&nbsp;'
+
+    lines.extend([
+        '    <tr>',
+        '      <td><b>Name:</b></td>',
+        f'      <td>{name:s}</td>',
+        '    </tr>'])
+
+    if known_folder_definition.alternate_names:
+      for index, name in enumerate(known_folder_definition.alternate_names):
+        if index == 0:
+          lines.extend([
+              '    <tr>',
+              '      <td><b>Alternate name(s):</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
+        else:
+          lines.extend([
+              '    <tr>',
+              '      <td>&nbsp;</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
+
+    lines.extend([
+        '  </tbody>',
+        '</table>',
+        '',
+        ''])
+
+    text = '\n'.join(lines)
+    self._file_object.write(text)
+
+
 class ShellFoldersIndexRstOutputWriter(object):
   """Shell folders Index.rst output writer."""
 
@@ -344,6 +482,28 @@ def Main():
       with ControlPanelItemMarkdownOutputWriter(
           markdown_file_path) as markdown_writer:
         markdown_writer.WriteControlPanelItem(control_panel_item_definition)
+
+  definitions_file = yaml_definitions_file.YAMLKnownFoldersDefinitionsFile()
+
+  known_folders = {}
+
+  path = os.path.join(data_path, 'observed_knownfolders.yaml')
+  for known_folder_definition in definitions_file.ReadFromFile(path):
+    known_folders[known_folder_definition.identifier] = known_folder_definition
+
+  output_directory = os.path.join('docs', 'sources', 'known-folders')
+  os.makedirs(output_directory, exist_ok=True)
+
+  index_rst_file_path = os.path.join(output_directory, 'index.rst')
+  with KnownFoldersIndexRstOutputWriter(
+      index_rst_file_path) as index_rst_writer:
+    for identifier, known_folder_definition in sorted(known_folders.items()):
+      index_rst_writer.WriteKnownFolder(identifier)
+
+      markdown_file_path = os.path.join(output_directory, f'{identifier:s}.md')
+      with KnownFolderMarkdownOutputWriter(
+          markdown_file_path) as markdown_writer:
+        markdown_writer.WriteKnownFolder(known_folder_definition)
 
   definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
 

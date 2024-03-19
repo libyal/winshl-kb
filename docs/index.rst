@@ -16,6 +16,11 @@ The source code is available from the `project page <https://github.com/libyal/w
 .. toctree::
    :maxdepth: 1
 
+   sources/known-folders/index
+
+.. toctree::
+   :maxdepth: 1
+
    sources/shell-folders/index
 
 .. toctree::

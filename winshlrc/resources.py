@@ -23,6 +23,25 @@ class ControlPanelItemDefinition(object):
     self.windows_versions = []
 
 
+class KnownFolderDefinition(object):
+  """Windows known folder definition.
+
+  Attributes:
+    alternate_names (list[str]): alternate names.
+    identifier (str): identifier.
+    name (str): name.
+    windows_versions (list[str]): Windows versions.
+  """
+
+  def __init__(self):
+    """Initializes a Windows known folder definition."""
+    super(KnownFolderDefinition, self).__init__()
+    self.alternate_names = []
+    self.identifier = None
+    self.name = None
+    self.windows_versions = []
+
+
 class ShellFolderDefinition(object):
   """Windows shell folder definition.
 

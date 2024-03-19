@@ -18,7 +18,8 @@ class YAMLControlPanelItemsDefinitionsFile(object):
   windows_versions: ["Windows XP 32-bit", "Windows 10 (1511)"]
 
   Where:
-  * alternate_module_names, defines alternate module names of the shell folder;
+  * alternate_module_names, defines alternate module names of the control panel
+    item;
   * identifier, defines the control panel item identifier;
   * module_name, defines the module name of the control panel item;
   * name, defines the name of the control panel item;
@@ -101,6 +102,95 @@ class YAMLControlPanelItemsDefinitionsFile(object):
       for yaml_control_panel_item_definition in self._ReadFromFileObject(
           file_object):
         yield yaml_control_panel_item_definition
+
+
+class YAMLKnownFoldersDefinitionsFile(object):
+  """YAML-based known folders definitions file.
+
+  A YAML-based known folders definitions file contains one or more known folder
+  definitions. A known folder definition consists of:
+
+  identifier: 20d04fe0-3aea-1069-a2d8-08002b30309d
+  name: "My Computer"
+  alternate_names: ["Computer", "This PC"]
+  windows_versions: ["Windows XP 32-bit", "Windows 10 (1511)"]
+
+  Where:
+  * alternate_names, defines alternate names of the known folder;
+  * identifier, defines the known folder identifier;
+  * name, defines the name of the known folder;
+  * windows_versions, defines Windows versions the known folder was seen.
+  """
+
+  _SUPPORTED_KEYS = frozenset([
+      'alternate_names',
+      'identifier',
+      'name',
+      'windows_versions'])
+
+  def _ReadKnownFolderDefinition(self, yaml_known_folder_definition):
+    """Reads a known folder definition from a dictionary.
+
+    Args:
+      yaml_known_folder_definition (dict[str, object]): YAML known folder
+          definition values.
+
+    Returns:
+      KnownFolderDefinition: known folder definition.
+
+    Raises:
+      RuntimeError: if the format of the formatter definition is not set
+          or incorrect.
+    """
+    if not yaml_known_folder_definition:
+      raise RuntimeError('Missing known folder definition values.')
+
+    different_keys = set(yaml_known_folder_definition) - self._SUPPORTED_KEYS
+    if different_keys:
+      different_keys = ', '.join(different_keys)
+      raise RuntimeError('Undefined keys: {0:s}'.format(different_keys))
+
+    identifier = yaml_known_folder_definition.get('identifier', None)
+    if not identifier:
+      raise RuntimeError('Invalid known folder definition missing identifier.')
+
+    known_folder_definition = resources.KnownFolderDefinition()
+    known_folder_definition.alternate_names = (
+        yaml_known_folder_definition.get('alternate_names', []))
+    known_folder_definition.identifier = identifier
+    known_folder_definition.name = (
+        yaml_known_folder_definition.get('name', None))
+    known_folder_definition.windows_versions = (
+        yaml_known_folder_definition.get('windows_versions', []))
+
+    return known_folder_definition
+
+  def _ReadFromFileObject(self, file_object):
+    """Reads the event formatters from a file-like object.
+
+    Args:
+      file_object (file): formatters file-like object.
+
+    Yields:
+      KnownFolderDefinition: known folder definition.
+    """
+    yaml_generator = yaml.safe_load_all(file_object)
+
+    for yaml_known_folder_definition in yaml_generator:
+      yield self._ReadKnownFolderDefinition(yaml_known_folder_definition)
+
+  def ReadFromFile(self, path):
+    """Reads the event formatters from a YAML file.
+
+    Args:
+      path (str): path to a formatters file.
+
+    Yields:
+      KnownFolderDefinition: known folder definition.
+    """
+    with open(path, 'r', encoding='utf-8') as file_object:
+      for yaml_known_folder_definition in self._ReadFromFileObject(file_object):
+        yield yaml_known_folder_definition
 
 
 class YAMLShellFoldersDefinitionsFile(object):

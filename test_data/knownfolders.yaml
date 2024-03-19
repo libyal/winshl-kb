@@ -1,0 +1,9 @@
+# winshl-kb knownfolder definitions
+---
+identifier: 1c2ac1dc-4358-4b6c-9733-af21156576f0
+name: "ThisDeviceFolder"
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]
+---
+identifier: 2f8b40c2-83ed-48ee-b383-a1f157ec6f9a
+name: "Recorded Calls"
+windows_versions: ["Windows 10 (1511)", "Windows 10 (1607)", "Windows 10 (1703)", "Windows 10 (1709)", "Windows 10 (1803)", "Windows 10 (1809)", "Windows 10 (1903)", "Windows 10 (1909)", "Windows 10 (2004)", "Windows 10 (20H2)", "Windows 2016", "Windows 2019", "Windows 11 (21H2)"]

@@ -6,6 +6,7 @@ class ControlPanelItemDefinition(object):
   """Windows control panel item definition.
 
   Attributes:
+    alternate_module_names (list[str]): alternate module names.
     identifier (str): identifier.
     module_name (str): module name.
     name (str): name.
@@ -15,6 +16,7 @@ class ControlPanelItemDefinition(object):
   def __init__(self):
     """Initializes a Windows control panel item definition."""
     super(ControlPanelItemDefinition, self).__init__()
+    self.alternate_module_names = []
     self.identifier = None
     self.module_name = None
     self.name = None

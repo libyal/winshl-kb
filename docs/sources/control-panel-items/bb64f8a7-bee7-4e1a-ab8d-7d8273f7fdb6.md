@@ -15,11 +15,11 @@ Seen on:
   <tbody>
     <tr>
       <td><b>Module name:</b></td>
-      <td>Security and Maintenance CPL</td>
+      <td>Action Center CPL</td>
     </tr>
     <tr>
-      <td><b>Name:</b></td>
-      <td>&nbsp;</td>
+      <td><b>Alternate module name(s):</b></td>
+      <td>Security and Maintenance CPL</td>
     </tr>
   </tbody>
 </table>

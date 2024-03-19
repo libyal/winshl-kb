@@ -120,18 +120,35 @@ class ControlPanelItemMarkdownOutputWriter(object):
         '<table border="1" class="docutils">',
         '  <tbody>'])
 
-    module_name = control_panel_item_definition.module_name or '&nbsp;'
-    name = control_panel_item_definition.name or '&nbsp;'
+    if control_panel_item_definition.name:
+      lines.extend([
+          '    <tr>',
+          '      <td><b>Name:</b></td>',
+          f'      <td>{control_panel_item_definition.name:s}</td>',
+          '    </tr>'])
 
+    module_name = control_panel_item_definition.module_name or '&nbsp;'
     lines.extend([
         '    <tr>',
         '      <td><b>Module name:</b></td>',
         f'      <td>{module_name:s}</td>',
-        '    </tr>',
-        '    <tr>',
-        '      <td><b>Name:</b></td>',
-        f'      <td>{name:s}</td>',
         '    </tr>'])
+
+    if control_panel_item_definition.alternate_module_names:
+      for index, name in enumerate(
+          control_panel_item_definition.alternate_module_names):
+        if index == 0:
+          lines.extend([
+              '    <tr>',
+              '      <td><b>Alternate module name(s):</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
+        else:
+          lines.extend([
+              '    <tr>',
+              '      <td>&nbsp;</b></td>',
+              f'      <td>{name:s}</td>',
+              '    </tr>'])
 
     lines.extend([
         '  </tbody>',

@@ -15,3 +15,9 @@ windows_versions: ["Windows Vista", "Windows 7"]
 identifier: 5224f545-a443-4859-ba23-7b5a95bdc8ef
 module_name: "People Near Me"
 windows_versions: ["Windows Vista", "Windows 7"]
+---
+identifier: bb64f8a7-bee7-4e1a-ab8d-7d8273f7fdb6
+module_name: "Action Center"
+---
+identifier: 7007acc7-3202-11d1-aad2-00805fc1270e
+module_name: "Connections"

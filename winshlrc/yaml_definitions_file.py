@@ -18,6 +18,7 @@ class YAMLControlPanelItemsDefinitionsFile(object):
   windows_versions: ["Windows XP 32-bit", "Windows 10 (1511)"]
 
   Where:
+  * alternate_module_names, defines alternate module names of the shell folder;
   * identifier, defines the control panel item identifier;
   * module_name, defines the module name of the control panel item;
   * name, defines the name of the control panel item;
@@ -25,6 +26,7 @@ class YAMLControlPanelItemsDefinitionsFile(object):
   """
 
   _SUPPORTED_KEYS = frozenset([
+      'alternate_module_names',
       'identifier',
       'module_name',
       'name',
@@ -59,6 +61,8 @@ class YAMLControlPanelItemsDefinitionsFile(object):
           'Invalid control panel item definition missing identifier.')
 
     control_panel_item_definition = resources.ControlPanelItemDefinition()
+    control_panel_item_definition.alternate_module_names = (
+        yaml_control_panel_item_definition.get('alternate_module_names', []))
     control_panel_item_definition.identifier = identifier
     control_panel_item_definition.module_name = (
         yaml_control_panel_item_definition.get('module_name', None))

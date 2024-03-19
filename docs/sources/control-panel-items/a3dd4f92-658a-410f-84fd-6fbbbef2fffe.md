@@ -17,10 +17,6 @@ Seen on:
       <td><b>Module name:</b></td>
       <td>Internet Options</td>
     </tr>
-    <tr>
-      <td><b>Name:</b></td>
-      <td>&nbsp;</td>
-    </tr>
   </tbody>
 </table>
 

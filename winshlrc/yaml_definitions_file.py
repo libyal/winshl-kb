@@ -111,20 +111,26 @@ class YAMLKnownFoldersDefinitionsFile(object):
   definitions. A known folder definition consists of:
 
   identifier: 20d04fe0-3aea-1069-a2d8-08002b30309d
-  name: "My Computer"
-  alternate_names: ["Computer", "This PC"]
+  display_name: "My Computer"
+  alternate_display_names: ["Computer", "This PC"]
   windows_versions: ["Windows XP 32-bit", "Windows 10 (1511)"]
 
   Where:
-  * alternate_names, defines alternate names of the known folder;
+  * alternate_display_names, defines alternate diplay names of the known folder;
+  * display_name, defines the name of the known folder;
   * identifier, defines the known folder identifier;
   * name, defines the name of the known folder;
   * windows_versions, defines Windows versions the known folder was seen.
   """
 
   _SUPPORTED_KEYS = frozenset([
-      'alternate_names',
+      'alternate_display_names',
+      'csidl',
+      'default_path',
+      'display_name',
       'identifier',
+      'legacy_default_path',
+      'legacy_display_name',
       'name',
       'windows_versions'])
 
@@ -155,8 +161,12 @@ class YAMLKnownFoldersDefinitionsFile(object):
       raise RuntimeError('Invalid known folder definition missing identifier.')
 
     known_folder_definition = resources.KnownFolderDefinition()
-    known_folder_definition.alternate_names = (
-        yaml_known_folder_definition.get('alternate_names', []))
+    known_folder_definition.alternate_display_names = (
+        yaml_known_folder_definition.get('alternate_display_names', []))
+    known_folder_definition.default_path = (
+        yaml_known_folder_definition.get('default_path', None))
+    known_folder_definition.display_name = (
+        yaml_known_folder_definition.get('display_name', None))
     known_folder_definition.identifier = identifier
     known_folder_definition.name = (
         yaml_known_folder_definition.get('name', None))

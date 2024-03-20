@@ -16,6 +16,14 @@ Seen on:
   <tbody>
     <tr>
       <td><b>Name:</b></td>
+      <td>FOLDERID_ProgramFilesX86</td>
+    </tr>
+    <tr>
+      <td><b>Display name:</b></td>
+      <td>Program Files</td>
+    </tr>
+    <tr>
+      <td><b>Alternate name(s):</b></td>
       <td>ProgramFilesX86</td>
     </tr>
   </tbody>

@@ -27,7 +27,9 @@ class KnownFolderDefinition(object):
   """Windows known folder definition.
 
   Attributes:
-    alternate_names (list[str]): alternate names.
+    alternate_display_names (list[str]): alternate display names.
+    default_path (str): default path.
+    display_name (str): display name.
     identifier (str): identifier.
     name (str): name.
     windows_versions (list[str]): Windows versions.
@@ -36,10 +38,49 @@ class KnownFolderDefinition(object):
   def __init__(self):
     """Initializes a Windows known folder definition."""
     super(KnownFolderDefinition, self).__init__()
-    self.alternate_names = []
+    self.alternate_display_names = []
+    self.default_path = None
+    self.display_name = None
     self.identifier = None
     self.name = None
     self.windows_versions = []
+
+  def Merge(self, other):
+    """Merges the values of another known folder into the current one.
+
+    Args:
+      other (KnownFolderDefinition): known folder definition to merge values
+          from.
+
+    Raises:
+      ValueError: if the known folders cannot be merged.
+    """
+    if self.identifier != other.identifier:
+      raise ValueError('Known folder identifier mismatch.')
+
+    if not self.default_path:
+      self.default_path = other.default_path
+    elif other.default_path and self.default_path != other.default_path:
+      raise ValueError('Known folder default path mismatch.')
+
+    if not self.display_name:
+      self.display_name = other.display_name
+    elif (other.display_name and
+          other.display_name not in self.alternate_display_names):
+      self.alternate_display_names.append(other.display_name)
+
+    if not self.name:
+      self.name = other.name
+    elif other.name and self.name != other.name:
+      raise ValueError('Known folder name mismatch.')
+
+    alternate_display_names = set(self.alternate_display_names)
+    alternate_display_names.update(other.alternate_display_names)
+    self.alternate_display_names = list(alternate_display_names)
+
+    windows_versions = set(self.windows_versions)
+    windows_versions.update(other.windows_versions)
+    self.windows_versions = list(windows_versions)
 
 
 class ShellFolderDefinition(object):

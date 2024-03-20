@@ -1,0 +1,754 @@
+# winshl-kb knownfolder definitions defined by Microsoft.
+---
+name: FOLDERID_AccountPictures
+identifier: 008ca0b1-55b4-4c56-b8a8-4de4b299d3be
+display_name: "Account Pictures"
+default_path: "%APPDATA%\\Microsoft\\Windows\\AccountPictures"
+---
+name: FOLDERID_AddNewPrograms
+identifier: de61d971-5ebc-4f02-a3a9-6c82895e5c04
+display_name: "Get Programs"
+---
+name: FOLDERID_AdminTools
+identifier: 724ef170-a42d-4fef-9f26-b60e846fba4f
+display_name: "Administrative Tools"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Administrative Tools"
+csidl: [CSIDL_ADMINTOOLS]
+legacy_display_name: "Administrative Tools"
+legacy_default_path: "%USERPROFILE%\\Start Menu\\Programs\\Administrative Tools"
+---
+name: FOLDERID_AppDataDesktop
+identifier: b2c5e279-7add-439f-b28c-c41fe1bbf672
+display_name: "AppDataDesktop"
+default_path: "%LOCALAPPDATA%\\Desktop"
+---
+name: FOLDERID_AppDataDocuments
+identifier: 7be16610-1f7f-44ac-bff0-83e15f2ffca1
+display_name: "AppDataDocuments"
+default_path: "%LOCALAPPDATA%\\Documents"
+---
+name: FOLDERID_AppDataFavorites
+identifier: 7cfbefbc-de1f-45aa-b843-a542ac536cc9
+display_name: "AppDataFavorites"
+default_path: "%LOCALAPPDATA%\\Favorites"
+---
+name: FOLDERID_AppDataProgramData
+identifier: 559d40a3-a036-40fa-af61-84cb430a4d34
+display_name: "AppDataProgramData"
+default_path: "%LOCALAPPDATA%\\ProgramData"
+---
+name: FOLDERID_ApplicationShortcuts
+identifier: a3918781-e5f2-4890-b3d9-a7e54332328c
+display_name: "Application Shortcuts"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\Application Shortcuts"
+---
+name: FOLDERID_AppsFolder
+identifier: 1e87508d-89c2-42f0-8a7e-645a0f50ca58
+display_name: "Applications"
+---
+name: FOLDERID_AppUpdates
+identifier: a305ce99-f527-492b-8b1a-7e76fa98d6e4
+display_name: "Installed Updates"
+---
+name: FOLDERID_CameraRoll
+identifier: ab5fb87b-7ce2-4f83-915d-550846c9537b
+display_name: "Camera Roll"
+default_path: "%USERPROFILE%\\Pictures\\Camera Roll"
+---
+name: FOLDERID_CDBurning
+identifier: 9e52ab10-f80d-49df-acb8-4330f5687855
+display_name: "Temporary Burn Folder"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\Burn\\Burn"
+csidl: [CSIDL_CDBURN_AREA]
+legacy_display_name: "CD Burning"
+legacy_default_path: "%USERPROFILE%\\Local Settings\\Application Data\\Microsoft\\CD Burning"
+---
+name: FOLDERID_ChangeRemovePrograms
+identifier: df7266ac-9274-4867-8d55-3bd661de872d
+display_name: "Programs and Features"
+legacy_display_name: "Add or Remove Programs"
+---
+name: FOLDERID_CommonAdminTools
+identifier: d0384e7d-bac3-4797-8f14-cba229b392b5
+display_name: "Administrative Tools"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Administrative Tools"
+csidl: [CSIDL_COMMON_ADMINTOOLS]
+legacy_display_name: "Administrative Tools"
+legacy_default_path: "%ALLUSERSPROFILE%\\Start Menu\\Programs\\Administrative Tools"
+---
+name: FOLDERID_CommonOEMLinks
+identifier: c1bae2d0-10df-4334-bedd-7aa20b227a9d
+display_name: "OEM Links"
+default_path: "%ALLUSERSPROFILE%\\OEM Links"
+csidl: [CSIDL_COMMON_OEM_LINKS]
+legacy_display_name: "OEM Links"
+legacy_default_path: "%ALLUSERSPROFILE%\\OEM Links"
+---
+name: FOLDERID_CommonPrograms
+identifier: 0139d44e-6afe-49f2-8690-3dafcae6ffb8
+display_name: "Programs"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs"
+csidl: [CSIDL_COMMON_PROGRAMS]
+legacy_display_name: "Programs"
+legacy_default_path: "%ALLUSERSPROFILE%\\Start Menu\\Programs"
+---
+name: FOLDERID_CommonStartMenu
+identifier: a4115719-d62e-491d-aa7c-e74b8be3b067
+display_name: "Start Menu"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu"
+csidl: [CSIDL_COMMON_STARTMENU]
+legacy_display_name: "Start Menu"
+legacy_default_path: "%ALLUSERSPROFILE%\\Start Menu"
+---
+name: FOLDERID_CommonStartup
+identifier: 82a5ea35-d9cd-47c5-9629-e15d2f714e6e
+display_name: "Startup"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp"
+csidl: [CSIDL_COMMON_STARTUP, CSIDL_COMMON_ALTSTARTUP]
+legacy_display_name: "Startup"
+legacy_default_path: "%ALLUSERSPROFILE%\\Start Menu\\Programs\\StartUp"
+---
+name: FOLDERID_CommonTemplates
+identifier: b94237e7-57ac-4347-9151-b08c6c32d1f7
+display_name: "Templates"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Templates"
+csidl: [CSIDL_COMMON_TEMPLATES]
+legacy_display_name: "Templates"
+legacy_default_path: "%ALLUSERSPROFILE%\\Templates"
+---
+name: FOLDERID_ComputerFolder
+identifier: 0ac0837c-bbf8-452a-850d-79d08e667ca7
+display_name: "Computer"
+csidl: [CSIDL_DRIVES]
+legacy_display_name: "My Computer"
+---
+name: FOLDERID_ConflictFolder
+identifier: 4bfefb45-347d-4006-a5be-ac0cb0567192
+display_name: "Conflicts"
+---
+name: FOLDERID_ConnectionsFolder
+identifier: 6f0cd92b-2e97-45d1-88ff-b0d186b8dedd
+display_name: "Network Connections"
+csidl: [CSIDL_CONNECTIONS]
+legacy_display_name: "Network Connections"
+---
+name: FOLDERID_Contacts
+identifier: 56784854-c6cb-462b-8169-88e350acb882
+display_name: "Contacts"
+default_path: "%USERPROFILE%\\Contacts"
+---
+name: FOLDERID_ControlPanelFolder
+identifier: 82a74aeb-aeb4-465c-a014-d097ee346d63
+display_name: "Control Panel"
+csidl: [CSIDL_CONTROLS]
+legacy_display_name: "Control Panel"
+---
+name: FOLDERID_Cookies
+identifier: 2b0f765d-c0e9-4171-908e-08a611b84ff6
+display_name: "Cookies"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Cookies"
+csidl: [CSIDL_COOKIES]
+legacy_display_name: "Cookies"
+legacy_default_path: "%USERPROFILE%\\Cookies"
+---
+name: FOLDERID_Desktop
+identifier: b4bfcc3a-db2c-424c-b029-7fe99a87c641
+display_name: "Desktop"
+default_path: "%USERPROFILE%\\Desktop"
+csidl: [CSIDL_DESKTOP, CSIDL_DESKTOPDIRECTORY]
+legacy_display_name: "Desktop"
+legacy_default_path: "%USERPROFILE%\\Desktop"
+---
+name: FOLDERID_DeviceMetadataStore
+identifier: 5ce4a5e9-e4eb-479d-b89f-130c02886155
+display_name: "DeviceMetadataStore"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\DeviceMetadataStore"
+---
+name: FOLDERID_Documents
+identifier: fdd39ad0-238f-46af-adb4-6c85480369c7
+display_name: "Documents"
+default_path: "%USERPROFILE%\\Documents"
+legacy_display_name: "My Documents"
+legacy_default_path: "%USERPROFILE%\\My Documents"
+---
+name: FOLDERID_DocumentsLibrary
+identifier: 7b0db17d-9cd2-4a93-9733-46cc89022e7c
+display_name: "Documents"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries\\Documents.library-ms"
+---
+name: FOLDERID_Downloads
+identifier: 374de290-123f-4565-9164-39c4925e467b
+display_name: "Downloads"
+default_path: "%USERPROFILE%\\Downloads"
+---
+name: FOLDERID_Favorites
+identifier: 1777f761-68ad-4d8a-87bd-30b759fa33dd
+display_name: "Favorites"
+default_path: "%USERPROFILE%\\Favorites"
+csidl: [CSIDL_FAVORITES, CSIDL_COMMON_FAVORITES]
+legacy_display_name: "Favorites"
+legacy_default_path: "%USERPROFILE%\\Favorites"
+---
+name: FOLDERID_Fonts
+identifier: fd228cb7-ae11-4ae3-864c-16f3910ab8fe
+display_name: "Fonts"
+default_path: "%windir%\\Fonts"
+csidl: [CSIDL_FONTS]
+legacy_display_name: "Fonts"
+legacy_default_path: "%windir%\\Fonts"
+---
+name: FOLDERID_Games
+identifier: cac52c1a-b53d-4edc-92d7-6b2e8ac19434
+display_name: "Games"
+---
+name: FOLDERID_GameTasks
+identifier: 054fae61-4dd8-4787-80b6-090220c4b700
+display_name: "GameExplorer"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\GameExplorer"
+---
+name: FOLDERID_History
+identifier: d9dc8a3b-b784-432e-a781-5a1130a75963
+display_name: "History"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\History"
+csidl: [CSIDL_HISTORY]
+legacy_display_name: "History"
+legacy_default_path: "%USERPROFILE%\\Local Settings\\History"
+---
+name: FOLDERID_HomeGroup
+identifier: 52528a6b-b9e3-4add-b60d-588c2dba842d
+display_name: "Homegroup"
+---
+name: FOLDERID_HomeGroupCurrentUser
+identifier: 9b74b6a3-0dfd-4f11-9e78-5f7800f2e772
+display_name: "%USERNAME%"
+---
+name: FOLDERID_ImplicitAppShortcuts
+identifier: bcb5256f-79f6-4cee-b725-dc34e402fd46
+display_name: "ImplicitAppShortcuts"
+default_path: "%APPDATA%\\Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\ImplicitAppShortcuts"
+---
+name: FOLDERID_InternetCache
+identifier: 352481e8-33be-4251-ba85-6007caedcf9d
+display_name: "Temporary Internet Files"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\Temporary Internet Files"
+csidl: [CSIDL_INTERNET_CACHE]
+legacy_display_name: "Temporary Internet Files"
+legacy_default_path: "%USERPROFILE%\\Local Settings\\Temporary Internet Files"
+---
+name: FOLDERID_InternetFolder
+identifier: 4d9f7874-4e0c-4904-967b-40b0d20c3e4b
+display_name: "The Internet"
+csidl: [CSIDL_INTERNET]
+legacy_display_name: "Internet Explorer"
+---
+name: FOLDERID_Libraries
+identifier: 1b3ea5dc-b587-4786-b4ef-bd1dc332aeae
+display_name: "Libraries"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries"
+---
+name: FOLDERID_Links
+identifier: bfb9d5e0-c6a9-404c-b2b2-ae6db6af4968
+display_name: "Links"
+default_path: "%USERPROFILE%\\Links"
+---
+name: FOLDERID_LocalAppData
+identifier: f1b32785-6fba-4fcf-9d55-7b8e7f157091
+display_name: "Local"
+default_path: "%LOCALAPPDATA%"
+csidl: [CSIDL_LOCAL_APPDATA]
+legacy_display_name: "Application Data"
+legacy_default_path: "%USERPROFILE%\\Local Settings\\Application Data"
+---
+name: FOLDERID_LocalAppDataLow
+identifier: a520a1a4-1780-4ff6-bd18-167343c5af16
+display_name: "LocalLow"
+default_path: "%USERPROFILE%\\AppData\\LocalLow"
+---
+name: FOLDERID_LocalizedResourcesDir
+identifier: 2a00375e-224c-49de-b8d1-440df7ef3ddc
+display_name: "None"
+default_path: "%windir%\\resources\\%CODEPAGE%"
+csidl: [CSIDL_RESOURCES_LOCALIZED]
+legacy_display_name: "None"
+legacy_default_path: "%windir%\\resources\\%CODEPAGE%"
+---
+name: FOLDERID_Music
+identifier: 4bd8d571-6d19-48d3-be97-422220080e43
+display_name: "Music"
+default_path: "%USERPROFILE%\\Music"
+csidl: [CSIDL_MYMUSIC]
+legacy_display_name: "My Music"
+legacy_default_path: "%USERPROFILE%\\My Documents\\My Music"
+---
+name: FOLDERID_MusicLibrary
+identifier: 2112ab0a-c86a-4ffe-a368-0de96e47012e
+display_name: "Music"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries\\Music.library-ms"
+---
+name: FOLDERID_NetHood
+identifier: c5abbf53-e17f-4121-8900-86626fc2c973
+display_name: "Network Shortcuts"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Network Shortcuts"
+csidl: [CSIDL_NETHOOD]
+legacy_display_name: "NetHood"
+legacy_default_path: "%USERPROFILE%\\NetHood"
+---
+name: FOLDERID_NetworkFolder
+identifier: d20beec4-5ca8-4905-ae3b-bf251ea09b53
+display_name: "Network"
+csidl: [CSIDL_NETWORK, CSIDL_COMPUTERSNEARME]
+legacy_display_name: "My Network Places"
+---
+name: FOLDERID_Objects3D
+identifier: 31c0dd25-9439-4f12-bf41-7ff4eda38722
+display_name: "3D Objects"
+default_path: "%USERPROFILE%\\3D Objects"
+---
+name: FOLDERID_OriginalImages
+identifier: 2c36c0aa-5812-4b87-bfd0-4cd0dfb19b39
+display_name: "Original Images"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows Photo Gallery\\Original Images"
+---
+name: FOLDERID_PhotoAlbums
+identifier: 69d2cf90-fc33-4fb7-9a0c-ebb0f0fcb43c
+display_name: "Slide Shows"
+default_path: "%USERPROFILE%\\Pictures\\Slide Shows"
+---
+name: FOLDERID_PicturesLibrary
+identifier: a990ae9f-a03b-4e80-94bc-9912d7504104
+display_name: "Pictures"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries\\Pictures.library-ms"
+---
+name: FOLDERID_Pictures
+identifier: 33e28130-4e1e-4676-835a-98395c3bc3bb
+display_name: "Pictures"
+default_path: "%USERPROFILE%\\Pictures"
+csidl: [CSIDL_MYPICTURES]
+legacy_display_name: "My Pictures"
+legacy_default_path: "%USERPROFILE%\\My Documents\\My Pictures"
+---
+name: FOLDERID_Playlists
+identifier: de92c1c7-837f-4f69-a3bb-86e631204a23
+display_name: "Playlists"
+default_path: "%USERPROFILE%\\Music\\Playlists"
+---
+name: FOLDERID_PrintersFolder
+identifier: 76fc4e2d-d6ad-4519-a663-37bd56068185
+display_name: "Printers"
+csidl: [CSIDL_PRINTERS]
+legacy_display_name: "Printers and Faxes"
+---
+name: FOLDERID_PrintHood
+identifier: 9274bd8d-cfd1-41c3-b35e-b13f55a758f4
+display_name: "Printer Shortcuts"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Printer Shortcuts"
+csidl: [CSIDL_PRINTHOOD]
+legacy_display_name: "PrintHood"
+legacy_default_path: "%USERPROFILE%\\PrintHood"
+---
+name: FOLDERID_Profile
+identifier: 5e6c858f-0e22-4760-9afe-ea3317b67173
+display_name: "%USERNAME%"
+default_path: "%USERPROFILE%"
+csidl: [CSIDL_PROFILE]
+legacy_display_name: "%USERNAME%"
+legacy_default_path: "%USERPROFILE%"
+---
+name: FOLDERID_ProgramData
+identifier: 62ab5d82-fdc1-4dc3-a9dd-070d1d495d97
+display_name: "ProgramData"
+default_path: "%ALLUSERSPROFILE%"
+csidl: [CSIDL_COMMON_APPDATA]
+legacy_display_name: "Application Data"
+legacy_default_path: "%ALLUSERSPROFILE%\\Application Data"
+---
+name: FOLDERID_ProgramFiles
+identifier: 905e63b6-c1bf-494e-b29c-65b732d3d21a
+display_name: "Program Files"
+default_path: "%ProgramFiles%"
+csidl: [CSIDL_PROGRAM_FILES]
+legacy_display_name: "Program Files"
+legacy_default_path: "%ProgramFiles%"
+---
+name: FOLDERID_ProgramFilesX64
+identifier: 6d809377-6af0-444b-8957-a3773f02200e
+display_name: "Program Files"
+default_path: "%ProgramFiles%"
+legacy_display_name: "Program Files"
+legacy_default_path: "%ProgramFiles%"
+---
+name: FOLDERID_ProgramFilesX86
+identifier: 7c5a40ef-a0fb-4bfc-874a-c0f2e0b9fa8e
+display_name: "Program Files"
+default_path: "%ProgramFiles(x86)%"
+csidl: [CSIDL_PROGRAM_FILESX86]
+legacy_display_name: "Program Files"
+legacy_default_path: "%ProgramFiles(x86)%"
+---
+name: FOLDERID_ProgramFilesCommon
+identifier: f7f1ed05-9f6d-47a2-aaae-29d317c6f066
+display_name: "Common Files"
+default_path: "%ProgramFiles%\\Common Files"
+csidl: [CSIDL_PROGRAM_FILES_COMMON]
+legacy_display_name: "Common Files"
+legacy_default_path: "%ProgramFiles%\\Common Files"
+---
+name: FOLDERID_ProgramFilesCommonX64
+identifier: 6365d5a7-0f0d-45e5-87f6-0da56b6a4f7d
+display_name: "Common Files"
+default_path: "%ProgramFiles%\\Common Files"
+legacy_display_name: "Common Files"
+legacy_default_path: "%ProgramFiles%\\Common Files"
+---
+name: FOLDERID_ProgramFilesCommonX86
+identifier: de974d24-d9c6-4d3e-bf91-f4455120b917
+display_name: "Common Files"
+default_path: "%ProgramFiles(x86)%\\Common Files"
+csidl: [CSIDL_PROGRAM_FILES_COMMONX86]
+legacy_display_name: "Common Files"
+legacy_default_path: "%ProgramFiles(x86)%\\Common Files"
+---
+name: FOLDERID_Programs
+identifier: a77f5d77-2e2b-44c3-a6a2-aba601054a51
+display_name: "Programs"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs"
+csidl: [CSIDL_PROGRAMS]
+legacy_display_name: "Programs"
+legacy_default_path: "%USERPROFILE%\\Start Menu\\Programs"
+---
+name: FOLDERID_Public
+identifier: dfdf76a2-c82a-4d63-906a-5644ac457385
+display_name: "Public"
+default_path: "%PUBLIC%"
+---
+name: FOLDERID_PublicDesktop
+identifier: c4aa340d-f20f-4863-afef-f87ef2e6ba25
+display_name: "Public Desktop"
+default_path: "%PUBLIC%\\Desktop"
+csidl: [CSIDL_COMMON_DESKTOPDIRECTORY]
+legacy_display_name: "Desktop"
+legacy_default_path: "%ALLUSERSPROFILE%\\Desktop"
+---
+name: FOLDERID_PublicDocuments
+identifier: ed4824af-dce4-45a8-81e2-fc7965083634
+display_name: "Public Documents"
+default_path: "%PUBLIC%\\Documents"
+csidl: [CSIDL_COMMON_DOCUMENTS]
+legacy_display_name: "Shared Documents"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents"
+---
+name: FOLDERID_PublicDownloads
+identifier: 3d644c9b-1fb8-4f30-9b45-f670235f79c0
+display_name: "Public Downloads"
+default_path: "%PUBLIC%\\Downloads"
+---
+name: FOLDERID_PublicGameTasks
+identifier: debf2536-e1a8-4c59-b6a2-414586476aea
+display_name: "GameExplorer"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\GameExplorer"
+---
+name: FOLDERID_PublicLibraries
+identifier: 48daf80b-e6cf-4f4e-b800-0e69d84ee384
+display_name: "Libraries"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Libraries"
+---
+name: FOLDERID_PublicMusic
+identifier: 3214fab5-9757-4298-bb61-92a9deaa44ff
+display_name: "Public Music"
+default_path: "%PUBLIC%\\Music"
+csidl: [CSIDL_COMMON_MUSIC]
+legacy_display_name: "Shared Music"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents\\My Music"
+---
+name: FOLDERID_PublicPictures
+identifier: b6ebfb86-6907-413c-9af7-4fc2abf07cc5
+display_name: "Public Pictures"
+default_path: "%PUBLIC%\\Pictures"
+csidl: [CSIDL_COMMON_PICTURES]
+legacy_display_name: "Shared Pictures"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents\\My Pictures"
+---
+name: FOLDERID_PublicRingtones
+identifier: e555ab60-153b-4d17-9f04-a5fe99fc15ec
+display_name: "Ringtones"
+default_path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Ringtones"
+---
+name: FOLDERID_PublicUserTiles
+identifier: 0482af6c-08f1-4c34-8c90-e17ec98b1e17
+display_name: "Public Account Pictures"
+default_path: "%PUBLIC%\\AccountPictures"
+---
+name: FOLDERID_PublicVideos
+identifier: 2400183a-6185-49fb-a2d8-4a392a602ba3
+display_name: "Public Videos"
+default_path: "%PUBLIC%\\Videos"
+csidl: [CSIDL_COMMON_VIDEO]
+legacy_display_name: "Shared Video"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents\\My Videos"
+---
+name: FOLDERID_QuickLaunch
+identifier: 52a4f021-7b75-48a9-9f6b-4b87a210bc8f
+display_name: "Quick Launch"
+default_path: "%APPDATA%\\Microsoft\\Internet Explorer\\Quick Launch"
+legacy_display_name: "Quick Launch"
+legacy_default_path: "%APPDATA%\\Microsoft\\Internet Explorer\\Quick Launch"
+---
+name: FOLDERID_Recent
+identifier: ae50c081-ebd2-438a-8655-8a092e34987a
+display_name: "Recent Items"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Recent"
+csidl: [CSIDL_RECENT]
+legacy_display_name: "My Recent Documents"
+legacy_default_path: "%USERPROFILE%\\Recent"
+---
+name: FOLDERID_RecordedTV
+name: FOLDERID_RecordedTVLibrary
+identifier: 1a6fdba2-f42d-4358-a798-b74d745926c5
+display_name: "Recorded TV"
+default_path: "%PUBLIC%\\RecordedTV.library-ms"
+---
+name: FOLDERID_RecycleBinFolder
+identifier: b7534046-3ecb-4c18-be4e-64cd4cb7d6ac
+display_name: "Recycle Bin"
+csidl: [CSIDL_BITBUCKET]
+legacy_display_name: "Recycle Bin"
+---
+name: FOLDERID_ResourceDir
+identifier: 8ad10c31-2adb-4296-a8f7-e4701232c972
+display_name: "Resources"
+default_path: "%windir%\\Resources"
+csidl: [CSIDL_RESOURCES]
+legacy_display_name: "Resources"
+legacy_default_path: "%windir%\\Resources"
+---
+name: FOLDERID_Ringtones
+identifier: c870044b-f49e-4126-a9c3-b52a1ff411e8
+display_name: "Ringtones"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\Ringtones"
+---
+name: FOLDERID_RoamingAppData
+identifier: 3eb685db-65f9-4cf6-a03a-e3ef65729f3d
+display_name: "Roaming"
+default_path: "%APPDATA%"
+csidl: [CSIDL_APPDATA]
+legacy_display_name: "Application Data"
+legacy_default_path: "%APPDATA%"
+---
+name: FOLDERID_RoamedTileImages
+identifier: aaa8d5a5-f1d6-4259-baa8-78e7ef60835e
+display_name: "RoamedTileImages"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\RoamedTileImages"
+---
+name: FOLDERID_RoamingTiles
+identifier: 00bcfc5a-ed94-4e48-96a1-3f6217f21990
+display_name: "RoamingTiles"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\RoamingTiles"
+---
+name: FOLDERID_SampleMusic
+identifier: b250c668-f57d-4ee1-a63c-290ee7d1aa1f
+display_name: "Sample Music"
+default_path: "%PUBLIC%\\Music\\Sample Music"
+legacy_display_name: "Sample Music"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents\\My Music\\Sample Music"
+---
+name: FOLDERID_SamplePictures
+identifier: c4900540-2379-4c75-844b-64e6faf8716b
+display_name: "Sample Pictures"
+default_path: "%PUBLIC%\\Pictures\\Sample Pictures"
+legacy_display_name: "Sample Pictures"
+legacy_default_path: "%ALLUSERSPROFILE%\\Documents\\My Pictures\\Sample Pictures"
+---
+name: FOLDERID_SamplePlaylists
+identifier: 15ca69b3-30ee-49c1-ace1-6b5ec372afb5
+display_name: "Sample Playlists"
+default_path: "%PUBLIC%\\Music\\Sample Playlists"
+---
+name: FOLDERID_SampleVideos
+identifier: 859ead94-2e85-48ad-a71a-0969cb56a6cd
+display_name: "Sample Videos"
+default_path: "%PUBLIC%\\Videos\\Sample Videos"
+---
+name: FOLDERID_SavedGames
+identifier: 4c5c32ff-bb9d-43b0-b5b4-2d72e54eaaa4
+display_name: "Saved Games"
+default_path: "%USERPROFILE%\\Saved Games"
+---
+name: FOLDERID_SavedPictures
+identifier: 3b193882-d3ad-4eab-965a-69829d1fb59f
+display_name: "Saved Pictures"
+default_path: "%USERPROFILE%\\Pictures\\Saved Pictures"
+---
+name: FOLDERID_SavedPicturesLibrary
+identifier: e25b5812-be88-4bd9-94b0-29233477b6c3
+display_name: "Saved Pictures Library"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries\\SavedPictures.library-ms"
+---
+name: FOLDERID_SavedSearches
+identifier: 7d1d3a04-debb-4115-95cf-2f29da2920da
+display_name: "Searches"
+default_path: "%USERPROFILE%\\Searches"
+---
+name: FOLDERID_Screenshots
+identifier: b7bede81-df94-4682-a7d8-57a52620b86f
+display_name: "Screenshots"
+default_path: "%USERPROFILE%\\Pictures\\Screenshots"
+---
+name: FOLDERID_SEARCH_CSC
+identifier: ee32e446-31ca-4aba-814f-a5ebd2fd6d5e
+display_name: "Offline Files"
+---
+name: FOLDERID_SearchHistory
+identifier: 0d4c3db6-03a3-462f-a0e6-08924c41b5d4
+display_name: "History"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\ConnectedSearch\\History"
+---
+name: FOLDERID_SearchHome
+identifier: 190337d1-b8ca-4121-a639-6d472d16972a
+display_name: "Search Results"
+---
+name: FOLDERID_SEARCH_MAPI
+identifier: 98ec0e18-2098-4d44-8644-66979315a281
+display_name: "Microsoft Office Outlook"
+---
+name: FOLDERID_SearchTemplates
+identifier: 7e636bfe-dfa9-4d5e-b456-d7b39851d8a9
+display_name: "Templates"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows\\ConnectedSearch\\Templates"
+---
+name: FOLDERID_SendTo
+identifier: 8983036c-27c0-404b-8f08-102d10dcfd74
+display_name: "SendTo"
+default_path: "%APPDATA%\\Microsoft\\Windows\\SendTo"
+csidl: [CSIDL_SENDTO]
+legacy_display_name: "SendTo"
+legacy_default_path: "%USERPROFILE%\\SendTo"
+---
+name: FOLDERID_SidebarDefaultParts
+identifier: 7b396e54-9ec5-4300-be0a-2482ebae1a26
+display_name: "Gadgets"
+default_path: "%ProgramFiles%\\Windows Sidebar\\Gadgets"
+---
+name: FOLDERID_SidebarParts
+identifier: a75d362e-50fc-4fb7-ac2c-a8beaa314493
+display_name: "Gadgets"
+default_path: "%LOCALAPPDATA%\\Microsoft\\Windows Sidebar\\Gadgets"
+---
+name: FOLDERID_SkyDrive
+identifier: a52bba46-e9e1-435f-b3d9-28daa648c0f6
+display_name: "OneDrive"
+default_path: "%USERPROFILE%\\OneDrive"
+---
+name: FOLDERID_SkyDriveCameraRoll
+identifier: 767e6811-49cb-4273-87c2-20f355e1085b
+display_name: "Camera Roll"
+default_path: "%USERPROFILE%\\OneDrive\\Pictures\\Camera Roll"
+---
+name: FOLDERID_SkyDriveDocuments
+identifier: 24d89e24-2f19-4534-9dde-6a6671fbb8fe
+display_name: "Documents"
+default_path: "%USERPROFILE%\\OneDrive\\Documents"
+---
+name: FOLDERID_SkyDrivePictures
+identifier: 339719b5-8c47-4894-94c2-d8f77add44a6
+display_name: "Pictures"
+default_path: "%USERPROFILE%\\OneDrive\\Pictures"
+---
+name: FOLDERID_StartMenu
+identifier: 625b53c3-ab48-4ec1-ba1f-a1ef4146fc19
+display_name: "Start Menu"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Start Menu"
+csidl: [CSIDL_STARTMENU]
+legacy_display_name: "Start Menu"
+legacy_default_path: "%USERPROFILE%\\Start Menu"
+---
+name: FOLDERID_Startup
+identifier: b97d20bb-f46a-4c97-ba10-5e3608430854
+display_name: "Startup"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp"
+csidl: [CSIDL_STARTUP, CSIDL_ALTSTARTUP]
+legacy_display_name: "Startup"
+legacy_default_path: "%USERPROFILE%\\Start Menu\\Programs\\StartUp"
+---
+name: FOLDERID_SyncManagerFolder
+identifier: 43668bf8-c14e-49b2-97c9-747784d784b7
+display_name: "Sync Center"
+---
+name: FOLDERID_SyncResultsFolder
+identifier: 289a9a43-be44-4057-a41b-587a76d7e7f9
+display_name: "Sync Results"
+---
+name: FOLDERID_SyncSetupFolder
+identifier: 0f214138-b1d3-4a90-bba9-27cbc0c5389a
+display_name: "Sync Setup"
+---
+name: FOLDERID_System
+identifier: 1ac14e77-02e7-4e5d-b744-2eb1ae5198b7
+display_name: "System32"
+default_path: "%windir%\\system32"
+csidl: [CSIDL_SYSTEM]
+legacy_display_name: "system32"
+legacy_default_path: "%windir%\\system32"
+---
+name: FOLDERID_SystemX86
+identifier: d65231b0-b2f1-4857-a4ce-a8e7c6ea7d27
+display_name: "System32"
+default_path: "%windir%\\system32"
+csidl: [CSIDL_SYSTEMX86]
+legacy_display_name: "system32"
+legacy_default_path: "%windir%\\system32"
+---
+name: FOLDERID_Templates
+identifier: a63293e8-664e-48db-a079-df759e0509f7
+display_name: "Templates"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Templates"
+csidl: [CSIDL_TEMPLATES]
+legacy_display_name: "Templates"
+legacy_default_path: "%USERPROFILE%\\Templates"
+---
+name: FOLDERID_TreeProperties
+name: FOLDERID_UserPinned
+identifier: 9e3995ab-1f9c-4f13-b827-48b24b6c7174
+display_name: "User Pinned"
+default_path: "%APPDATA%\\Microsoft\\Internet Explorer\\Quick Launch\\User Pinned"
+---
+name: FOLDERID_UserProfiles
+identifier: 0762d272-c50a-4bb0-a382-697dcd729b80
+display_name: "Users"
+default_path: "%SystemDrive%\\Users"
+---
+name: FOLDERID_UserProgramFiles
+identifier: 5cd7aee2-2219-4a67-b85d-6c9ce15660cb
+display_name: "Programs"
+default_path: "%LOCALAPPDATA%\\Programs"
+---
+name: FOLDERID_UserProgramFilesCommon
+identifier: bcbd3057-ca5c-4622-b42d-bc56db0ae516
+display_name: "Programs"
+default_path: "%LOCALAPPDATA%\\Programs\\Common"
+---
+name: FOLDERID_UsersFiles
+identifier: f3ce0f7c-4901-4acc-8648-d5d44b04ef8f
+---
+name: FOLDERID_UsersLibraries
+identifier: a302545d-deff-464b-abe8-61c8648d939b
+display_name: "Libraries"
+---
+name: FOLDERID_Videos
+identifier: 18989b1d-99b5-455b-841c-ab7c74e4ddfc
+display_name: "Videos"
+default_path: "%USERPROFILE%\\Videos"
+legacy_display_name: "My Videos"
+legacy_default_path: "%USERPROFILE%\\My Documents\\My Videos"
+---
+name: FOLDERID_VideosLibrary
+identifier: 491e922f-5643-4af4-a7eb-4e7a138d8174
+display_name: "Videos"
+default_path: "%APPDATA%\\Microsoft\\Windows\\Libraries\\Videos.library-ms"
+---
+name: FOLDERID_Windows
+identifier: f38bf404-1d43-42f2-9305-67de0b28fc23
+display_name: "Windows"
+default_path: "%windir%"
+csidl: [CSIDL_WINDOWS]
+legacy_display_name: "WINDOWS"
+legacy_default_path: "%windir%"

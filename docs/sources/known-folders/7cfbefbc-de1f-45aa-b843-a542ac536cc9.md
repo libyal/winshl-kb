@@ -9,6 +9,14 @@ Seen on:
   <tbody>
     <tr>
       <td><b>Name:</b></td>
+      <td>FOLDERID_AppDataFavorites</td>
+    </tr>
+    <tr>
+      <td><b>Display name:</b></td>
+      <td>AppDataFavorites</td>
+    </tr>
+    <tr>
+      <td><b>Alternate name(s):</b></td>
       <td>AppDataFavorites</td>
     </tr>
   </tbody>

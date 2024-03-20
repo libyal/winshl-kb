@@ -16,6 +16,14 @@ Seen on:
   <tbody>
     <tr>
       <td><b>Name:</b></td>
+      <td>FOLDERID_SEARCH_CSC</td>
+    </tr>
+    <tr>
+      <td><b>Display name:</b></td>
+      <td>Offline Files</td>
+    </tr>
+    <tr>
+      <td><b>Alternate name(s):</b></td>
       <td>CSCFolder</td>
     </tr>
   </tbody>

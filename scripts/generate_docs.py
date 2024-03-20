@@ -265,16 +265,24 @@ class KnownFolderMarkdownOutputWriter(object):
         '<table border="1" class="docutils">',
         '  <tbody>'])
 
-    name = known_folder_definition.name or '&nbsp;'
+    if known_folder_definition.name:
+      lines.extend([
+          '    <tr>',
+          '      <td><b>Name:</b></td>',
+          f'      <td>{known_folder_definition.name:s}</td>',
+          '    </tr>'])
+
+    display_name = known_folder_definition.display_name or '&nbsp;'
 
     lines.extend([
         '    <tr>',
-        '      <td><b>Name:</b></td>',
-        f'      <td>{name:s}</td>',
+        '      <td><b>Display name:</b></td>',
+        f'      <td>{display_name:s}</td>',
         '    </tr>'])
 
-    if known_folder_definition.alternate_names:
-      for index, name in enumerate(known_folder_definition.alternate_names):
+    if known_folder_definition.alternate_display_names:
+      for index, name in enumerate(
+          known_folder_definition.alternate_display_names):
         if index == 0:
           lines.extend([
               '    <tr>',
@@ -487,9 +495,23 @@ def Main():
 
   known_folders = {}
 
+  path = os.path.join(data_path, 'defined_knownfolders.yaml')
+  for known_folder_definition in definitions_file.ReadFromFile(path):
+    lookup_key = known_folder_definition.identifier
+    if lookup_key in known_folders:
+      known_folders[lookup_key].Merge(known_folder_definition)
+    else:
+      known_folders[known_folder_definition.identifier] = (
+          known_folder_definition)
+
   path = os.path.join(data_path, 'observed_knownfolders.yaml')
   for known_folder_definition in definitions_file.ReadFromFile(path):
-    known_folders[known_folder_definition.identifier] = known_folder_definition
+    lookup_key = known_folder_definition.identifier
+    if lookup_key in known_folders:
+      known_folders[lookup_key].Merge(known_folder_definition)
+    else:
+      known_folders[known_folder_definition.identifier] = (
+          known_folder_definition)
 
   output_directory = os.path.join('docs', 'sources', 'known-folders')
   os.makedirs(output_directory, exist_ok=True)

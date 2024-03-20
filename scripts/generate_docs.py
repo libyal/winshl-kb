@@ -31,6 +31,13 @@ class ControlPanelItemsIndexRstOutputWriter(object):
         'Control Panel Items',
         '###################',
         '',
+        'Below is a list of control panel item identifiers obtained from:',
+        '',
+        ('* `Canonical Names of Control Panel Items <https://learn.microsoft.'
+         'com/en-us/windows/win32/shell/controlpanel-canonical-names>`_'),
+        ('* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/'
+         'sources/explorer-keys/Control-panel-item-identifiers.html>`_'),
+        '',
         '.. toctree::',
         '   :maxdepth: 1',
         '',
@@ -135,8 +142,8 @@ class ControlPanelItemMarkdownOutputWriter(object):
         '    </tr>'])
 
     if control_panel_item_definition.alternate_module_names:
-      for index, name in enumerate(
-          control_panel_item_definition.alternate_module_names):
+      for index, name in enumerate(sorted(
+          control_panel_item_definition.alternate_module_names)):
         if index == 0:
           lines.extend([
               '    <tr>',
@@ -177,6 +184,14 @@ class KnownFoldersIndexRstOutputWriter(object):
         '#############',
         'Known Folders',
         '#############',
+        '',
+        'Below is a list of known folder identifiers obtained from:',
+        '',
+        ('* `KNOWNFOLDERID <https://learn.microsoft.com/en-us/windows/win32/'
+         'shell/knownfolderid>`_'),
+        '* KnownFolders.h',
+        ('* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/'
+         'sources/explorer-keys/Known-folder-identifiers.html>`_'),
         '',
         '.. toctree::',
         '   :maxdepth: 1',
@@ -281,8 +296,8 @@ class KnownFolderMarkdownOutputWriter(object):
         '    </tr>'])
 
     if known_folder_definition.alternate_display_names:
-      for index, name in enumerate(
-          known_folder_definition.alternate_display_names):
+      for index, name in enumerate(sorted(
+          known_folder_definition.alternate_display_names)):
         if index == 0:
           lines.extend([
               '    <tr>',
@@ -323,6 +338,11 @@ class ShellFoldersIndexRstOutputWriter(object):
         '#############',
         'Shell Folders',
         '#############',
+        '',
+        'Below is a list of shell folder identifiers obtained from:',
+        '',
+        ('* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/'
+         'sources/system-keys/Shell-folder-identifiers.html>`_'),
         '',
         '.. toctree::',
         '   :maxdepth: 1',
@@ -425,7 +445,8 @@ class ShellFolderMarkdownOutputWriter(object):
         '    </tr>'])
 
     if shell_folder_definition.alternate_names:
-      for index, name in enumerate(shell_folder_definition.alternate_names):
+      for index, name in enumerate(sorted(
+          shell_folder_definition.alternate_names)):
         if index == 0:
           lines.extend([
               '    <tr>',

@@ -2,6 +2,11 @@
 Control Panel Items
 ###################
 
+Below is a list of control panel item identifiers obtained from:
+
+* `Canonical Names of Control Panel Items <https://learn.microsoft.com/en-us/windows/win32/shell/controlpanel-canonical-names>`_
+* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/sources/explorer-keys/Control-panel-item-identifiers.html>`_
+
 .. toctree::
    :maxdepth: 1
 

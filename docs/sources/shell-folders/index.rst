@@ -2,6 +2,10 @@
 Shell Folders
 #############
 
+Below is a list of shell folder identifiers obtained from:
+
+* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/sources/system-keys/Shell-folder-identifiers.html>`_
+
 .. toctree::
    :maxdepth: 1
 

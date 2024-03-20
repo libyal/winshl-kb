@@ -2,6 +2,12 @@
 Known Folders
 #############
 
+Below is a list of known folder identifiers obtained from:
+
+* `KNOWNFOLDERID <https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid>`_
+* KnownFolders.h
+* `Windows Registry <https://winreg-kb.readthedocs.io/en/latest/sources/explorer-keys/Known-folder-identifiers.html>`_
+
 .. toctree::
    :maxdepth: 1
 

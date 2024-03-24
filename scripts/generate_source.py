@@ -769,6 +769,9 @@ def Main():
 
   path = os.path.join(data_path, 'defined_knownfolders.yaml')
   for known_folder_definition in definitions_file.ReadFromFile(path):
+    if not known_folder_definition.identifier:
+      continue
+
     lookup_key = known_folder_definition.identifier
     if lookup_key in known_folders:
       known_folders[lookup_key].Merge(known_folder_definition)

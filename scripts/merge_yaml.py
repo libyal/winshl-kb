@@ -36,21 +36,24 @@ class YAMLOutputWriter(object):
     print(f'identifier: {known_folder_definition.identifier:s}')
 
     if known_folder_definition.display_name:
-      print(f'display_name: {known_folder_definition.display_name:s}')
+      print(f'display_name: "{known_folder_definition.display_name:s}"')
 
     if known_folder_definition.default_path:
-      print(f'default_path: {known_folder_definition.default_path:s}')
+      default_path = known_folder_definition.default_path.replace('\\', '\\\\')
+      print(f'default_path: "{default_path:s}"')
 
     if known_folder_definition.csidl:
-      print(f'csidl: {known_folder_definition.csidl!s}')
+      csidl = ', '.join(known_folder_definition.csidl)
+      print(f'csidl: [{csidl:s}]')
 
     if known_folder_definition.legacy_display_name:
       print((f'legacy_display_name: '
-             f'{known_folder_definition.legacy_display_name:s}'))
+             f'"{known_folder_definition.legacy_display_name:s}"'))
 
     if known_folder_definition.legacy_default_path:
-      print((f'legacy_default_path: '
-             f'{known_folder_definition.legacy_default_path:s}'))
+      legacy_default_path = known_folder_definition.legacy_default_path.replace(
+          '\\', '\\\\')
+      print(f'legacy_default_path: "{legacy_default_path:s}"')
 
 
 def Main():

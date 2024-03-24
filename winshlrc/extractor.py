@@ -370,7 +370,7 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
     return windows_resource_file
 
   def CollectShellFolders(self):
-    """Retrieves shell folders
+    """Retrieves shell folders.
 
     Yields:
       ShellFolder: shell folder.

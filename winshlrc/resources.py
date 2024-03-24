@@ -28,9 +28,12 @@ class KnownFolderDefinition(object):
 
   Attributes:
     alternate_display_names (list[str]): alternate display names.
+    csidl (list[str]): CSIDLs that correspond to the known folder.
     default_path (str): default path.
     display_name (str): display name.
     identifier (str): identifier.
+    legacy_default_path (str): legacy default path.
+    legacy_display_name (str): legacy display name.
     name (str): name.
     windows_versions (list[str]): Windows versions.
   """
@@ -39,9 +42,12 @@ class KnownFolderDefinition(object):
     """Initializes a Windows known folder definition."""
     super(KnownFolderDefinition, self).__init__()
     self.alternate_display_names = []
+    self.csidl = []
     self.default_path = None
     self.display_name = None
     self.identifier = None
+    self.legacy_display_name = None
+    self.legacy_default_path = None
     self.name = None
     self.windows_versions = []
 
@@ -69,6 +75,18 @@ class KnownFolderDefinition(object):
           other.display_name not in self.alternate_display_names):
       self.alternate_display_names.append(other.display_name)
 
+    if not self.legacy_display_name:
+      self.legacy_display_name = other.legacy_display_name
+    elif (other.legacy_display_name and
+          self.legacy_display_name != other.legacy_display_name):
+      raise ValueError('Known folder legacy display name mismatch.')
+
+    if not self.legacy_default_path:
+      self.legacy_default_path = other.legacy_default_path
+    elif (other.legacy_default_path and
+          self.legacy_default_path != other.legacy_default_path):
+      raise ValueError('Known folder legacy default path mismatch.')
+
     if not self.name:
       self.name = other.name
     elif other.name and self.name != other.name:
@@ -77,6 +95,10 @@ class KnownFolderDefinition(object):
     alternate_display_names = set(self.alternate_display_names)
     alternate_display_names.update(other.alternate_display_names)
     self.alternate_display_names = list(alternate_display_names)
+
+    csidl = set(self.csidl)
+    csidl.update(other.csidl)
+    self.csidl = list(csidl)
 
     windows_versions = set(self.windows_versions)
     windows_versions.update(other.windows_versions)

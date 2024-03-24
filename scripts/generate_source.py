@@ -8,6 +8,8 @@ import os
 import sys
 import uuid
 
+import winshlrc
+
 from winshlrc import yaml_definitions_file
 
 
@@ -406,7 +408,7 @@ const char *libfwsi_known_folder_identifier_get_name(
       file_object.write(self._C_FILE_MIDDLE)
 
       for name, known_folder_definition in sorted(known_folders.items()):
-        name_string = known_folder_definition.name
+        name_string = known_folder_definition.display_name
         if 'delegate folder that appears in ' in name_string:
           name_string = name_string.replace(
               'delegate folder that appears in ', '')
@@ -697,21 +699,10 @@ def Main():
       default='plaso', help='output format.')
 
   argument_parser.add_argument(
-      'source', nargs='?', action='store', metavar='PATH', default=None,
-      help='path of the Windows shell related data file.')
-
-  argument_parser.add_argument(
       'output', nargs='?', action='store', metavar='PATH', default=None,
-      help='path containign of the output source.')
+      help='path of the output source code.')
 
   options = argument_parser.parse_args()
-
-  if not options.source:
-    print('Source value is missing.')
-    print('')
-    argument_parser.print_help()
-    print('')
-    return False
 
   if not os.path.isdir(options.output):
     print(f'No such output directory: {options.output:s}.')
@@ -730,148 +721,176 @@ def Main():
   logging.basicConfig(
       level=logging.INFO, format='[%(levelname)s] %(message)s')
 
-  try:
-    with open(options.source, 'r', encoding='utf-8') as file_object:
-      data_header = file_object.readline()
+  data_path = os.path.join(os.path.dirname(winshlrc.__file__), 'data')
 
-  except (SyntaxError, UnicodeDecodeError) as exception:
-    print(f'Unable to read data haeader with error: {exception!s}')
-    return 0
+  definitions_file = (
+      yaml_definitions_file.YAMLControlPanelItemsDefinitionsFile())
 
-  if data_header.startswith('# winshl-kb controlpanel item definitions'):
-    definitions_file = (
-        yaml_definitions_file.YAMLControlPanelItemsDefinitionsFile())
+  control_panel_items = {}
 
-    if options.format == 'libfwsi':
-      control_panel_items_per_name = {}
-      for control_panel_item_definition in definitions_file.ReadFromFile(
-          options.source):
-        name = control_panel_item_definition.module_name
-        if not name or name[0] == '@':
-          continue
+  path = os.path.join(data_path, 'observed_controlpanel_items.yaml')
+  for control_panel_item_definition in definitions_file.ReadFromFile(path):
+    # TODO: merge observed control panel items with defined control panel items.
+    control_panel_items[control_panel_item_definition.identifier] = (
+        control_panel_item_definition)
 
-        name = name.lower()
-        name = name.replace(' ', '_')
-        name = name.replace('-', '')
-        name = name.replace('&', 'and')
+  if options.format == 'libfwsi':
+    control_panel_items_per_name = {}
+    for control_panel_item_definition in control_panel_items.values():
+      name = control_panel_item_definition.module_name
+      if not name or name[0] == '@':
+        continue
 
-        if name in control_panel_items_per_name:
-          new_name = name
-          name_suffix = 2
-          while new_name in control_panel_items_per_name:
-            new_name = f'{name:s}{name_suffix:d}'
-            name_suffix += 1
+      name = name.lower()
+      name = name.replace(' ', '_')
+      name = name.replace('-', '')
+      name = name.replace('&', 'and')
 
-          name = new_name
+      if name in control_panel_items_per_name:
+        new_name = name
+        name_suffix = 2
+        while new_name in control_panel_items_per_name:
+          new_name = f'{name:s}{name_suffix:d}'
+          name_suffix += 1
 
-        control_panel_items_per_name[name] = control_panel_item_definition
+        name = new_name
 
-      generator = LibfwsiControlPanelItemIdentifierGenerator(options.output)
-      generator.GenerateCFile(control_panel_items_per_name)
-      generator.GenerateHFile(control_panel_items_per_name)
+      control_panel_items_per_name[name] = control_panel_item_definition
 
-  elif data_header.startswith('# winshl-kb knownfolder definitions'):
-    definitions_file = yaml_definitions_file.YAMLKnownFoldersDefinitionsFile()
+    generator = LibfwsiControlPanelItemIdentifierGenerator(options.output)
+    generator.GenerateCFile(control_panel_items_per_name)
+    generator.GenerateHFile(control_panel_items_per_name)
 
-    if options.format == 'libfwsi':
-      known_folders_per_name = {}
-      for known_folder_definition in definitions_file.ReadFromFile(
-          options.source):
-        name = known_folder_definition.name
-        if not name or name[0] == '@':
-          continue
+  # TODO: add plaso output
 
-        name = name.lower()
-        name = name.replace(' ', '_')
-        name = name.replace('-', '')
-        name = name.replace('&', 'and')
+  definitions_file = yaml_definitions_file.YAMLKnownFoldersDefinitionsFile()
 
-        if 'delegate_folder_that_appears_in_' in name:
-          name = name.replace('delegate_folder_that_appears_in_', '')
-          name = f'{name:s}_delegate_folder'
+  known_folders = {}
 
-        if name in known_folders_per_name:
-          new_name = name
-          name_suffix = 2
-          while new_name in known_folders_per_name:
-            new_name = f'{name:s}{name_suffix:d}'
-            name_suffix += 1
+  path = os.path.join(data_path, 'defined_knownfolders.yaml')
+  for known_folder_definition in definitions_file.ReadFromFile(path):
+    lookup_key = known_folder_definition.identifier
+    if lookup_key in known_folders:
+      known_folders[lookup_key].Merge(known_folder_definition)
+    else:
+      known_folders[known_folder_definition.identifier] = (
+          known_folder_definition)
 
-          name = new_name
+  path = os.path.join(data_path, 'observed_knownfolders.yaml')
+  for known_folder_definition in definitions_file.ReadFromFile(path):
+    lookup_key = known_folder_definition.identifier
+    if lookup_key in known_folders:
+      known_folders[lookup_key].Merge(known_folder_definition)
+    else:
+      known_folders[known_folder_definition.identifier] = (
+          known_folder_definition)
 
-        known_folders_per_name[name] = known_folder_definition
+  if options.format == 'libfwsi':
+    known_folders_per_name = {}
+    for known_folder_definition in known_folders.values():
+      name = known_folder_definition.display_name
+      if not name or name[0] == '@':
+        continue
 
-      generator = LibfwsiKnownFolderIdentifierGenerator(options.output)
-      generator.GenerateCFile(known_folders_per_name)
-      generator.GenerateHFile(known_folders_per_name)
+      if name[0] == '%' and name[-1] == '%':
+        name = known_folder_definition.alternate_display_names[0]
+      else:
+        onedrive_name = None
+        for name in known_folder_definition.alternate_display_names:
+          if name.startswith('OneDrive'):
+            onedrive_name = name
+        if onedrive_name:
+          name = onedrive_name
 
-  elif data_header.startswith('# winshl-kb shellfolder definitions'):
-    definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
+      name = name.lower()
+      name = name.replace(' ', '_')
+      name = name.replace('-', '')
+      name = name.replace('&', 'and')
 
-    if options.format == 'libfwsi':
-      shell_folders_per_name = {}
-      for shell_folder_definition in definitions_file.ReadFromFile(
-          options.source):
+      if 'delegate_folder_that_appears_in_' in name:
+        name = name.replace('delegate_folder_that_appears_in_', '')
+        name = f'{name:s}_delegate_folder'
+
+      if name in known_folders_per_name:
+        new_name = name
+        name_suffix = 2
+        while new_name in known_folders_per_name:
+          new_name = f'{name:s}{name_suffix:d}'
+          name_suffix += 1
+
+        name = new_name
+
+      known_folders_per_name[name] = known_folder_definition
+
+    generator = LibfwsiKnownFolderIdentifierGenerator(options.output)
+    generator.GenerateCFile(known_folders_per_name)
+    generator.GenerateHFile(known_folders_per_name)
+
+  # TODO: add plaso output
+
+  definitions_file = yaml_definitions_file.YAMLShellFoldersDefinitionsFile()
+
+  shell_folders = {}
+
+  path = os.path.join(data_path, 'observed_shellfolders.yaml')
+  for shell_folder_definition in definitions_file.ReadFromFile(path):
+    shell_folders[shell_folder_definition.identifier] = shell_folder_definition
+
+  if options.format == 'libfwsi':
+    shell_folders_per_name = {}
+    for shell_folder_definition in shell_folders.values():
+      name = shell_folder_definition.name
+      if not name or name[0] == '@':
+        continue
+
+      name = name.lower()
+      name = name.replace(' ', '_')
+      name = name.replace('-', '')
+      name = name.replace('&', 'and')
+      if name.endswith('...'):
+        name = name[:-3]
+
+      if 'delegate_folder_that_appears_in_' in name:
+        name = name.replace('delegate_folder_that_appears_in_', '')
+        name = f'{name:s}_delegate_folder'
+
+      if name in shell_folders_per_name:
+        new_name = name
+        name_suffix = 2
+        while new_name in shell_folders_per_name:
+          new_name = f'{name:s}{name_suffix:d}'
+          name_suffix += 1
+
+        name = new_name
+
+      shell_folders_per_name[name] = shell_folder_definition
+
+    generator = LibfwsiShellFolderIdentifierGenerator(options.output)
+    generator.GenerateCFile(shell_folders_per_name)
+    generator.GenerateHFile(shell_folders_per_name)
+
+  elif options.format == 'plaso':
+    # TODO: move to generator class.
+    output_path = os.path.join(
+        options.output, 'plaso', 'helpers', 'windows', 'shell_folders.py')
+    with open(output_path, 'w', encoding='utf8') as file_object:
+      file_object.write(PLASO_SHELL_FOLDERS_PY_HEADER)
+
+      for shell_folder_identifier, shell_folder_definition in sorted(
+          shell_folders):
         name = shell_folder_definition.name
-        if not name or name[0] == '@':
+        if not name:
+          name = shell_folder_definition.class_name
+        if not name:
           continue
 
-        name = name.lower()
-        name = name.replace(' ', '_')
-        name = name.replace('-', '')
-        name = name.replace('&', 'and')
-        if name.endswith('...'):
-          name = name[:-3]
-
-        if 'delegate_folder_that_appears_in_' in name:
-          name = name.replace('delegate_folder_that_appears_in_', '')
-          name = f'{name:s}_delegate_folder'
-
-        if name in shell_folders_per_name:
-          new_name = name
-          name_suffix = 2
-          while new_name in shell_folders_per_name:
-            new_name = f'{name:s}{name_suffix:d}'
-            name_suffix += 1
-
-          name = new_name
-
-        shell_folders_per_name[name] = shell_folder_definition
-
-      generator = LibfwsiShellFolderIdentifierGenerator(options.output)
-      generator.GenerateCFile(shell_folders_per_name)
-      generator.GenerateHFile(shell_folders_per_name)
-
-    elif options.format == 'plaso':
-      # TODO: move to generator class.
-      output_path = os.path.join(
-          options.output, 'plaso', 'helpers', 'windows', 'shell_folders.py')
-      with open(output_path, 'w', encoding='utf8') as file_object:
-        file_object.write(PLASO_SHELL_FOLDERS_PY_HEADER)
-
-        for shell_folder_definition in sorted(
-            definitions_file.ReadFromFile(options.source),
-            key=lambda definition: definition.identifier):
-          name = shell_folder_definition.name
-          if not name:
-            name = shell_folder_definition.class_name
-          if not name:
-            continue
-
-          shell_folder_identifier = shell_folder_definition.identifier
-
-          line = f'      \'{shell_folder_identifier:s}\': \'{name:s}\',\n'
-          if len(line) <= 80:
-            file_object.write(line)
-          else:
-            file_object.write((
-                f'      \'{shell_folder_identifier:s}\': (\n'
-                f'          \'{name:s}\'),\n'))
-
-  else:
-    print('Unsupported data file.')
-    print('')
-    return 1
+        line = f'      \'{shell_folder_identifier:s}\': \'{name:s}\',\n'
+        if len(line) <= 80:
+          file_object.write(line)
+        else:
+          file_object.write((
+              f'      \'{shell_folder_identifier:s}\': (\n'
+              f'          \'{name:s}\'),\n'))
 
   return 0
 

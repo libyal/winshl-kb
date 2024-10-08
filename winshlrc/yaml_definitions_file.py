@@ -99,9 +99,7 @@ class YAMLControlPanelItemsDefinitionsFile(object):
       ControlPanelItemDefinition: control panel item definition.
     """
     with open(path, 'r', encoding='utf-8') as file_object:
-      for yaml_control_panel_item_definition in self._ReadFromFileObject(
-          file_object):
-        yield yaml_control_panel_item_definition
+      yield from self._ReadFromFileObject(file_object)
 
 
 class YAMLKnownFoldersDefinitionsFile(object):
@@ -199,8 +197,7 @@ class YAMLKnownFoldersDefinitionsFile(object):
       KnownFolderDefinition: known folder definition.
     """
     with open(path, 'r', encoding='utf-8') as file_object:
-      for yaml_known_folder_definition in self._ReadFromFileObject(file_object):
-        yield yaml_known_folder_definition
+      yield from self._ReadFromFileObject(file_object)
 
 
 class YAMLShellFoldersDefinitionsFile(object):
@@ -292,5 +289,4 @@ class YAMLShellFoldersDefinitionsFile(object):
       ShellFolderDefinition: shell folder definition.
     """
     with open(path, 'r', encoding='utf-8') as file_object:
-      for yaml_shell_folder_definition in self._ReadFromFileObject(file_object):
-        yield yaml_shell_folder_definition
+      yield from self._ReadFromFileObject(file_object)

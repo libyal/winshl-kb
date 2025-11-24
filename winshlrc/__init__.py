@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 """Windows Shell resources (winshlrc)."""
 
-__version__ = '20240317'
+__version__ = '20251124'

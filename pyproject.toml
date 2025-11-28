@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winshlrc"
-version = "20251127"
+version = "20251128"
 description = "Windows Shell resources (winshlrc)"
 maintainers = [
     { name = "Joachim Metz", email = "joachim.metz@gmail.com" },
@@ -62,6 +62,12 @@ dependencies = [
     "pytsk3 >= 20210419",
     "xattr >= 0.7.2 ; platform_system != \"Windows\"",
 ]
+
+[project.scripts]
+extract = "winshlrc.scripts.extract:Main"
+generate_docs = "winshlrc.scripts.generate_docs:Main"
+generate_source = "winshlrc.scripts.generate_source:Main"
+merge_yaml = "winshlrc.scripts.merge_yaml:Main"
 
 [project.urls]
 Documentation = "https://winshlrc.readthedocs.io/en/latest"

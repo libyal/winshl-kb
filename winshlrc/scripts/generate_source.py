@@ -685,6 +685,7 @@ PLASO_SHELL_FOLDERS_PY_FOOTER = """\
     return cls._DESCRIPTION_PER_GUID.get(shell_folder_identifier.lower(), None)
 """
 
+
 def Main():
   """Entry point of console script to generate source code.
 
@@ -709,7 +710,7 @@ def Main():
     print('')
     argument_parser.print_help()
     print('')
-    return False
+    return 1
 
   if options.format not in ('libfwsi', 'plaso'):
     print(f'Unsupported output format: {options.format:s}')

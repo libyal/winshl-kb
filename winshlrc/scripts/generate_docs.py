@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Script to generate Windows shell documentation."""
 
 import argparse
@@ -13,12 +12,12 @@ from winshlrc import versions
 from winshlrc import yaml_definitions_file
 
 
-class ControlPanelItemsIndexRstOutputWriter(object):
+class ControlPanelItemsIndexRstOutputWriter:
   """Control panel items folder Index.rst output writer."""
 
   def __init__(self, path):
     """Initializes a control panel items index.rst output writer."""
-    super(ControlPanelItemsIndexRstOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 
@@ -62,14 +61,14 @@ class ControlPanelItemsIndexRstOutputWriter(object):
         f'<{control_panel_item_identifier:s}>\n'))
 
 
-class ControlPanelItemMarkdownOutputWriter(object):
+class ControlPanelItemMarkdownOutputWriter:
   """Control panel item Markdown output writer."""
 
   _WINDOWS_VERSIONS_KEY_FUNCTION = versions.WindowsVersions.KeyFunction
 
   def __init__(self, path):
     """Initializes a control panel item Markdown output writer."""
-    super(ControlPanelItemMarkdownOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 
@@ -167,12 +166,12 @@ class ControlPanelItemMarkdownOutputWriter(object):
     self._file_object.write(text)
 
 
-class KnownFoldersIndexRstOutputWriter(object):
+class KnownFoldersIndexRstOutputWriter:
   """Known folders Index.rst output writer."""
 
   def __init__(self, path):
     """Initializes a known folders index.rst output writer."""
-    super(KnownFoldersIndexRstOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 
@@ -216,14 +215,14 @@ class KnownFoldersIndexRstOutputWriter(object):
         f'   {known_folder_identifier:s} <{known_folder_identifier:s}>\n')
 
 
-class KnownFolderMarkdownOutputWriter(object):
+class KnownFolderMarkdownOutputWriter:
   """Known folder Markdown output writer."""
 
   _WINDOWS_VERSIONS_KEY_FUNCTION = versions.WindowsVersions.KeyFunction
 
   def __init__(self, path):
     """Initializes a known folder Markdown output writer."""
-    super(KnownFolderMarkdownOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 
@@ -321,12 +320,12 @@ class KnownFolderMarkdownOutputWriter(object):
     self._file_object.write(text)
 
 
-class ShellFoldersIndexRstOutputWriter(object):
+class ShellFoldersIndexRstOutputWriter:
   """Shell folders Index.rst output writer."""
 
   def __init__(self, path):
     """Initializes a shell folders index.rst output writer."""
-    super(ShellFoldersIndexRstOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 
@@ -367,14 +366,14 @@ class ShellFoldersIndexRstOutputWriter(object):
         f'   {shell_folder_identifier:s} <{shell_folder_identifier:s}>\n')
 
 
-class ShellFolderMarkdownOutputWriter(object):
+class ShellFolderMarkdownOutputWriter:
   """Shell folder Markdown output writer."""
 
   _WINDOWS_VERSIONS_KEY_FUNCTION = versions.WindowsVersions.KeyFunction
 
   def __init__(self, path):
     """Initializes a shell folder Markdown output writer."""
-    super(ShellFolderMarkdownOutputWriter, self).__init__()
+    super().__init__()
     self._file_object = None
     self._path = path
 

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Script to generate Windows shell related source code."""
 
 import argparse
@@ -13,7 +12,7 @@ import winshlrc
 from winshlrc import yaml_definitions_file
 
 
-class LibfwsiControlPanelItemIdentifierGenerator(object):
+class LibfwsiControlPanelItemIdentifierGenerator:
   """Generator for libfwsi control_panel_item_identifier.[ch] source code."""
 
   _C_FILE_HEADER = """\
@@ -168,7 +167,7 @@ const char *libfwsi_control_panel_item_identifier_get_name(
     Args:
       path (str): path.
     """
-    super(LibfwsiControlPanelItemIdentifierGenerator, self).__init__()
+    super().__init__()
     self._path = path
 
   def GenerateCFile(self, control_panel_items):
@@ -226,7 +225,7 @@ const char *libfwsi_control_panel_item_identifier_get_name(
       file_object.write(self._H_FILE_FOOTER)
 
 
-class LibfwsiKnownFolderIdentifierGenerator(object):
+class LibfwsiKnownFolderIdentifierGenerator:
   """Generator for libfwsi known_folder_identifier.[ch] source code."""
 
   _C_FILE_HEADER = """\
@@ -381,7 +380,7 @@ const char *libfwsi_known_folder_identifier_get_name(
     Args:
       path (str): path.
     """
-    super(LibfwsiKnownFolderIdentifierGenerator, self).__init__()
+    super().__init__()
     self._path = path
 
   def GenerateCFile(self, known_folders):
@@ -439,7 +438,7 @@ const char *libfwsi_known_folder_identifier_get_name(
       file_object.write(self._H_FILE_FOOTER)
 
 
-class LibfwsiShellFolderIdentifierGenerator(object):
+class LibfwsiShellFolderIdentifierGenerator:
   """Generator for libfwsi shell_folder_identifier.[ch] source code."""
 
   _C_FILE_HEADER = """\
@@ -598,7 +597,7 @@ const char *libfwsi_shell_folder_identifier_get_name(
     Args:
       path (str): path.
     """
-    super(LibfwsiShellFolderIdentifierGenerator, self).__init__()
+    super().__init__()
     self._path = path
 
   def GenerateCFile(self, shell_folders):
@@ -657,11 +656,10 @@ const char *libfwsi_shell_folder_identifier_get_name(
 
 
 PLASO_SHELL_FOLDERS_PY_HEADER = """\
-# -*- coding: utf-8 -*-
 \"\"\"Windows shell folders helper.\"\"\"
 
 
-class WindowsShellFoldersHelper(object):
+class WindowsShellFoldersHelper:
   \"\"\"Windows shell folders helper.\"\"\"
 
   _DESCRIPTION_PER_GUID = {

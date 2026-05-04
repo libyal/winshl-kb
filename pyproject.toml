@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winshlrc"
-version = "20251128"
+version = "20260501"
 description = "Windows Shell resources (winshlrc)"
 maintainers = [
     { name = "Joachim Metz", email = "joachim.metz@gmail.com" },
@@ -74,12 +74,10 @@ Documentation = "https://winshlrc.readthedocs.io/en/latest"
 Homepage = "https://github.com/libyal/winshl-kb"
 Repository = "https://github.com/libyal/winshl-kb"
 
+[tool.setuptools]
+package-dir = {"winshlrc" = "winshlrc"}
+
 [tool.setuptools.package-data]
 winshlrc = [
     "data/*.yaml",
 ]
-
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["winshlrc"]
-exclude = ["docs", "tests", "tests.*", "utils"]

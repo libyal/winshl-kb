@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Windows shell extractor."""
 
 import logging
@@ -15,7 +14,7 @@ from dfwinreg import registry as dfwinreg_registry
 from winshlrc import resource_file
 
 
-class ShellFolder(object):
+class ShellFolder:
   """Windows shell folder.
 
   Attributes:
@@ -33,7 +32,7 @@ class ShellFolder(object):
       identifier (Optional[str]): identifier (GUID).
       localized_string (Optional[str]): localized string of the name.
     """
-    super(ShellFolder, self).__init__()
+    super().__init__()
     self.alternate_names = []
     self.class_name = None
     self.identifier = identifier
@@ -58,7 +57,7 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
       debug (Optional[bool]): True if debug information should be printed.
       mediator (dfvfs.VolumeScannerMediator): a volume scanner mediator or None.
     """
-    super(WindowsShellExtractor, self).__init__(mediator=mediator)
+    super().__init__(mediator=mediator)
     self._debug = debug
     self._format_scanner = None
     self._registry = None
@@ -399,7 +398,7 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
           is not a file or directory, or if the format of or within
           the source file is not supported.
     """
-    result = super(WindowsShellExtractor, self).ScanForWindowsVolume(
+    result = super().ScanForWindowsVolume(
         source_path, options=options)
     if not result:
       return False

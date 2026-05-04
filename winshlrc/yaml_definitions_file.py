@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """YAML-based Windows shell definitions files."""
 
 import yaml
@@ -6,7 +5,7 @@ import yaml
 from winshlrc import resources
 
 
-class YAMLControlPanelItemsDefinitionsFile(object):
+class YAMLControlPanelItemsDefinitionsFile:
   """YAML-based control panel item definitions file.
 
   A YAML-based control panel item definitions file contains one or more control
@@ -102,7 +101,7 @@ class YAMLControlPanelItemsDefinitionsFile(object):
       yield from self._ReadFromFileObject(file_object)
 
 
-class YAMLKnownFoldersDefinitionsFile(object):
+class YAMLKnownFoldersDefinitionsFile:
   """YAML-based known folders definitions file.
 
   A YAML-based known folders definitions file contains one or more known folder
@@ -200,7 +199,7 @@ class YAMLKnownFoldersDefinitionsFile(object):
       yield from self._ReadFromFileObject(file_object)
 
 
-class YAMLShellFoldersDefinitionsFile(object):
+class YAMLShellFoldersDefinitionsFile:
   """YAML-based shell folders definitions file.
 
   A YAML-based shell folders definitions file contains one or more shell folder

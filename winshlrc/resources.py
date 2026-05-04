@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 """Windows shell resources."""
 
 
-class ControlPanelItemDefinition(object):
+class ControlPanelItemDefinition:
   """Windows control panel item definition.
 
   Attributes:
@@ -15,7 +14,7 @@ class ControlPanelItemDefinition(object):
 
   def __init__(self):
     """Initializes a Windows control panel item definition."""
-    super(ControlPanelItemDefinition, self).__init__()
+    super().__init__()
     self.alternate_module_names = []
     self.identifier = None
     self.module_name = None
@@ -23,7 +22,7 @@ class ControlPanelItemDefinition(object):
     self.windows_versions = []
 
 
-class KnownFolderDefinition(object):
+class KnownFolderDefinition:
   """Windows known folder definition.
 
   Attributes:
@@ -40,7 +39,7 @@ class KnownFolderDefinition(object):
 
   def __init__(self):
     """Initializes a Windows known folder definition."""
-    super(KnownFolderDefinition, self).__init__()
+    super().__init__()
     self.alternate_display_names = []
     self.csidl = []
     self.default_path = None
@@ -105,7 +104,7 @@ class KnownFolderDefinition(object):
     self.windows_versions = list(windows_versions)
 
 
-class ShellFolderDefinition(object):
+class ShellFolderDefinition:
   """Windows shell folder definition.
 
   Attributes:
@@ -118,7 +117,7 @@ class ShellFolderDefinition(object):
 
   def __init__(self):
     """Initializes a Windows shell folder definition."""
-    super(ShellFolderDefinition, self).__init__()
+    super().__init__()
     self.alternate_names = []
     self.class_name = None
     self.identifier = None

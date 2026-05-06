@@ -113,7 +113,7 @@ def Main():
       windows_version = source_definition['windows_version']
 
     for shell_folder in extractor_object.CollectShellFolders():
-      existing_shell_folder = shell_folders.get(shell_folder.identifier, None)
+      existing_shell_folder = shell_folders.get(shell_folder.identifier)
 
       if not existing_shell_folder:
         shell_folders[shell_folder.identifier] = shell_folder

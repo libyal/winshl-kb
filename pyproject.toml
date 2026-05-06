@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winshlrc"
-version = "20260501"
+version = "20260506"
 description = "Windows Shell resources (winshlrc)"
 maintainers = [
     { name = "Joachim Metz", email = "joachim.metz@gmail.com" },

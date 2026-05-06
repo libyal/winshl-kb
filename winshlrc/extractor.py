@@ -353,7 +353,7 @@ class WindowsShellExtractor(dfvfs_volume_scanner.WindowsVolumeScanner):
 
     try:
       file_object = dfvfs_resolver.Resolver.OpenFileObject(path_spec)
-    except IOError as exception:
+    except OSError as exception:
       logging.warning(
           f'Unable to open: {path_spec.comparable:s} with error: {exception!s}')
       file_object = None

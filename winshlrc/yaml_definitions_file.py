@@ -53,9 +53,9 @@ class YAMLControlPanelItemsDefinitionsFile:
         yaml_control_panel_item_definition) - self._SUPPORTED_KEYS
     if different_keys:
       different_keys = ', '.join(different_keys)
-      raise RuntimeError('Undefined keys: {0:s}'.format(different_keys))
+      raise RuntimeError(f'Undefined keys: {different_keys:s}')
 
-    identifier = yaml_control_panel_item_definition.get('identifier', None)
+    identifier = yaml_control_panel_item_definition.get('identifier')
     if not identifier:
       raise RuntimeError(
           'Invalid control panel item definition missing identifier.')
@@ -65,9 +65,9 @@ class YAMLControlPanelItemsDefinitionsFile:
         yaml_control_panel_item_definition.get('alternate_module_names', []))
     control_panel_item_definition.identifier = identifier
     control_panel_item_definition.module_name = (
-        yaml_control_panel_item_definition.get('module_name', None))
+        yaml_control_panel_item_definition.get('module_name'))
     control_panel_item_definition.name = (
-        yaml_control_panel_item_definition.get('name', None))
+        yaml_control_panel_item_definition.get('name'))
     control_panel_item_definition.windows_versions = (
         yaml_control_panel_item_definition.get('windows_versions', []))
 
@@ -151,9 +151,9 @@ class YAMLKnownFoldersDefinitionsFile:
     different_keys = set(yaml_known_folder_definition) - self._SUPPORTED_KEYS
     if different_keys:
       different_keys = ', '.join(different_keys)
-      raise RuntimeError('Undefined keys: {0:s}'.format(different_keys))
+      raise RuntimeError(f'Undefined keys: {different_keys:s}')
 
-    identifier = yaml_known_folder_definition.get('identifier', None)
+    identifier = yaml_known_folder_definition.get('identifier')
     if not identifier:
       raise RuntimeError('Invalid known folder definition missing identifier.')
 
@@ -161,12 +161,12 @@ class YAMLKnownFoldersDefinitionsFile:
     known_folder_definition.alternate_display_names = (
         yaml_known_folder_definition.get('alternate_display_names', []))
     known_folder_definition.default_path = (
-        yaml_known_folder_definition.get('default_path', None))
+        yaml_known_folder_definition.get('default_path'))
     known_folder_definition.display_name = (
-        yaml_known_folder_definition.get('display_name', None))
+        yaml_known_folder_definition.get('display_name'))
     known_folder_definition.identifier = identifier
     known_folder_definition.name = (
-        yaml_known_folder_definition.get('name', None))
+        yaml_known_folder_definition.get('name'))
     known_folder_definition.windows_versions = (
         yaml_known_folder_definition.get('windows_versions', []))
 
@@ -245,9 +245,9 @@ class YAMLShellFoldersDefinitionsFile:
     different_keys = set(yaml_shell_folder_definition) - self._SUPPORTED_KEYS
     if different_keys:
       different_keys = ', '.join(different_keys)
-      raise RuntimeError('Undefined keys: {0:s}'.format(different_keys))
+      raise RuntimeError(f'Undefined keys: {different_keys:s}')
 
-    identifier = yaml_shell_folder_definition.get('identifier', None)
+    identifier = yaml_shell_folder_definition.get('identifier')
     if not identifier:
       raise RuntimeError('Invalid shell folder definition missing identifier.')
 
@@ -255,10 +255,10 @@ class YAMLShellFoldersDefinitionsFile:
     shell_folder_definition.alternate_names = (
         yaml_shell_folder_definition.get('alternate_names', []))
     shell_folder_definition.class_name = (
-        yaml_shell_folder_definition.get('class_name', None))
+        yaml_shell_folder_definition.get('class_name'))
     shell_folder_definition.identifier = identifier
     shell_folder_definition.name = (
-        yaml_shell_folder_definition.get('name', None))
+        yaml_shell_folder_definition.get('name'))
     shell_folder_definition.windows_versions = (
         yaml_shell_folder_definition.get('windows_versions', []))
 

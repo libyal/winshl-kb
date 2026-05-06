@@ -82,18 +82,18 @@ def Main():
   for path in glob.glob(os.path.join(options.source, '*.yaml')):
     with open(path, 'r', encoding='utf8') as file_object:
       for yaml_definition in yaml.safe_load_all(file_object):
-        csidl = yaml_definition.get('csidl', None)
-        display_name = yaml_definition.get('display_name', None)
-        default_path = yaml_definition.get('default_path', None)
-        legacy_display_name = yaml_definition.get('legacy_display_name', None)
-        legacy_default_path = yaml_definition.get('legacy_default_path', None)
-        name = yaml_definition.get('name', None)
-        identifier = yaml_definition.get('identifier', None)
+        csidl = yaml_definition.get('csidl')
+        display_name = yaml_definition.get('display_name')
+        default_path = yaml_definition.get('default_path')
+        legacy_display_name = yaml_definition.get('legacy_display_name')
+        legacy_default_path = yaml_definition.get('legacy_default_path')
+        name = yaml_definition.get('name')
+        identifier = yaml_definition.get('identifier')
 
         # Test if the identifier is a GUID value.
         _ = uuid.UUID(identifier)
 
-        known_folder_definition = known_folder_definitions.get(identifier, None)
+        known_folder_definition = known_folder_definitions.get(identifier)
         if not known_folder_definition:
           known_folder_definition = resources.KnownFolderDefinition()
           known_folder_definition.identifier = identifier

@@ -128,11 +128,10 @@ class WindowsResourceFile:
     """Closes the Windows Resource file.
 
     Raises:
-      IOError: if not open.
       OSError: if not open.
     """
     if not self._is_open:
-      raise IOError('Not opened.')
+      raise OSError('Not opened.')
 
     if self._exe_section:
       self._wrc_stream.close()
@@ -208,7 +207,7 @@ class WindowsResourceFile:
       try:
         wrc_resource = self._wrc_stream.get_resource_by_identifier(
             self._STRING_TABLE_RESOURCE_IDENTIFIER)
-      except IOError:
+      except OSError:
         pass
 
     return bool(wrc_resource)
@@ -220,11 +219,10 @@ class WindowsResourceFile:
       file_object (file): file-like object.
 
     Raises:
-      IOError: if already open.
       OSError: if already open.
     """
     if self._is_open:
-      raise IOError('Already open.')
+      raise OSError('Already open.')
 
     self._exe_file.open_file_object(file_object)
     self._exe_section = self._exe_file.get_section_by_name('.rsrc')

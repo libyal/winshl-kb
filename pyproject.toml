@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winshlrc"
-version = "20260506"
+version = "20260516"
 description = "Windows Shell resources (winshlrc)"
 maintainers = [
     { name = "Joachim Metz", email = "joachim.metz@gmail.com" },
@@ -73,6 +73,16 @@ merge_yaml = "winshlrc.scripts.merge_yaml:Main"
 Documentation = "https://winshlrc.readthedocs.io/en/latest"
 Homepage = "https://github.com/libyal/winshl-kb"
 Repository = "https://github.com/libyal/winshl-kb"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+include = "\\.pyi?$"
+
+[tool.docformatter]
+black = true
+non-cap = ["str:"]
+non-strict = true
 
 [tool.setuptools]
 package-dir = {"winshlrc" = "winshlrc"}

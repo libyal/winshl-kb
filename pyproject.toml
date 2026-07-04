@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winshlrc"
-version = "20260516"
+version = "20260704"
 description = "Windows Shell resources (winshlrc)"
 maintainers = [
     { name = "Joachim Metz", email = "joachim.metz@gmail.com" },
@@ -83,6 +83,14 @@ include = "\\.pyi?$"
 black = true
 non-cap = ["str:"]
 non-strict = true
+
+[tool.l2tdevtools]
+name = "Windows Shell knowledge base"
+status = "experimental"
+description = """
+winshlrc is a Python module part of winshl-kb to allow reuse of Windows Shell \
+resources. \
+"""
 
 [tool.setuptools]
 package-dir = {"winshlrc" = "winshlrc"}

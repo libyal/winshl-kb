@@ -77,7 +77,6 @@ class YAMLControlPanelItemsDefinitionsFile:
         control_panel_item_definition.windows_versions = (
             yaml_control_panel_item_definition.get("windows_versions", [])
         )
-
         return control_panel_item_definition
 
     def _ReadFromFileObject(self, file_object):
@@ -121,7 +120,7 @@ class YAMLKnownFoldersDefinitionsFile:
     windows_versions: ["Windows XP 32-bit", "Windows 10 (1511)"]
 
     Where:
-    * alternate_display_names, defines alternate diplay names of the known folder;
+    * alternate_display_names, defines alternate display names of the known folder;
     * display_name, defines the name of the known folder;
     * identifier, defines the known folder identifier;
     * name, defines the name of the known folder;
@@ -160,11 +159,13 @@ class YAMLKnownFoldersDefinitionsFile:
             raise RuntimeError("Missing known folder definition values.")
 
         different_keys = set(yaml_known_folder_definition) - self._SUPPORTED_KEYS
+
         if different_keys:
             different_keys = ", ".join(different_keys)
             raise RuntimeError(f"Undefined keys: {different_keys:s}")
 
         identifier = yaml_known_folder_definition.get("identifier")
+
         if not identifier:
             raise RuntimeError("Invalid known folder definition missing identifier.")
 
@@ -183,7 +184,6 @@ class YAMLKnownFoldersDefinitionsFile:
         known_folder_definition.windows_versions = yaml_known_folder_definition.get(
             "windows_versions", []
         )
-
         return known_folder_definition
 
     def _ReadFromFileObject(self, file_object):
@@ -254,11 +254,13 @@ class YAMLShellFoldersDefinitionsFile:
             raise RuntimeError("Missing shell folder definition values.")
 
         different_keys = set(yaml_shell_folder_definition) - self._SUPPORTED_KEYS
+
         if different_keys:
             different_keys = ", ".join(different_keys)
             raise RuntimeError(f"Undefined keys: {different_keys:s}")
 
         identifier = yaml_shell_folder_definition.get("identifier")
+
         if not identifier:
             raise RuntimeError("Invalid shell folder definition missing identifier.")
 
@@ -274,7 +276,6 @@ class YAMLShellFoldersDefinitionsFile:
         shell_folder_definition.windows_versions = yaml_shell_folder_definition.get(
             "windows_versions", []
         )
-
         return shell_folder_definition
 
     def _ReadFromFileObject(self, file_object):
